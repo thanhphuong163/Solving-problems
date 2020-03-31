@@ -85,7 +85,7 @@ void set_zeros_2(vector< vector<int> >& matrix) {
     print_matrix(matrix);
 }
 
-void set_zeros_3(vector<vector<int>> &matrix)
+void set_zeros_3(vector< vector<int> > &matrix)
 {
     // This is a solution with space complexity O(1),
     // Where H and W are sizes of the matrix
@@ -126,6 +126,12 @@ void set_zeros_3(vector<vector<int>> &matrix)
             {
                 matrix[row][col] = 0;
             }
+        }
+    }
+
+    if (first_row_zero) {
+        for (int col = 0; col < W; ++col) {
+            matrix[0][col] = 0;
         }
     }
 
