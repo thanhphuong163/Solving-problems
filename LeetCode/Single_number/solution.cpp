@@ -33,7 +33,7 @@ int main(int argc, char const *argv[]) {
         while (ss >> i) {
             nums.push_back(i);
         }
-        singleNumber(nums);
+        cout << singleNumber(nums) << endl;
         n_testcase--;
     }
     return 0;
