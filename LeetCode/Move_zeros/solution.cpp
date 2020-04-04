@@ -11,20 +11,25 @@
 
 using namespace std;
 
-vector<int>& read_array(string line) {
-stringstream ss(line);
-int num;
-vector<int> nums;
-while (ss >> num) {
-nums.push_back(num);
-}
-return nums;
+vector<int> &read_array(string line)
+{
+    stringstream ss(line);
+    int num;
+    vector<int> nums;
+    while (ss >> num)
+    {
+        nums.push_back(num);
+    }
+    return nums;
 }
 
-int main(int argc, char const *argv[]) {
-int n_testcase;
-scanf("%dn", &n_testcase);
-while (n_testcase--) {
-/* your code */
+int main(int argc, char const *argv[])
+{
+    int n_testcase;
+    scanf("%dn", &n_testcase);
+    while (n_testcase--)
+    {
+        /* your code */
+    }
+    return 0;
 }
-return 0;
