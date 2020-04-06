@@ -30,7 +30,7 @@ void swap(int &a, int &b)
 
 void next_permutation(vector<int> &nums)
 {
-    int i = nums.size();
+    int i = nums.size() - 1;
     while (i > 0)
     {
         if (nums[i - 1] < nums[i])
