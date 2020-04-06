@@ -60,6 +60,7 @@ int main(int argc, char const *argv[])
     {
         vector<int> nums;
         read_array(line, nums);
+        next_permutation(nums);
         for (int i : nums)
         {
             cout << i << " ";
