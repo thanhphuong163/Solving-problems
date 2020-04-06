@@ -1,7 +1,6 @@
-//https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=3&page=show_problem&problem=36
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: The 3n + 1 problem
+// Problem: https://onlinejudge.org/external/1/100.pdf
 // Submit:
 
 #include <stdio.h>
