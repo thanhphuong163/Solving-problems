@@ -63,7 +63,11 @@ int main(int argc, char const *argv[])
         string line;
         strs.push_back(line);
     }
-    vector<vs> ans = groupAnagrams(strs);
-    print_array(ans);
+    for (string s : strs)
+    {
+        cout << s << endl;
+    }
+    // vector<vs> ans = groupAnagrams(strs);
+    // print_array(ans);
     return 0;
 }
