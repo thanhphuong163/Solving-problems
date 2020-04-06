@@ -66,7 +66,7 @@ int main(int argc, char const *argv[])
             if (i != nums.size() - 1)
                 cout << i << " ";
             else
-                cout << i << endl;
+                cout << i;
         }
         puts("");
     }
