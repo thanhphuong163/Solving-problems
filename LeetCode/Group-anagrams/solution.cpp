@@ -60,7 +60,6 @@ int main(int argc, char const *argv[])
     vector<string> strs;
     while (getline(cin, line))
     {
-        string line;
         stringstream ss(line);
         string s;
         ss >> s;
