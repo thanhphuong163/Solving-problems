@@ -41,6 +41,12 @@ int get_cycle_length(int num)
 int max_cycle_length(int i, int j)
 {
     int max_cylen = 0;
+    if (i > j)
+    {
+        int tmp = j;
+        j = i;
+        i = tmp;
+    }
     for (int num = i; num <= j; num++)
     {
         max_cylen = max(max_cylen, get_cycle_length(num));
