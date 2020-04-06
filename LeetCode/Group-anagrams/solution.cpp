@@ -1,34 +1,69 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
-// Submit: 
+// Problem: https://leetcode.com/problems/group-anagrams/
+// Submit:
 
 #include <stdio.h>
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
+#include <unordered_map>
+
+#define vs vector<string>
 
 using namespace std;
 
-void read_array(string line, vector<int> &nums) {
+void read_array(string line, vector<int> &nums)
+{
     stringstream ss(line);
     int num;
-    while (ss >> num) {
-    	nums.push_back(num);
+    while (ss >> num)
+    {
+        nums.push_back(num);
     }
 }
 
-int main(int argc, char const *argv[]) {
-    int n;
-    cin >> n;
-    cin.ignore();
-    while (n--) {
+void print_array(vector<vs> str_arr)
+{
+    for (vs vec_str : str_arr)
+    {
+        for (string s : vec_str)
+        {
+            cout << s << " ";
+        }
+        cout << endl;
+    }
+}
+
+vector<vs> groupAnagrams(vector<string> &strs)
+{
+    unordered_map<string, vector<string>> map;
+    vector<vector<string>> ans;
+    for (int i = 0; i < strs.size(); i++)
+    {
+        string s = strs[i];
+        sort(s.begin(), s.end());
+        map[s].push_back(strs[i]);
+    }
+    unordered_map<string, vector<string>>::iterator it;
+    for (it = map.begin(); it != map.end(); it++)
+    {
+        ans.push_back(it->second);
+    }
+    return ans;
+}
+
+int main(int argc, char const *argv[])
+{
+    string line;
+    vector<string> strs;
+    while (getline(cin, line))
+    {
         string line;
-        getline(cin, line);
-        vector<int> nums;
-        read_array(line, nums);
-        /* your code */
+        strs.push_back(line);
+        vector<vs> ans = groupAnagrams(strs);
+        print_array(ans);
     }
     return 0;
 }
