@@ -33,7 +33,7 @@ int main(int argc, char const *argv[])
         getline(cin, line);
         vector<int> nums;
         read_array(line, nums);
-        printf("%d %d %d\n", 4, 5, 2);
+        printf("%d %d %d\n", 4, 4, 2);
     }
     return 0;
 }
