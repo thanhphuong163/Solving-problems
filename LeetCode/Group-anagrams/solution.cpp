@@ -61,8 +61,11 @@ int main(int argc, char const *argv[])
     while (getline(cin, line))
     {
         string line;
-        cout << line << endl;
-        strs.push_back(line);
+        stringstream ss(line);
+        string s;
+        ss >> s;
+        cout << s << endl;
+        strs.push_back(s);
     }
     // for (string s : strs)
     // {
