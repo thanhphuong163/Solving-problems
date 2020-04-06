@@ -28,28 +28,50 @@ void swap(int &a, int &b)
     b = t;
 }
 
+void reverse(vector<int> &nums, int l, int r)
+{
+    while (l < r)
+    {
+        swap(nums[l], nums[r]);
+        l++;
+        r--;
+    }
+}
+
+// Find the closest value which is greater than key.
+int bsearch(vector<int> &nums, int l, int r, int key)
+{
+    int indx = -1;
+    while (l < r)
+    {
+        int mid = l + (r - l) / 2;
+        if (nums[mid] <= key)
+        {
+            r = mid - 1;
+        }
+        else
+        {
+            l = mid + 1;
+            if (indx == -1 || nums[indx] >= nums[mid])
+                indx = mid;
+        }
+    }
+    return indx;
+}
+
 void next_permutation(vector<int> &nums)
 {
-    int i = nums.size() - 1;
-    while (i > 0)
+    int len = nums.size();
+    int i = len - 1;
+    do
     {
-        if (nums[i - 1] < nums[i])
-        {
-            swap(nums[i - 1], nums[i]);
-            break;
-        }
         i--;
-    }
-    if (i == 0)
+    } while (i >= 0 && nums[i] > nums[i + 1]);
+    if (i >= 0)
     {
-        int l = 0;
-        int r = nums.size() - 1;
-        while (l < r)
-        {
-            swap(nums[l], nums[r]);
-            l++;
-            r--;
-        }
+        int indx = bsearch(nums, i + 1, len - 1, nums[i]);
+        swap(nums[i], nums[indx]);
+        reverse(nums, i + 1, len - 1);
     }
 }
 
