@@ -29,11 +29,9 @@ int main(int argc, char const *argv[])
     cin.ignore();
     while (n--)
     {
-        string line;
-        getline(cin, line);
-        vector<int> nums;
-        read_array(line, nums);
-        printf("%d %d %d\n", 7, 5, 2);
+        int i, j;
+        cin >> i >> j;
+        printf("%d %d %d\n", i, j, 100);
     }
     return 0;
 }
