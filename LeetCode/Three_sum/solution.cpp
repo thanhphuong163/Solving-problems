@@ -75,10 +75,9 @@ vector<vi> three_sum(vi &nums)
         int r = size - 1;
         while (l < r)
         {
-            int sum = nums[i] + nums[l] + nums[r];
-            if (sum < 0)
+            if (nums[i] + nums[l] + nums[r] < 0)
                 l++;
-            else if (sum > 0)
+            else if (nums[i] + nums[l] + nums[r] > 0)
                 r--;
             else
             {
