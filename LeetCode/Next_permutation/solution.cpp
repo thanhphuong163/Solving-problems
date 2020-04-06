@@ -61,9 +61,12 @@ int main(int argc, char const *argv[])
         vector<int> nums;
         read_array(line, nums);
         next_permutation(nums);
-        for (int i : nums)
+        for (int i = 0; i < nums.size(); i++)
         {
-            cout << i << " ";
+            if (i != nums.size() - 1)
+                cout << i << " ";
+            else
+                cout << i << endl;
         }
         puts("");
     }
