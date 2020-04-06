@@ -61,12 +61,13 @@ int main(int argc, char const *argv[])
     while (getline(cin, line))
     {
         string line;
+        cout << line << endl;
         strs.push_back(line);
     }
-    for (string s : strs)
-    {
-        cout << s << endl;
-    }
+    // for (string s : strs)
+    // {
+    //     cout << s << endl;
+    // }
     // vector<vs> ans = groupAnagrams(strs);
     // print_array(ans);
     return 0;
