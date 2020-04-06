@@ -61,12 +61,9 @@ int bsearch(vector<int> &nums, int l, int r, int key)
 
 void next_permutation(vector<int> &nums)
 {
-    int len = nums.size();
-    int i = len - 1;
-    do
-    {
-        i--;
-    } while (i >= 0 && nums[i] > nums[i + 1]);
+    int len = nums.size(), i = len - 2;
+    while (i >= 0 && nums[i] >= nums[i + 1])
+        --i;
     if (i >= 0)
     {
         int indx = bsearch(nums, i + 1, len - 1, nums[i]);
