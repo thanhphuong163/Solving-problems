@@ -57,8 +57,7 @@ int main(int argc, char const *argv[])
     {
         int i, j;
         cin >> i >> j;
-        // printf("%d %d %d\n", i, j, max_cycle_length(i, j));
-        cout << i << " " << j << " " << max_cycle_length(i, j) << endl;
+        printf("\"%d %d %d\"\n", i, j, max_cycle_length(i, j));
     }
     return 0;
 }
