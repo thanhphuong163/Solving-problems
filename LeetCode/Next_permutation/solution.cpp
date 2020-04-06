@@ -64,9 +64,9 @@ int main(int argc, char const *argv[])
         for (int i = 0; i < nums.size(); i++)
         {
             if (i != nums.size() - 1)
-                cout << i << " ";
+                cout << nums[i] << " ";
             else
-                cout << i;
+                cout << nums[i];
         }
         puts("");
     }
