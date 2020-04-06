@@ -36,17 +36,17 @@ void print_array(vector<vs> str_arr)
     }
 }
 
-vector<vs> groupAnagrams(vector<string> &strs)
+vector<vs> groupAnagrams(vs &strs)
 {
-    unordered_map<string, vector<string>> map;
-    vector<vector<string>> ans;
+    unordered_map<string, vs> map;
+    vector<vs> ans;
     for (int i = 0; i < strs.size(); i++)
     {
         string s = strs[i];
         sort(s.begin(), s.end());
         map[s].push_back(strs[i]);
     }
-    unordered_map<string, vector<string>>::iterator it;
+    unordered_map<string, vs>::iterator it;
     for (it = map.begin(); it != map.end(); it++)
     {
         ans.push_back(it->second);
