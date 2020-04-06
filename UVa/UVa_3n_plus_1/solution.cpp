@@ -55,14 +55,11 @@ int max_cycle_length(int i, int j)
 
 int main(int argc, char const *argv[])
 {
-    int n;
-    cin >> n;
-    cin.ignore();
-    while (n--)
+    int i, j, result;
+    while (scanf("%d %d\n", &i, &j) !EOF)
     {
-        int i, j;
-        cin >> i >> j;
-        printf("%d %d %d\n", i, j, max_cycle_length(i, j));
+        result = max_cycle_length(i, j);
+        printf("%d %d %d\n", i, j, result);
     }
     return 0;
 }
