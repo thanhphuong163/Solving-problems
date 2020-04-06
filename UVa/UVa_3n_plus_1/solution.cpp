@@ -15,7 +15,6 @@ void read_array(string line, vector<int> &nums)
 {
     stringstream ss(line);
     int num;
-    vector<int> nums;
     while (ss >> num)
     {
         nums.push_back(num);
