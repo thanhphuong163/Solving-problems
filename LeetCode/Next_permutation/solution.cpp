@@ -50,7 +50,7 @@ int bsearch(vector<int> &nums, int l, int r, int key)
         else
         {
             l = mid + 1;
-            if (indx == -1 && nums[indx] >= nums[mid])
+            if (indx == -1 || nums[indx] >= nums[mid])
                 indx = mid;
         }
     }
