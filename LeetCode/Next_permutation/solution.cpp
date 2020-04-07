@@ -57,10 +57,10 @@ int bsearch(vector<int> &nums, int l, int r, int key)
 void next_permutation(vector<int> &nums)
 {
     int size = nums.size();
-    int i = size - 1;
-    while (i > 0 && nums[i] <= nums[i - 1])
+    int i = size - 2;
+    while (i >= 0 && nums[i + 1] <= nums[i])
         i--;
-    if (i > 0)
+    if (i >= 0)
     {
         int indx = bsearch(nums, i + 1, size - 1, nums[i]);
         swap(nums[i], nums[indx]);
