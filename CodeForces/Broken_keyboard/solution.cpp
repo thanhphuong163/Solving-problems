@@ -35,6 +35,5 @@ int main(int argc, char const *argv[])
         read_input(line, s);
         get_functional_keys(s);
     }
-    cout << "done" << endl;
     return 0;
 }
