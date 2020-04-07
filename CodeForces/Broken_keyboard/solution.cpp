@@ -29,7 +29,7 @@ void get_functional_keys(string &seq)
     {
         if (seq[0] != seq[1])
         {
-            ans += seq[0];
+            s.insert(seq[0]);
         }
         for (int i = 1; i < len - 1; i++)
         {
@@ -38,7 +38,7 @@ void get_functional_keys(string &seq)
         }
         if (seq[len - 1] != seq[len - 2])
         {
-            ans += seq[len - 1];
+            s.insert(seq[len - 1]);
         }
     }
     else
