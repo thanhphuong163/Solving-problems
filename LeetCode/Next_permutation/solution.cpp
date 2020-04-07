@@ -42,7 +42,7 @@ void reverse(vector<int> &nums, int l, int r)
 int bsearch(vector<int> &nums, int l, int r, int key)
 {
     int indx = -1;
-    while (l < r)
+    while (l <= r)
     {
         int mid = l + (r - l) / 2;
         if (nums[mid] <= key)
@@ -53,9 +53,10 @@ int bsearch(vector<int> &nums, int l, int r, int key)
                 return mid;
             else
                 l = mid + 1;
+            if (indx == -1 && nums[indx] >= nums[mid])
+                indx = mid;
         }
     }
-    indx = l;
     return indx;
 }
 
