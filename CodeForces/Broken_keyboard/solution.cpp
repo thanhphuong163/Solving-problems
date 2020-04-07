@@ -3,13 +3,13 @@
 // Email: thanhphuong.its@gmail.com
 // Problem: A Broken Keyboard
 // Submit:
+// Hint: Use two pointers technique
 
 #include <stdio.h>
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
-#include <map>
 
 using namespace std;
 
