@@ -21,19 +21,27 @@ void get_functional_keys(string &seq)
 {
     string ans;
     int len = seq.length();
-    if (seq[0] != seq[1])
+    if (len > 1)
     {
-        ans += seq[0];
+        if (seq[0] != seq[1])
+        {
+            ans += seq[0];
+        }
+        for (int i = 1; i < len - 1; i++)
+        {
+            if (seq[i] != seq[i - 1] && seq[i] != seq[i + 1])
+                ans += seq[i];
+        }
+        if (seq[len - 1] != seq[len - 2])
+        {
+            ans += seq[len - 1];
+        }
     }
-    for (int i = 1; i < len - 1; i++)
+    else
     {
-        if (seq[i] != seq[i - 1] && seq[i] != seq[i + 1])
-            ans += seq[i];
+        ans = seq;
     }
-    if (seq[len - 1] != seq[len - 2])
-    {
-        ans += seq[len - 1];
-    }
+
     cout << ans << endl;
 }
 
