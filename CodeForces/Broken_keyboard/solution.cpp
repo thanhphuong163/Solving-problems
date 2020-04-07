@@ -21,6 +21,10 @@ void get_functional_keys(string &seq)
 {
     string ans;
     int len = seq.length();
+    if (seq[0] != seq[1])
+    {
+        ans += seq[0];
+    }
     for (int i = 1; i < len - 1; i++)
     {
         if (seq[i] != seq[i - 1] && seq[i] != seq[i + 1])
