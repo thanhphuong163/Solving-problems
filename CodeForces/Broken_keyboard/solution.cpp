@@ -30,7 +30,7 @@ void get_functional_keys(string &seq)
     {
         ans += seq[len - 1];
     }
-    return ans;
+    cout << ans << endl;
 }
 
 int main(int argc, char const *argv[])
