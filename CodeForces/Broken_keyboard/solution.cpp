@@ -10,6 +10,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <set>
 
 using namespace std;
 
@@ -23,6 +24,7 @@ void get_functional_keys(string &seq)
 {
     string ans;
     int len = seq.length();
+    set<char> s;
     if (len > 1)
     {
         if (seq[0] != seq[1])
@@ -32,7 +34,7 @@ void get_functional_keys(string &seq)
         for (int i = 1; i < len - 1; i++)
         {
             if (seq[i] != seq[i - 1] && seq[i] != seq[i + 1])
-                ans += seq[i];
+                s.insert(seq[i]);
         }
         if (seq[len - 1] != seq[len - 2])
         {
@@ -43,7 +45,10 @@ void get_functional_keys(string &seq)
     {
         ans = seq;
     }
-    sort(ans.begin(), ans.end());
+    for (char c : s)
+    {
+        ans += c;
+    }
     cout << ans << endl;
 }
 
