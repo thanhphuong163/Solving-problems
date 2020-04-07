@@ -1,11 +1,9 @@
-//https://codeforces.com/problemset/problem/1251/A
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
 // Problem: A Broken Keyboard
 // Submit:
 // Hint: Use two pointers technique
 
-#include <stdio.h>
 #include <iostream>
 #include <sstream>
 #include <string>
