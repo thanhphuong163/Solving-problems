@@ -65,6 +65,7 @@ void next_permutation(vector<int> &nums)
         int indx = bsearch(nums, i + 1, size - 1, nums[i]);
         swap(nums[i], nums[indx]);
         reverse(nums, i + 1, size - 1);
+        cout << i << indx << endl;
     }
     else
     {
