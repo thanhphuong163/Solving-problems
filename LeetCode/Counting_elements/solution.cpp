@@ -47,5 +47,6 @@ int main(int argc, char const *argv[])
         read_array(line, nums);
         cout << count_elements(nums) << endl;
     }
+
     return 0;
 }
