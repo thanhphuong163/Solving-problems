@@ -1,7 +1,7 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
-// Submit: 
+// Problem: https://codeforces.com/problemset/problem/1251/A
+// Submit:
 
 #include <stdio.h>
 #include <iostream>
@@ -11,25 +11,29 @@
 
 using namespace std;
 
-void read_array(string line, vector<int> &nums) {
+void read_input(string line, string &s)
+{
     stringstream ss(line);
-    int num;
-    while (ss >> num) {
-    	nums.push_back(num);
-    }
+    ss >> s;
 }
 
-int main(int argc, char const *argv[]) {
+void get_functional_keys(string &seq)
+{
+    cout << seq << endl;
+}
+
+int main(int argc, char const *argv[])
+{
+    int n;
+    cin >> n;
+    cin.ignore();
     string line;
-    while (getline(cin, line))
+    while (n--)
     {
-        vector<int> nums;
-        read_array(line, nums);
-        for (int i : nums)
-        {
-            cout << i << " ";
-        }
-        puts("");
+        getline(cin, line);
+        string s;
+        read_input(line, s);
+        get_functional_keys(s);
     }
     return 0;
 }
