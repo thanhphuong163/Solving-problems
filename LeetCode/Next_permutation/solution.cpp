@@ -48,7 +48,12 @@ int bsearch(vector<int> &nums, int l, int r, int key)
         if (nums[mid] <= key)
             r = mid - 1;
         else
-            l = mid + 1;
+        {
+            if (mid == l && indx == -1)
+                return mid;
+            else
+                l = mid + 1;
+        }
     }
     indx = l;
     return indx;
