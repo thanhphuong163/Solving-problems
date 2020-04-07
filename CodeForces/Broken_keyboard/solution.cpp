@@ -2,7 +2,7 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
 // Problem: A Broken Keyboard
-// Submit:
+// Submit: solved
 
 #include <stdio.h>
 #include <iostream>
