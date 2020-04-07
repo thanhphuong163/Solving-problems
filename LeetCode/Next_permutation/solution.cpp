@@ -46,29 +46,29 @@ int bsearch(vector<int> &nums, int l, int r, int key)
     {
         int mid = l + (r - l) / 2;
         if (nums[mid] <= key)
-        {
             r = mid - 1;
-        }
         else
-        {
             l = mid + 1;
-            if (indx == -1 || nums[indx] >= nums[mid])
-                indx = mid;
-        }
     }
+    indx = l;
     return indx;
 }
 
 void next_permutation(vector<int> &nums)
 {
-    int len = nums.size(), i = len - 2;
-    while (i >= 0 && nums[i] >= nums[i + 1])
-        --i;
-    if (i >= 0)
+    int size = nums.size();
+    int i = size - 1;
+    while (i > 0 && nums[i] <= nums[i - 1])
+        i--;
+    if (i > 0)
     {
-        int indx = bsearch(nums, i + 1, len - 1, nums[i]);
+        int indx = bsearch(nums, i + 1, size - 1, nums[i]);
         swap(nums[i], nums[indx]);
-        reverse(nums, i + 1, len - 1);
+        reverse(nums, i + 1, size - 1);
+    }
+    else
+    {
+        reverse(nums, 0, size - 1);
     }
 }
 
