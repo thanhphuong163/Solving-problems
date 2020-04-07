@@ -1,6 +1,7 @@
+//https://codeforces.com/problemset/problem/1251/A
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: https://codeforces.com/problemset/problem/1251/A
+// Problem: A Broken Keyboard
 // Submit:
 
 #include <stdio.h>
@@ -8,6 +9,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -41,7 +43,7 @@ void get_functional_keys(string &seq)
     {
         ans = seq;
     }
-
+    sort(ans.begin(), ans.end());
     cout << ans << endl;
 }
 
