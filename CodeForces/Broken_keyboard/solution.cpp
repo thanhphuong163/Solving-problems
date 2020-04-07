@@ -19,7 +19,18 @@ void read_input(string line, string &s)
 
 void get_functional_keys(string &seq)
 {
-    cout << seq << endl;
+    string ans;
+    int len = seq.length();
+    for (int i = 1; i < len - 1; i++)
+    {
+        if (seq[i] != seq[i - 1] && seq[i] != seq[i + 1])
+            ans += seq[i];
+    }
+    if (seq[len - 1] != seq[len - 2])
+    {
+        ans += seq[len - 1];
+    }
+    return ans;
 }
 
 int main(int argc, char const *argv[])
