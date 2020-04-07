@@ -9,8 +9,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <set>
+#include <map>
 
 using namespace std;
 
@@ -22,34 +21,43 @@ void read_input(string line, string &s)
 
 void get_functional_keys(string &seq)
 {
-    string ans;
+    int base = int('a');
     int len = seq.length();
-    set<char> s;
-    if (len > 1)
+    vector<int> ans(26);
+    for (int i = 0; i < 26; i++)
     {
-        if (seq[0] != seq[1])
+        ans[i] = 0;
+    }
+
+    int l = 0, r = 0;
+    while (r < len - 1)
+    {
+        if (seq[r] != seq[r + 1])
         {
-            s.insert(seq[0]);
+            if ((r - l + 1) % 2 != 0)
+            {
+                ans[int(seq[l]) - base] = 1;
+            }
+            r++;
+            l = r;
         }
-        for (int i = 1; i < len - 1; i++)
+        else
         {
-            if (seq[i] != seq[i - 1] && seq[i] != seq[i + 1])
-                s.insert(seq[i]);
-        }
-        if (seq[len - 1] != seq[len - 2])
-        {
-            s.insert(seq[len - 1]);
+            r++;
         }
     }
-    else
+    if ((r - l + 1) % 2 != 0)
     {
-        ans = seq;
+        ans[int(seq[l]) - base] = 1;
     }
-    for (char c : s)
+
+    // Print out solution
+    for (int i = 0; i < 26; i++)
     {
-        ans += c;
+        if (ans[i])
+            cout << char(base + i);
     }
-    cout << ans << endl;
+    cout << endl;
 }
 
 int main(int argc, char const *argv[])
