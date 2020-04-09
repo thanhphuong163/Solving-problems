@@ -31,8 +31,8 @@ int three_sum_closest(vector<int> &nums, int target)
     // Two pointers technique gives the O(n^2) solution
     for (int i = 0; i < size - 2; i++)
     {
-        while (nums[i] == nums[i + 1])
-            i++; // skip repeating number
+        // while (nums[i] == nums[i + 1])
+        //     i++; // skip repeating number
         int t_target = target - nums[i];
         int l = i + 1;
         int r = size - 1;
