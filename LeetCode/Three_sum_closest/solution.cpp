@@ -29,7 +29,7 @@ int three_sum_closest(vector<int> &nums, int target)
     // sort the array
     sort(nums.begin(), nums.end());
     // Two pointers technique gives the O(n^2) solution
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size - 2; i++)
     {
         while (nums[i] == nums[i + 1])
             i++; // skip repeating number
@@ -48,8 +48,10 @@ int three_sum_closest(vector<int> &nums, int target)
                 l++; // skip repeating numbers
             while (nums[r] == nums[r - 1])
                 r--; // skip repeating numbers
-            if (t_sum <= t_target) l++;
-            else r--;
+            if (t_sum <= t_target)
+                l++;
+            else
+                r--;
         } while (l < r);
     }
     return sum;
