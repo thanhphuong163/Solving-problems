@@ -44,10 +44,10 @@ int three_sum_closest(vector<int> &nums, int target)
                 sum = nums[i] + t_sum;
                 min_diff = abs(t_sum - t_target);
             }
-            while (nums[l] == nums[l + 1])
-                l++; // skip repeating numbers
-            while (nums[r] == nums[r - 1])
-                r--; // skip repeating numbers
+            // while (nums[l] == nums[l + 1])
+            //     l++; // skip repeating numbers
+            // while (nums[r] == nums[r - 1])
+            //     r--; // skip repeating numbers
             if (t_sum <= t_target)
                 l++;
             else
