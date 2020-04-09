@@ -43,7 +43,8 @@ int three_sum_closest(vector<int> &nums, int target)
             //     min_diff = abs(t_sum - t_target);
             // }
             int t_sum = nums[i] + nums[l] + nums[r];
-            if (abs(t_sum - target) < min_diff) {
+            if (abs(t_sum - target) < min_diff)
+            {
                 sum = t_sum;
                 min_diff = abs(t_sum - target);
             }
