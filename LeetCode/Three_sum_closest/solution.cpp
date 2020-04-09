@@ -25,33 +25,26 @@ void read_array(string line, vector<int> &nums)
 int three_sum_closest(vector<int> &nums, int target)
 {
     int size = nums.size();
-    int sum, min_diff = 10 ^ 6;
+    int sum = nums[0] + nums[1] + nums[2];
     // sort the array
     sort(nums.begin(), nums.end());
     // Two pointers technique gives the O(n^2) solution
     for (int i = 0; i < size - 2; i++)
     {
-        // int t_target = target - nums[i];
         int l = i + 1;
         int r = size - 1;
         while (l < r)
         {
-            // int t_sum = nums[l] + nums[r];
-            // if (abs(t_sum - t_target) < min_diff)
-            // {
-            //     sum = nums[i] + t_sum;
-            //     min_diff = abs(t_sum - t_target);
-            // }
             int t_sum = nums[i] + nums[l] + nums[r];
-            if (abs(t_sum - target) < min_diff)
-            {
+            if (abs(t_sum - target) < abs(sum - target))
                 sum = t_sum;
-                min_diff = abs(t_sum - target);
-            }
-            if (t_sum <= target)
+            
+            if (t_sum < target)
                 l++;
-            else
+            else if (t_sum > target) 
                 r--;
+            else
+                return target;
         }
     }
     return sum;
