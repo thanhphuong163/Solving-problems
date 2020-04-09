@@ -48,8 +48,8 @@ int three_sum_closest(vector<int> &nums, int target)
                 l++; // skip repeating numbers
             while (nums[r] == nums[r - 1])
                 r--; // skip repeating numbers
-            l++;
-            r--;
+            if (t_sum <= t_target) l++;
+            else r--;
         } while (l < r);
     }
     return sum;
