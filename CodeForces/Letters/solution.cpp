@@ -12,10 +12,10 @@
 using namespace std;
 
 // Read input
-void read_array(string line, vector<int> &nums)
+void read_array(string line, vector<long> &nums)
 {
     stringstream ss(line);
-    int num;
+    long num;
     while (ss >> num)
     {
         nums.push_back(num);
@@ -23,7 +23,7 @@ void read_array(string line, vector<int> &nums)
 }
 
 // Print out input
-void print_array(vector<int> &nums)
+void print_array(vector<long> &nums)
 {
     for (int i : nums)
     {
@@ -34,7 +34,7 @@ void print_array(vector<int> &nums)
 
 // Two pointers solution with time complexity O(N),
 // where N is the number of dorms.
-void deliver_letter(vector<int> &n_room, vector<int> &letters)
+void deliver_letter(vector<long> &n_room, vector<long> &letters)
 {
     vector<int> cum_sum(n_room.size() + 1);
     cum_sum[0] = 0;
@@ -84,11 +84,11 @@ int main(int argc, char const *argv[])
         string line;
         // Get number of rooms of each dorm
         getline(cin, line);
-        vector<int> n_room;
+        vector<long> n_room;
         read_array(line, n_room);
         // Get numbers on letters' envelops
         getline(cin, line);
-        vector<int> letters;
+        vector<long> letters;
         read_array(line, letters);
         // My solution
         deliver_letter(n_room, letters);
