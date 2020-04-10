@@ -34,21 +34,27 @@ void print_array(vector<int> &nums)
 
 // Two pointers solution with time complexity O(N),
 // where N is the number of dorms.
-void deliver_letter(vector<int> &n_room, vector<int> &letters) {
-    vector<int> cum_sum(n_room.size()+1);
+void deliver_letter(vector<int> &n_room, vector<int> &letters)
+{
+    vector<int> cum_sum(n_room.size() + 1);
     cum_sum[0] = 0;
-    for (int i = 1; i < cum_sum.size(); i++) {
-        cum_sum[i] = cum_sum[i-1] + n_room[i-1];
+    for (int i = 1; i < cum_sum.size(); i++)
+    {
+        cum_sum[i] = cum_sum[i - 1] + n_room[i - 1];
     }
-    int i = 0;  // index on cum_sum
-    int j = 0;  // index on letters
-    while (j < letters.size()) {
-        if (letters[j] <= cum_sum[i]) {
-            cout << i << " " << letters[j] - cum_sum[i-1] << endl;
+    int i = 0; // index on cum_sum
+    int j = 0; // index on letters
+    while (j < letters.size())
+    {
+        if (letters[j] <= cum_sum[i])
+        {
+            cout << i << " " << letters[j] - cum_sum[i - 1] << endl;
             j++;
         }
-        else {
-            i++;
+        else
+        {
+            if (i < cum_sum.size() - 1)
+                i++;
         }
     }
 }
@@ -59,7 +65,6 @@ We calculate cum_sum, then use binary search letter
 on cum_sum. With this approach, the time complexity
 will be O(NlogN), where n is number of dorms.
 */
-
 
 int main(int argc, char const *argv[])
 {
