@@ -46,20 +46,13 @@ void deliver_letter(vector<int> &n_room, vector<int> &letters)
     int j = 0; // index on letters
     while (j < letters.size())
     {
-        if (i < cum_sum.size()) {
-            if (letters[j] <= cum_sum[i])
-            {
-                cout << i << " " << letters[j] - cum_sum[i - 1] << endl;
-                j++;
-            }
-            else
-                i++;
-        }
-        else {
-            cout << i << " " << letters[j] - cum_sum[i - 1] << endl;
+        if (letters[j] <= cum_sum[i]) {
+            cout << i << " " << letters[j] - cum_sum[i-1] << endl;
             j++;
         }
-        
+        else if (i < cum_sum.size() - 1) {
+            i++;
+        }
     }
 }
 
