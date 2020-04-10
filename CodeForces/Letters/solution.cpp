@@ -78,20 +78,33 @@ int main(int argc, char const *argv[])
 {
     int n_dorm;
     int n_letter;
-    while (cin >> n_dorm >> n_letter)
-    {
-        cin.ignore();
-        string line;
-        // Get number of rooms of each dorm
-        getline(cin, line);
-        vector<long> n_room;
-        read_array(line, n_room);
-        // Get numbers on letters' envelops
-        getline(cin, line);
-        vector<long> letters;
-        read_array(line, letters);
-        // My solution
-        deliver_letter(n_room, letters);
-    }
+    cin >> n_dorm >> n_letter;
+    cin.ignore();
+    string line;
+    // Get number of rooms of each dorm
+    getline(cin, line);
+    vector<long> n_room;
+    read_array(line, n_room);
+    // Get numbers on letters' envelops
+    getline(cin, line);
+    vector<long> letters;
+    read_array(line, letters);
+    // My solution
+    deliver_letter(n_room, letters);
+    // while (cin >> n_dorm >> n_letter)
+    // {
+    //     cin.ignore();
+    //     string line;
+    //     // Get number of rooms of each dorm
+    //     getline(cin, line);
+    //     vector<long> n_room;
+    //     read_array(line, n_room);
+    //     // Get numbers on letters' envelops
+    //     getline(cin, line);
+    //     vector<long> letters;
+    //     read_array(line, letters);
+    //     // My solution
+    //     deliver_letter(n_room, letters);
+    // }
     return 0;
 }
