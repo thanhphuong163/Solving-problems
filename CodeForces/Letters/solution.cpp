@@ -53,7 +53,7 @@ void deliver_letter(vector<int> &n_room, vector<int> &letters)
         }
         else
         {
-            if (i < cum_sum.size() - 1)
+            if (i < cum_sum.size())
                 i++;
         }
     }
