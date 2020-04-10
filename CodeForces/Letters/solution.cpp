@@ -61,7 +61,7 @@ void deliver_letter(vector<int> &n_room, vector<int> &letters)
         }
         else
         {
-            cout << i << " " << letters[j] - cum_sum[i] << endl;
+            cout << i << " " << letters[j] - cum_sum[i - 1] << endl;
             j++;
         }
     }
