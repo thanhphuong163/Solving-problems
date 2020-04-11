@@ -1,7 +1,7 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
-// Submit: 
+// Problem:
+// Submit:
 
 #include <stdio.h>
 #include <iostream>
@@ -11,21 +11,24 @@
 #include <map>
 
 #define vi vector<int>
-#define min(a,b) (a < b ? a : b)
+#define min(a, b) (a < b ? a : b)
 
 using namespace std;
 
 // Read input
-void read_array(string line, vector<int> &nums) {
+void read_array(string line, vector<int> &nums)
+{
     stringstream ss(line);
     int num;
-    while (ss >> num) {
-    	nums.push_back(num);
+    while (ss >> num)
+    {
+        nums.push_back(num);
     }
 }
 
 // Print out input
-void print_array(vector<int> &nums) {
+void print_array(vector<int> &nums)
+{
     for (int i : nums)
     {
         cout << i << " ";
@@ -42,12 +45,15 @@ Using two pointers technique (head and tail of array)
 - if min_len > size of array then return -1 else return min_len
 */
 
-int min_len_dom_subarray(vector<int> &nums) {
+int min_len_dom_subarray(vector<int> &nums)
+{
     int size = nums.size();
-    int min_len = size + 2;
-    vector<int> lst(size+1, -1);
-    for (int i = 0; i < size; i++) {
-        if (lst[nums[i] != -1]) {
+    int min_len = size + 5;
+    vector<int> lst(size + 1, -1);
+    for (int i = 0; i < size; i++)
+    {
+        if (lst[nums[i] != -1])
+        {
             min_len = min(min_len, i - lst[nums[i]] + 1);
         }
         lst[nums[i]] = i;
@@ -58,7 +64,8 @@ int min_len_dom_subarray(vector<int> &nums) {
         return min_len;
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
     int n;
     cin >> n;
     cin.ignore();
