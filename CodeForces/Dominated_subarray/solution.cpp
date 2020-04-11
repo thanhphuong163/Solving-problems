@@ -8,6 +8,10 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <map>
+
+#define vi vector<int>
+#define min(a,b) (a < b ? a : b)
 
 using namespace std;
 
@@ -29,7 +33,30 @@ void print_array(vector<int> &nums) {
     puts("");
 }
 
-/* Write your solution here */
+/*
+Using two pointers technique (head and tail of array)
+- Since 1 <= a[i] <= n, we can use a (n+1)-size vector (default -1)
+- Go through the array store position of value
+- If position != -1 then compute distance between them.
+- min_len = min(min_len, i - lst[a[i]] + 1)
+- if min_len > size of array then return -1 else return min_len
+*/
+
+int min_len_dom_subarray(vector<int> &nums) {
+    int size = nums.size();
+    int min_len = size + 2;
+    vector<int> lst(size+1, -1);
+    for (int i = 0; i < size; i++) {
+        if (lst[nums[i] != -1]) {
+            min_len = min(min_len, i - lst[nums[i]] + 1);
+        }
+        lst[nums[i]] = i;
+    }
+    if (min_len > size)
+        return -1;
+    else
+        return min_len;
+}
 
 int main(int argc, char const *argv[]) {
     int n;
@@ -43,8 +70,8 @@ int main(int argc, char const *argv[]) {
         getline(cin, line);
         vector<int> nums;
         read_array(line, nums);
-        print_array(nums);
-        /* your code here */
+        //print_array(nums);
+        cout << min_len_dom_subarray(nums) << endl;
     }
     return 0;
 }
