@@ -1,6 +1,6 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem:
+// Problem: https://codeforces.com/contest/1257/problem/C
 // Submit:
 
 #include <stdio.h>
