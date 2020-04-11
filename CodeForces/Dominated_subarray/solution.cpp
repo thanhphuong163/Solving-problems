@@ -32,11 +32,18 @@ void print_array(vector<int> &nums) {
 /* Write your solution here */
 
 int main(int argc, char const *argv[]) {
-    string line;
-    while (getline(cin, line))
+    int n;
+    cin >> n;
+    cin.ignore();
+    while (n--)
     {
+        int size;
+        scanf("%d\n", &size);
+        string line;
+        getline(cin, line);
         vector<int> nums;
         read_array(line, nums);
+        print_array(nums);
         /* your code here */
     }
     return 0;
