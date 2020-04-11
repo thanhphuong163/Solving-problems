@@ -52,7 +52,7 @@ int min_len_dom_subarray(vector<int> &nums)
     vector<int> lst(size + 1, -1);
     for (int i = 0; i < size; i++)
     {
-        if (lst[nums[i] != -1])
+        if (lst[nums[i]] != -1)
         {
             min_len = min(min_len, i - lst[nums[i]] + 1);
         }
