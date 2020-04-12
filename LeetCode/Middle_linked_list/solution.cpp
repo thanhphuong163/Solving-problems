@@ -77,10 +77,10 @@ int main(int argc, char const *argv[]) {
         vector<int> nums;
         read_array(line, nums);
         print_array(nums);
-        ListNode* list = NULL;
-        for (int num : nums) {
-            push(list, num);
-        }
+        ListNode* list = new ListNode(nums[0]);
+        // for (int num : nums) {
+        //     push(list, num);
+        // }
         if (list != NULL) {
             cout << list->val << endl;
         }
