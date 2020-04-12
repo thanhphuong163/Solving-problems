@@ -16,20 +16,23 @@ struct ListNode
 {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(NULL){}
+    ListNode(int x) : val(x), next(NULL) {}
 };
 
 // Read input
-void read_array(string line, vector<int> &nums) {
+void read_array(string line, vector<int> &nums)
+{
     stringstream ss(line);
     int num;
-    while (ss >> num) {
-    	nums.push_back(num);
+    while (ss >> num)
+    {
+        nums.push_back(num);
     }
 }
 
 // Print out input
-void print_array(vector<int> &nums) {
+void print_array(vector<int> &nums)
+{
     for (int i : nums)
     {
         cout << i << " ";
@@ -37,15 +40,29 @@ void print_array(vector<int> &nums) {
     puts("");
 }
 
-// Push new node into a Linked List
-void push(ListNode *list, int num) {
+// Push new node into a linked list
+void push(ListNode *&list, int num)
+{
     ListNode *node = new ListNode(num);
     node->next = list;
     list = node;
 }
 
+// Clear linked list
+void clear(ListNode *&list)
+{
+    ListNode *p = list;
+    while (p)
+    {
+        list = p->next;
+        delete p;
+        p = list;
+    }
+}
+
 /* Two pointers technique: fast-slow pointers */
-ListNode* get_middle_node(ListNode *head) {
+ListNode *get_middle_node(ListNode *head)
+{
     if (head->next == NULL)
     {
         return head;
@@ -70,25 +87,22 @@ ListNode* get_middle_node(ListNode *head) {
     }
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
     string line;
     while (getline(cin, line))
     {
         vector<int> nums;
         read_array(line, nums);
-        print_array(nums);
-        ListNode* list = new ListNode(nums[0]);
-        // for (int num : nums) {
-        //     push(list, num);
-        // }
-        if (list != NULL) {
-            cout << list->val << endl;
+        // print_array(nums);
+        ListNode *list = NULL;
+        for (int i : nums)
+        {
+            push(list, i);
         }
-        else {
-            cout << "push new node failed." << endl;
-        }
-        // ListNode *middle = get_middle_node(list);
-        // cout << middle->val << endl;
+        ListNode *middle = get_middle_node(list);
+        cout << middle->val << endl;
+        clear(list);
     }
     return 0;
 }
