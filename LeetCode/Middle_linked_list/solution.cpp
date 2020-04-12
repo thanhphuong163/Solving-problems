@@ -76,13 +76,13 @@ int main(int argc, char const *argv[]) {
         vector<int> nums;
         read_array(line, nums);
         print_array(nums);
-        ListNode* list = NULL;
-        for (int num : nums) {
-            ListNode* node = new ListNode(num);
-            push(list, node);
-        }
-        ListNode *middle = get_middle_node(list);
-        cout << middle->val << endl;
+        // ListNode* list = NULL;
+        // for (int num : nums) {
+        //     ListNode* node = new ListNode(num);
+        //     push(list, node);
+        // }
+        // ListNode *middle = get_middle_node(list);
+        // cout << middle->val << endl;
     }
     return 0;
 }
