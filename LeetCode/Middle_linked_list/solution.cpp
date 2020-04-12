@@ -38,9 +38,10 @@ void print_array(vector<int> &nums) {
 }
 
 // Push new node into a Linked List
-void push(ListNode *list, ListNode* new_node) {
-    new_node->next = list;
-    list = new_node;
+void push(ListNode *list, int num) {
+    ListNode *node = new ListNode(num);
+    node->next = list;
+    list = node;
 }
 
 /* Two pointers technique: fast-slow pointers */
@@ -78,8 +79,7 @@ int main(int argc, char const *argv[]) {
         print_array(nums);
         ListNode* list = NULL;
         for (int num : nums) {
-            ListNode* node = new ListNode(num);
-            push(list, node);
+            push(list, num);
         }
         if (list != NULL) {
             cout << list->val << endl;
