@@ -81,8 +81,14 @@ int main(int argc, char const *argv[]) {
             ListNode* node = new ListNode(num);
             push(list, node);
         }
-        ListNode *middle = get_middle_node(list);
-        cout << middle->val << endl;
+        if (list != NULL) {
+            cout << list->val << endl;
+        }
+        else {
+            cout << "push new node failed." << endl;
+        }
+        // ListNode *middle = get_middle_node(list);
+        // cout << middle->val << endl;
     }
     return 0;
 }
