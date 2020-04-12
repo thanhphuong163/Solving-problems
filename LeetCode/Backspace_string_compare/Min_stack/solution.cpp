@@ -99,6 +99,7 @@ int main(int argc, char const *argv[])
     minStack.push(-2);
     minStack.push(0);
     minStack.push(-3);
+    minStack.push(-4);
     cout << minStack.getMin() << endl;
     minStack.pop();
     cout << minStack.top() << endl;
