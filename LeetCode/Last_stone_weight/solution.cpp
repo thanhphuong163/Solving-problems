@@ -1,7 +1,7 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
-// Submit: 
+// Problem: https://leetcode.com/problems/last-stone-weight/
+// Submit:
 
 #include <stdio.h>
 #include <iostream>
@@ -34,12 +34,12 @@ void print_array(vector<int> &nums) {
 int lastStoneWeight(vector<int> &stones)
 {
     priority_queue<int> pq;
-    // Take O(NlogN)
-    for (int i : stones)
+    
+    for (int stone : stones)
     {
-        pq.push(i);
+        pq.push(stone);
     }
-    // Take O(NlogN)
+    
     while (pq.size() >= 2)
     {
         int first = pq.top();
