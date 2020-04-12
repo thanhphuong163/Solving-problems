@@ -1,7 +1,7 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
-// Submit: 
+// Problem: https://leetcode.com/problems/middle-of-the-linked-list/
+// Submit:
 
 #include <stdio.h>
 #include <iostream>
@@ -10,6 +10,14 @@
 #include <vector>
 
 using namespace std;
+
+// Definition for singly-linked list.
+struct ListNode
+{
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL){}
+};
 
 // Read input
 void read_array(string line, vector<int> &nums) {
@@ -29,7 +37,37 @@ void print_array(vector<int> &nums) {
     puts("");
 }
 
-/* Write your solution here */
+// Push new node into a Linked List
+void push(ListNode *list, ListNode* new_node) {
+    new_node->next = list;
+    list = new_node;
+}
+
+/* Two pointers technique: fast-slow pointers */
+ListNode* get_middle_node(ListNode *head) {
+    if (head->next == NULL)
+    {
+        return head;
+    }
+    else if (head->next->next == NULL)
+    {
+        return head->next;
+    }
+    else
+    {
+        ListNode *slow = head;
+        ListNode *fast = head;
+        while (fast->next)
+        {
+            slow = slow->next;
+            if (fast->next->next)
+                fast = fast->next->next;
+            else
+                fast = fast->next;
+        }
+        return slow;
+    }
+}
 
 int main(int argc, char const *argv[]) {
     string line;
@@ -37,7 +75,13 @@ int main(int argc, char const *argv[]) {
     {
         vector<int> nums;
         read_array(line, nums);
-        /* your code here */
+        ListNode* list = NULL;
+        for (int num : nums) {
+            ListNode* node = new ListNode(num);
+            push(list, node);
+        }
+        ListNode *middle = get_middle_node(list);
+        cout << middle->val << endl;
     }
     return 0;
 }
