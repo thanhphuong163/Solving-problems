@@ -84,9 +84,9 @@ int main(int argc, char const *argv[])
         string T;
         getline(cin, T);
         if (backspaceCompare(S, T))
-            cout << "True" << endl;
+            cout << "true" << endl;
         else
-            cout << "False" << endl;
+            cout << "false" << endl;
     }
     return 0;
 }
