@@ -94,7 +94,6 @@ int main(int argc, char const *argv[])
     {
         vector<int> nums;
         read_array(line, nums);
-        // print_array(nums);
         ListNode *list = NULL;
         for (int i : nums)
         {
