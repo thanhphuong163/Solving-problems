@@ -8,6 +8,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -30,6 +31,31 @@ void print_array(vector<int> &nums) {
 }
 
 /* Write your solution here */
+int lastStoneWeight(vector<int> &stones)
+{
+    priority_queue<int> pq;
+    // Take O(NlogN)
+    for (int i : stones)
+    {
+        pq.push(i);
+    }
+    // Take O(NlogN)
+    while (pq.size() >= 2)
+    {
+        int first = pq.top();
+        pq.pop();
+        int second = pq.top();
+        pq.pop();
+        if (first != second)
+        {
+            pq.push(first - second);
+        }
+    }
+    if (pq.size() == 1)
+        return pq.top();
+    else
+        return 0;
+}
 
 int main(int argc, char const *argv[]) {
     string line;
@@ -37,7 +63,7 @@ int main(int argc, char const *argv[]) {
     {
         vector<int> nums;
         read_array(line, nums);
-        /* your code here */
+        cout << lastStoneWeight(nums) << endl;
     }
     return 0;
 }
