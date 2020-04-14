@@ -54,8 +54,8 @@ int bin_search(vector<int> &nums, int left, int right, int target)
 }
 
 /*
-Using binary search can get time complexity O(logN).
-Find the pivot and search in one of the two parts
+    Using binary search can get time complexity O(logN).
+    Find the pivot and search in one of the two parts
 */
 int get_index(vector<int> &nums, int target)
 {
@@ -79,17 +79,11 @@ int get_index(vector<int> &nums, int target)
         return bin_search(nums, 0, size - 1, target);
 
     if (nums[0] <= target && target <= nums[p - 1])
-    {
         return bin_search(nums, 0, p - 1, target);
-    }
     else if (nums[p] <= target && target <= nums[size - 1])
-    {
         return bin_search(nums, p, size - 1, target);
-    }
     else
-    {
         return -1;
-    }
 }
 
 // #define DEBUG_MODE
