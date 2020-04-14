@@ -1,13 +1,16 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
-// Submit: 
+// Problem: https://leetcode.com/explore/featured/card/30-day-leetcoding-challenge/529/week-2/3299/
+// Submit:
 
 #include <stdio.h>
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
+
+// #define DEBUG_MODE
+#define vi vector<int>
 
 using namespace std;
 
@@ -30,16 +33,47 @@ void print_array(vector<int> &nums) {
 }
 
 /*
-Write your solution here
+    Write your solution here
 */
+string stringShift(string s, vector<vector<int>> &shift)
+{
+    int len = s.length();
+    for (int i = 0; i < shift.size(); i++)
+    {
+        string ans;
+        int pivot = shift[i][0] ? len - shift[i][1] : shift[i][1];
+        for (int j = 0; j < len; j++)
+        {
+            ans += s[(j + pivot) % len];
+        }
+        s = ans;
+    }
+    return s;
+}
 
 int main(int argc, char const *argv[]) {
+
+#ifdef DEBUG_MODE
+    string line = "abc";
+    vector<vi> shift;
+    shift.push_back({0,1});
+    shift.push_back({1,2});
+    cout << stringShift(line, shift) << endl;
+#else   // Test mode
     string line;
-    while (getline(cin, line))
-    {
-        vector<int> nums;
-        read_array(line, nums);
-        /* your code here */
+    while (getline(cin, line)) {
+        int n;
+        cin >> n;
+        vector<vi> shift;
+        cin.ignore();
+        while (n--) {
+            int direction, amount;
+            cin >> direction >> amount;
+            cin.ignore();
+            shift.push_back({direction, amount});
+        }
+        cout << stringShift(line, shift) << endl;
     }
+#endif
     return 0;
 }
