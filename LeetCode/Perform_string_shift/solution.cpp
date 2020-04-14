@@ -15,16 +15,19 @@
 using namespace std;
 
 // Read input
-void read_array(string line, vector<int> &nums) {
+void read_array(string line, vector<int> &nums)
+{
     stringstream ss(line);
     int num;
-    while (ss >> num) {
-    	nums.push_back(num);
+    while (ss >> num)
+    {
+        nums.push_back(num);
     }
 }
 
 // Print out input
-void print_array(vector<int> &nums) {
+void print_array(vector<int> &nums)
+{
     for (int i : nums)
     {
         cout << i << " ";
@@ -33,7 +36,8 @@ void print_array(vector<int> &nums) {
 }
 
 /*
-    Write your solution here
+    0: ans[i] = s[(i + pivot) % size]
+    1: ans[i] = s[(i + size - pivot) % size]
 */
 string stringShift(string s, vector<vector<int>> &shift)
 {
@@ -51,22 +55,25 @@ string stringShift(string s, vector<vector<int>> &shift)
     return s;
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
 
 #ifdef DEBUG_MODE
     string line = "abc";
     vector<vi> shift;
-    shift.push_back({0,1});
-    shift.push_back({1,2});
+    shift.push_back({0, 1});
+    shift.push_back({1, 2});
     cout << stringShift(line, shift) << endl;
-#else   // Test mode
+#else // Test mode
     string line;
-    while (getline(cin, line)) {
+    while (getline(cin, line))
+    {
         int n;
         cin >> n;
         vector<vi> shift;
         cin.ignore();
-        while (n--) {
+        while (n--)
+        {
             int direction, amount;
             cin >> direction >> amount;
             cin.ignore();
