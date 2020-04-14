@@ -97,13 +97,14 @@ int get_index(vector<int> &nums, int target)
 int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
-    int target = 2;
-    vector<int> nums = {3, 4, 1};
+    int target = 19;
+    vector<int> nums = {7, 8, 9, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0, 1, 3, 4, 5};
     cout << get_index(nums, target) << endl;
 #else // test mode
     int target;
     while (cin >> target)
     {
+        cin.ignore();
         string line;
         getline(cin, line);
         vector<int> nums;
