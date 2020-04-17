@@ -53,11 +53,13 @@ int rodCutting(const vector<int> prices, int length, int cost)
     return r[length];
 }
 
-// #define DEBUG_MODE
+#define DEBUG_MODE
 int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
-    /* Put your debugging code here */
+    vector<int> prices = { 0, 1, 5, 8, 10, 13, 17, 18, 22, 25, 30 };
+    int length = 15;
+    cout << rodCutting(prices, length, 0) << endl;
 #else
     string line;
     vector<int> prices;
