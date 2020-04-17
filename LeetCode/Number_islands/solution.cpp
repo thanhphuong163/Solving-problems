@@ -56,20 +56,22 @@ void turnZeros_DFS(vvc &grid, int x, int y)
 int numIslands(vvc &grid)
 {
     int rows = grid.size();
-    if (rows == 0) return 0;
+    if (rows == 0)
+        return 0;
     int cols = grid[0].size();
-    if (cols == 0) return 0;
+    if (cols == 0)
+        return 0;
     int isLandCount = 0;
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < cols; j++)
         {
-            if (grid[i][j] == '1') {
+            if (grid[i][j] == '1')
+            {
                 isLandCount++;
                 turnZeros_DFS(grid, i, j);
             }
         }
-        
     }
     return isLandCount;
 }
@@ -78,14 +80,20 @@ int numIslands(vvc &grid)
 int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
-    /* Put your debugging code here */
+    vvc grid;
+    grid.push_back({'1', '1', '0', '0', '0'});
+    grid.push_back({'1', '1', '0', '0', '0'});
+    grid.push_back({'0', '0', '1', '0', '0'});
+    grid.push_back({'0', '0', '0', '1', '1'});
+    cout << numIslands(grid) << endl;
+
 #else
     int rows, cols;
     while (cin >> rows >> cols)
     {
         cin.ignore();
         string line;
-        vvc grid(rows);
+        vvc grid;
         while (rows--)
         {
             getline(cin, line);
