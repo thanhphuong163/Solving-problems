@@ -33,28 +33,26 @@ void print_array(vector<int> &nums)
 }
 
 /*
-    - Go through the line of students:
-        - if the i^th student's score greater than the previous student's one, then give them more candies.
-        - else check if the previous student only has one candy, give them one more, and the current one, one candy.
+    Use DP to store the number of candies for each student
+    Traverse forward and backward to give candies in terms of the rules.
 */
 long candies(int n, vector<int> arr)
 {
     if (n == 1) return 1;
-    int numCandies = 1;
-    int prevCandies = 1;
+    vector<long> dp(n, 1);
+    // Forward
     for (int i = 1; i < n; i++) {
-        if (arr[i-1] < arr[i]) {
-            prevCandies += 1;
-            numCandies += prevCandies;
-        }
-        else {
-            if (prevCandies == 1)
-                numCandies += prevCandies + 1;
-            else {
-                prevCandies = 1;
-                numCandies += prevCandies;
-            }
-        }
+        if (arr[i] > arr[i-1])
+            dp[i] += dp[i-1];
+    }
+    // Backward
+    for (int i = n-1; i >= 0; i--) {
+        if (arr[i] > arr[i+1] && dp[i] == dp[i+1])
+            dp[i] += dp[i+1];
+    }
+    long numCandies = 0;
+    for (long candy : dp) {
+        numCandies += candy;
     }
     return numCandies;
 }
