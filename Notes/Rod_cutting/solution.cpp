@@ -53,7 +53,7 @@ int rodCutting(const vector<int> prices, int length, int cost)
     return r[length];
 }
 
-#define DEBUG_MODE
+// #define DEBUG_MODE
 int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
