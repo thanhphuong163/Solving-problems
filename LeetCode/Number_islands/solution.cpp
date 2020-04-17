@@ -61,19 +61,19 @@ int numIslands(vvc &grid)
     int cols = grid[0].size();
     if (cols == 0)
         return 0;
-    int isLandCount = 0;
+    int islandCount = 0;
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < cols; j++)
         {
             if (grid[i][j] == '1')
             {
-                isLandCount++;
+                islandCount++;
                 turnZeros_DFS(grid, i, j);
             }
         }
     }
-    return isLandCount;
+    return islandCount;
 }
 
 // #define DEBUG_MODE
