@@ -58,7 +58,7 @@ int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
     vector<int> prices = { 0, 1, 5, 8, 10, 13, 17, 18, 22, 25, 30 };
-    int length = 19;
+    int length = 20;
     cout << rodCutting(prices, length, 0) << endl;
 #else
     string line;
