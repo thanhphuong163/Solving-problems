@@ -72,7 +72,7 @@ int main(int argc, char const *argv[])
     while (cin >> length)
     {
         cin.ignore();
-        cout << rodCutting(prices, length, 0) << endl;
+        cout << rodCutting(prices, length, 3) << endl;
     }
 #endif
     return 0;
