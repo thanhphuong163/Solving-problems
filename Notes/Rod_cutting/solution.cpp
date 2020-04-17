@@ -8,6 +8,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -37,11 +38,13 @@ Write your solution here
 */
 int rodCutting(const vector<int> prices, int length, int cost)
 {
+    int len = prices.size()-1;
     vector<int> r(length + 1, 0);
     for (int j = 0; j <= length; j++)
     {
         int q = INT_MIN;
-        for (int i = 0; i <= j; i++)
+        int limit = min(j, len);
+        for (int i = 0; i <= limit; i++)
         {
             if (q < prices[i] + r[j - i] - cost)
             {
