@@ -36,12 +36,42 @@ void print_array(vector<char> &nums)
 }
 
 /*
-Write your solution here
+- start at a '1' in the grid
+- make it '0' and traverse all it adjacent '1' in the same way.
+- continue the above step until you traversed all '1's in the grid.
 */
+void turnZeros_DFS(vvc &grid, int x, int y)
+{
+    grid[x][y] = '0';
+    if (x - 1 >= 0 && grid[x - 1][y] == '1')
+        turnZeros_DFS(grid, x - 1, y);
+    if (y - 1 >= 0 && grid[x][y - 1] == '1')
+        turnZeros_DFS(grid, x, y - 1);
+    if (x + 1 < grid.size() && grid[x + 1][y] == '1')
+        turnZeros_DFS(grid, x + 1, y);
+    if (y + 1 < grid[0].size() && grid[x][y + 1] == '1')
+        turnZeros_DFS(grid, x, y + 1);
+}
+
 int numIslands(vvc &grid)
 {
-
-    return 0;
+    int rows = grid.size();
+    if (rows == 0) return 0;
+    int cols = grid[0].size();
+    if (cols == 0) return 0;
+    int isLandCount = 0;
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            if (grid[i][j] == '1') {
+                isLandCount++;
+                turnZeros_DFS(grid, i, j);
+            }
+        }
+        
+    }
+    return isLandCount;
 }
 
 // #define DEBUG_MODE
@@ -62,10 +92,9 @@ int main(int argc, char const *argv[])
             vc row;
             read_array(line, row);
             grid.push_back(row);
-            print_array(row);
+            // print_array(row);
         }
-        cout << endl;
-        // cout << numIslands(grid) << endl;
+        cout << numIslands(grid) << endl;
     }
 #endif
     return 0;
