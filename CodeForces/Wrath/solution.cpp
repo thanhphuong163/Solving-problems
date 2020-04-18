@@ -47,7 +47,7 @@ int kill(vector<int> &nums)
     return count;
 }
 
-#define DEBUG_MODE
+// #define DEBUG_MODE
 int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
