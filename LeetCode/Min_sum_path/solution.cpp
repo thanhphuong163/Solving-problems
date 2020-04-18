@@ -34,7 +34,9 @@ void print_array(vector<int> &nums) {
 }
 
 /*
-Write your solution here
+    Use iterative DP
+    DP[0][0] = grid[0][0]
+    DP[i][j] = grid[i][j] + min{DP[i-1][j], DP[i][j-1]}
 */
 int minPathSum(vvi &grid) {
     int rows = grid.size();
@@ -57,8 +59,31 @@ int minPathSum(vvi &grid) {
             }
         }
     }
-
     return dp[rows-1][cols-1];
+}
+
+// In place DP
+int minPathSumDPInPlace(vvi &grid) {
+    int rows = grid.size();
+    if (rows == 0)
+        return 0;
+    int cols = grid[0].size();
+    if (cols == 0)
+        return 0;
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            if (i != 0 || j != 0)
+            {
+                int above = i > 0 ? grid[i - 1][j] : INT_MAX;
+                int left = j > 0 ? grid[i][j - 1] : INT_MAX;
+                grid[i][j] = grid[i][j] + min(above, left);
+            }
+        }
+    }
+    return grid[rows-1][cols-1];
 }
 
 // #define DEBUG_MODE
@@ -79,7 +104,7 @@ int main(int argc, char const *argv[]) {
             grid.push_back(row);
         }
         
-        cout << minPathSum(grid) << endl;
+        cout << minPathSumDPInPlace(grid) << endl;
     }
 #endif
     return 0;
