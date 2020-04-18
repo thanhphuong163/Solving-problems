@@ -31,7 +31,11 @@ void print_array(vector<int> &nums) {
 }
 
 /*
-Write your solution here
+    - Modulo all values in order to get values which are smaller than size
+    - Go through all elements:
+        - assign element at start point
+        - formula: step = (step + size + nums[step]) % size
+        - use (element + 1) * n to mark visited elements
 */
 bool circularArrayLoop(vector<int> &nums) {
     int size = nums.size();
