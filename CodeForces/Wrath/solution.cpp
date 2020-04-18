@@ -44,7 +44,7 @@ int kill(vector<int> &nums)
         count += (p > dead);
         dead = (dead > p + nums[p]) ? dead : (p + nums[p]);
     }
-    return count;
+    return n - count;
 }
 
 // #define DEBUG_MODE
