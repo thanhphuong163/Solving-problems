@@ -24,15 +24,6 @@ void read_array(string line, vector<int> &nums) {
     }
 }
 
-// Print out input
-void print_array(vector<int> &nums) {
-    for (int i : nums)
-    {
-        cout << i << " ";
-    }
-    puts("");
-}
-
 /*
     Use iterative DP
     DP[0][0] = grid[0][0]
