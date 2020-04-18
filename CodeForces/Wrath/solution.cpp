@@ -12,16 +12,19 @@
 using namespace std;
 
 // Read input
-void read_array(string line, vector<int> &nums) {
+void read_array(string line, vector<int> &nums)
+{
     stringstream ss(line);
     int num;
-    while (ss >> num) {
-    	nums.push_back(num);
+    while (ss >> num)
+    {
+        nums.push_back(num);
     }
 }
 
 // Print out input
-void print_array(vector<int> &nums) {
+void print_array(vector<int> &nums)
+{
     for (int i : nums)
     {
         cout << i << " ";
@@ -32,26 +35,24 @@ void print_array(vector<int> &nums) {
 /*
 Write your solution here
 */
-int kill(vector<int> &nums) {
+int kill(vector<int> &nums)
+{
     int n = nums.size();
-    int i = 2;
-    int j = 1;
-    while (i <= nums.size()) {
-        if (j < i && j >= i - nums[i - 1])
-        {
-            n--;
-            j++;
-        }
-        else
-            i++;
+    long count(0), dead(-1);
+    for (long p = 0; p < n; p++)
+    {
+        count += (p > dead);
+        dead = (dead > p + nums[p]) ? dead : (p + nums[p]);
     }
-    return n;
+    return count;
 }
 
-// #define DEBUG_MODE
-int main(int argc, char const *argv[]) {
+#define DEBUG_MODE
+int main(int argc, char const *argv[])
+{
 #ifdef DEBUG_MODE
-    /* Put your debugging code here */
+    vector<int> nums{1, 1, 3, 0, 0, 0, 2, 1, 0, 3};
+    cout << kill(nums) << endl;
 #else
     int n;
     while (cin >> n)
