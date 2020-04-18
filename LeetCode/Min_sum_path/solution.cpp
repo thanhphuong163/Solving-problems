@@ -72,7 +72,8 @@ int main(int argc, char const *argv[]) {
         cin.ignore();
         string line;
         vvi grid;
-        while (getline(cin, line)) {
+        while (rows--) {
+            getline(cin, line);
             vi row;
             read_array(line, row);
             grid.push_back(row);
