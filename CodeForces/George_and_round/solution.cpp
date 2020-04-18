@@ -1,7 +1,7 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
-// Submit: 
+// Problem: https://codeforces.com/problemset/problem/387/B
+// Submit:
 
 #include <stdio.h>
 #include <iostream>
@@ -32,18 +32,40 @@ void print_array(vector<int> &nums) {
 /*
 Write your solution here
 */
+int minProblem(vector<int>& a, vector<int> &b) {
+    int i = 0;
+    int j = 0;
+    int a_len = a.size();
+    int b_len = b.size();
+    int n = a_len;
+    while (j < b_len) {
+        if (b[j] >= a[i]) {
+            n--;
+            i++;
+        }
+        if (i >= a_len) return 0;
+        j++;
+    }
+    return n;
+}
 
 // #define DEBUG_MODE
 int main(int argc, char const *argv[]) {
 #ifdef DEBUG_MODE
     /* Put your debugging code here */
 #else
-    string line;
-    while (getline(cin, line))
+    int n, m;
+    while (cin >> n >> m)
     {
-        vector<int> nums;
-        read_array(line, nums);
-        /* your code here */
+        cin.ignore();
+        string line;
+        getline(cin, line);
+        vector<int> a;
+        read_array(line, a);
+        getline(cin, line);
+        vector<int> b;
+        read_array(line, b);
+        cout << minProblem(a, b) << endl;
     }
 #endif
     return 0;
