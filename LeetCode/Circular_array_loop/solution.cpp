@@ -1,13 +1,14 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
-// Submit: 
+// Problem: https://leetcode.com/problems/circular-array-loop/
+// Submit:
 
 #include <stdio.h>
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
+#include <set>
 
 using namespace std;
 
@@ -32,18 +33,44 @@ void print_array(vector<int> &nums) {
 /*
 Write your solution here
 */
+bool circularArrayLoop(vector<int> &nums) {
+    int size = nums.size();
+    for (int i = 0; i < size; i++) {
+        nums[i] %= size;
+    }
+    for (int i = 0; i < size; i++) {
+        int step = i;
+        int lastStep = 0;
+        bool isForward = nums[i] > 0;
+        while (nums[step]%size != 0 && (nums[step] > 0) == isForward) {
+            lastStep = step;
+            step = (step + size + nums[step]) % size;
+            nums[lastStep] = (i+1) * size;
+            if (nums[step] == (i+1)*size)
+                return true;
+        }
+    }
+    return false;
+}
 
 // #define DEBUG_MODE
 int main(int argc, char const *argv[]) {
 #ifdef DEBUG_MODE
-    /* Put your debugging code here */
+    vector<int> nums{3,1,2};
+    if (circularArrayLoop(nums))
+        cout << "True" << endl;
+    else
+        cout << "False" << endl;
 #else
     string line;
     while (getline(cin, line))
     {
         vector<int> nums;
         read_array(line, nums);
-        /* your code here */
+        if (circularArrayLoop(nums))
+            cout << "True" << endl;
+        else
+            cout << "False" << endl;
     }
 #endif
     return 0;
