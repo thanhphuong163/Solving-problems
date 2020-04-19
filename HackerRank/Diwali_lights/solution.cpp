@@ -39,14 +39,14 @@ void print_array(vector<int> &nums)
     2^N - 1
     N/64
     N = 100
-    2^(64+36) - 1 = 2^64 * 2^36 - 1
+    2^(63+37) - 1 = 2^63 * 2^37 - 1
 */
 long lights(int n)
 {
     long c = (long)1e5;
-    ulli a = (ulli)(powl(2, 64)) % c;
-    int k = (int)n / 64;
-    int r = n % 64;
+    ulli a = (ulli)(powl(2, 63)) % c;
+    int k = (int)n / 63;
+    int r = n % 63;
     ulli b = (ulli)(powl(2, r)) % c;
     ulli res = 1;
     for (int i = 0; i < k; i++)
