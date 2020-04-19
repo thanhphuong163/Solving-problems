@@ -38,13 +38,16 @@ Write your solution here
 int kill(vector<int> &nums)
 {
     int n = nums.size();
-    long count(0), dead(-1);
-    for (long p = 0; p < n; p++)
-    {
-        count += (p > dead);
-        dead = (dead > p + nums[p]) ? dead : (p + nums[p]);
+    int size = nums.size();
+    for (int i = 0; i < size; i++) {
+        for (int j = i+1; j < size; j++) {
+            if (i >= j - nums[j]) {
+                n--;
+                break;
+            }
+        }
     }
-    return n - count;
+    return n;
 }
 
 // #define DEBUG_MODE
