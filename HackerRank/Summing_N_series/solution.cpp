@@ -39,8 +39,8 @@ int summingSeries(long n)
 {
     long c = (long)10e9 + 7;
     unsigned long res = (unsigned long)n%c;
-    long long a = res*res;
-    return a%c;
+    unsigned long long a = res*res;
+    return a;
 }
 
 // #define DEBUG_MODE
