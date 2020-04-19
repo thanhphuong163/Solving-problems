@@ -33,20 +33,32 @@ void print_array(vector<int> &nums)
 }
 
 /*
-Write your solution here
+    0 1 2 3 4 5 6 7 8 9
+    1 1 3 0 0 0 2 1 0 3
+     -1-1 3 4 4 4 6 6 6
 */
+
 int kill(vector<int> &nums)
 {
     int n = nums.size();
     int size = nums.size();
-    for (int i = 0; i < size; i++) {
-        for (int j = i+1; j < size; j++) {
-            if (i >= j - nums[j]) {
-                n--;
-                break;
-            }
+    vector<int> a(size);
+    int minDead = INT_MAX;
+    for (int i = size-1; i >= 1; i--) {
+        if (i - nums[i] < minDead) {
+            a[i] = i - nums[i];
+            minDead = i - nums[i];
+        }
+        else {
+            a[i] = minDead;
         }
     }
+    for (int i = 0; i < size-1; i++) {
+        if (i >= a[i+1]) {
+            n--;
+        }
+    }
+    
     return n;
 }
 
