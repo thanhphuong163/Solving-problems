@@ -34,6 +34,7 @@ void print_array(vector<int> &nums) {
     S_n = T_1 + T_2 + ... + T_{n-1} + T_n
         = 1   + 4 - 1 + ... + (n-1)^2 - (n-2)^2 + n^2 - (n-1)^2
         = n^2
+    use unsigned long long int (8 bytes)
 */
 int summingSeries(long n)
 {
