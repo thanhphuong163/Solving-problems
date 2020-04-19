@@ -38,9 +38,9 @@ void print_array(vector<int> &nums) {
 int summingSeries(long n)
 {
     long c = (long)10e9 + 7;
-    // unsigned long res = (unsigned long)n%c;
-    unsigned long long int a = n * n;
-    return a;
+    unsigned long long int a = n;
+    unsigned long long int res = a*a;
+    return res;
 }
 
 // #define DEBUG_MODE
