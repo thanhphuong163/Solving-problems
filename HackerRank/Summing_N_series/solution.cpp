@@ -41,7 +41,7 @@ int summingSeries(long n)
     return ((n%c)*(n%c))%c;
 }
 
-#define DEBUG_MODE
+// #define DEBUG_MODE
 int main(int argc, char const *argv[]) {
 #ifdef DEBUG_MODE
     int result = summingSeries(10000000);
