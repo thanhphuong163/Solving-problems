@@ -30,21 +30,22 @@ void print_array(vector<int> &nums) {
 }
 
 /*
-Write your solution here
+    T_n = n^2 - (n-1)^2
+    S_n = T_1 + T_2 + ... + T_{n-1} + T_n
+        = 1   + 4 - 1 + ... + (n-1)^2 - (n-2)^2 + n^2 - (n-1)^2
+        = n^2
 */
 int summingSeries(long n)
 {
-    long S = 0;
-    for (long i = 1; i <= n; i++) {
-        S += (i^2 - (i-1)^2) % (10^9 + 7);
-    }
-    return S % (10^9 + 7);
+    long c = (long)10e9 + 7;
+    return ((n%c)*(n%c))%c;
 }
 
-// #define DEBUG_MODE
+#define DEBUG_MODE
 int main(int argc, char const *argv[]) {
 #ifdef DEBUG_MODE
-    /* Put your debugging code here */
+    int result = summingSeries(10000000);
+    cout << result << "\n";
 #else
     int t;
     cin >> t;
