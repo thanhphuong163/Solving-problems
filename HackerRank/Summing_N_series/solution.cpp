@@ -1,7 +1,7 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
-// Submit: 
+// Problem: https://www.hackerrank.com/challenges/summing-the-n-series/problem
+// Submit:
 
 #include <stdio.h>
 #include <iostream>
@@ -32,18 +32,33 @@ void print_array(vector<int> &nums) {
 /*
 Write your solution here
 */
+int summingSeries(long n)
+{
+    long S = 0;
+    for (long i = 1; i <= n; i++) {
+        S += (i^2 - (i-1)^2) % (10^9 + 7);
+    }
+    return S % (10^9 + 7);
+}
 
 // #define DEBUG_MODE
 int main(int argc, char const *argv[]) {
 #ifdef DEBUG_MODE
     /* Put your debugging code here */
 #else
-    string line;
-    while (getline(cin, line))
+    int t;
+    cin >> t;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    for (int t_itr = 0; t_itr < t; t_itr++)
     {
-        vector<int> nums;
-        read_array(line, nums);
-        /* your code here */
+        long n;
+        cin >> n;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        int result = summingSeries(n);
+
+        cout << result << "\n";
     }
 #endif
     return 0;
