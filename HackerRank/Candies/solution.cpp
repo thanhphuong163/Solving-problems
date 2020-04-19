@@ -38,20 +38,24 @@ void print_array(vector<int> &nums)
 */
 long candies(int n, vector<int> arr)
 {
-    if (n == 1) return 1;
+    if (n == 1)
+        return 1;
     vector<long> dp(n, 1);
     // Forward
-    for (int i = 1; i < n; i++) {
-        if (arr[i] > arr[i-1])
-            dp[i] += dp[i-1];
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] > arr[i - 1])
+            dp[i] += dp[i - 1];
     }
     // Backward
-    for (int i = n-1; i >= 0; i--) {
-        if (arr[i] > arr[i+1] && dp[i] == dp[i+1])
-            dp[i] += dp[i+1];
+    for (int i = n - 2; i >= 0; i--)
+    {
+        if (arr[i] > arr[i + 1] && dp[i] < dp[i + 1] + 1)
+            dp[i] = dp[i + 1] + 1;
     }
     long numCandies = 0;
-    for (long candy : dp) {
+    for (long candy : dp)
+    {
         numCandies += candy;
     }
     return numCandies;
@@ -79,6 +83,6 @@ int main(int argc, char const *argv[])
 
         cout << result << "\n";
     }
-    
+
     return 0;
 }
