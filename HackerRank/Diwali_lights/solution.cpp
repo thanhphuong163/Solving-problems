@@ -60,7 +60,8 @@ long lights(int n)
 int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
-    /* Put your debugging code here */
+    long result = lights(1000);
+    cout << result << "\n";
 #else
     int t;
     cin >> t;
