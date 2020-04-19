@@ -39,7 +39,7 @@ int summingSeries(long n)
 {
     long c = (long)10e9 + 7;
     unsigned long res = (unsigned long)n%c;
-    unsigned long long a = res*res;
+    unsigned long long int a = res * res;
     return a;
 }
 
