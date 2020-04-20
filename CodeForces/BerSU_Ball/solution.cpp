@@ -43,21 +43,30 @@ int getMaxPairs(vector<int> boys, vector<int> girls) {
     int n = boys.size();
     int m = girls.size();
     int cntPair = 0;
-    int i = 0;
-    int j = 0;
-    sort(boys.begin(), boys.end());
-    sort(girls.begin(), girls.end());
-    while (i < m && j < n) {
-        if (abs(boys[i] - girls[j]) <= 1) {
-            cntPair++;
-            i++;
-            j++;
-        }
-        else if (boys[i] - girls[j] > 1) {
-            j++;
-        }
-        else {
-            i++;
+    // int i = 0;
+    // int j = 0;
+    // sort(boys.begin(), boys.end());
+    // sort(girls.begin(), girls.end());
+    // while (i < m && j < n) {
+    //     if (abs(boys[i] - girls[j]) <= 1) {
+    //         cntPair++;
+    //         i++;
+    //         j++;
+    //     }
+    //     else if (boys[i] - girls[j] > 1) {
+    //         j++;
+    //     }
+    //     else {
+    //         i++;
+    //     }
+    // }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (abs(boys[i] - girls[j]) <= 1) {
+                cntPair++;
+                girls[j] = INT_MAX;
+                break;
+            }
         }
     }
     
