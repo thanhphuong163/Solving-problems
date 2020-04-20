@@ -46,11 +46,13 @@ int getPartition(vector<int> &nums)
     int len = nums.size();
     int left = 0;
     int right = len - 1;
-    int sum1 = nums[0];
-    int sum3 = nums[len - 1];
+    int sum1 = 0;
+    int sum3 = 0;
     int res = 0;
     while (left < right)
     {
+        sum1 += nums[left];
+        sum3 += nums[right];
         if (sum1 == sum3)
             res = sum1;
         else if (sum1 > sum3)
