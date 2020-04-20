@@ -53,16 +53,13 @@ int getPartition(vector<int> &nums)
     {
         if (sum1 == sum3) {
             res = sum1;
-            left++;
-            right--;
+            sum1 += nums[++left];
         }
         else if (sum1 > sum3) {
-            right--;
-            sum3 += nums[right];
+            sum3 += nums[--right];
         }
         else {
-            left++;
-            sum1 += nums[left];
+            sum1 += nums[++left];
         }
     }
     return res;
