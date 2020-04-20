@@ -71,7 +71,6 @@ int main(int argc, char const *argv[])
         int n;
         cin >> n;
         cin.ignore();
-        string line;
         getline(cin, line);
         vector<int> girls;
         read_array(line,girls);
