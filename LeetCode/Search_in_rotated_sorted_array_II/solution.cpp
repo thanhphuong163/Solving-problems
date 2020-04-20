@@ -56,7 +56,9 @@ bool search(vector<int> &nums, int target) {
         if (nums[i] > nums[i+1])
             p = i+1;
     }
-    if (nums[0] <= target && target <= nums[p-1])
+    if (p == 0)
+        return bsearch(nums, 0, n-1, target);
+    else if (nums[0] <= target && target <= nums[p-1])
         return bsearch(nums, 0, p-1, target);
     else if (nums[p] <= target && target <= nums[n - 1])
         return bsearch(nums, p, n-1, target);
