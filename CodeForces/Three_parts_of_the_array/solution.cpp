@@ -12,16 +12,19 @@
 using namespace std;
 
 // Read input
-void read_array(string line, vector<int> &nums) {
+void read_array(string line, vector<int> &nums)
+{
     stringstream ss(line);
     int num;
-    while (ss >> num) {
-    	nums.push_back(num);
+    while (ss >> num)
+    {
+        nums.push_back(num);
     }
 }
 
 // Print out input
-void print_array(vector<int> &nums) {
+void print_array(vector<int> &nums)
+{
     for (int i : nums)
     {
         cout << i << " ";
@@ -38,23 +41,29 @@ void print_array(vector<int> &nums) {
         if sum1 > sum3 then right--
         if sum1 == sum3 then record the sum
 */
-int getPartition(vector<int> &nums) {
+int getPartition(vector<int> &nums)
+{
     int len = nums.size();
     int left = 0;
-    int right = len-1;
+    int right = len - 1;
     int sum1 = nums[0];
-    int sum3 = nums[len-1];
+    int sum3 = nums[len - 1];
     int res = 0;
-    while (left < right) {
-        if (sum1 < sum3) left++;
-        if (sum1 > sum3) right--;
-        if (sum1 == sum3) res = sum1;
+    while (left < right)
+    {
+        if (sum1 == sum3)
+            res = sum1;
+        else if (sum1 > sum3)
+            right--;
+        else
+            left++;
     }
     return res;
 }
 
 // #define DEBUG_MODE
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
 #ifdef DEBUG_MODE
     /* Put your debugging code here */
 #else
