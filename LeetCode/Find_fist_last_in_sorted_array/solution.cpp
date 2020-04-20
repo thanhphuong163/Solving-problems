@@ -65,9 +65,9 @@ vector<int> searchRange(vector<int> &nums, int target)
     {
         int left = index;
         int right = index;
-        while (nums[index - 1] == target)
+        while (nums[left - 1] == target)
             left--;
-        while (nums[index + 1] == target)
+        while (nums[right + 1] == target)
             right++;
         return {left, right};
     }
@@ -84,7 +84,11 @@ int main(int argc, char const *argv[])
     {
         vector<int> nums;
         read_array(line, nums);
-        /* your code here */
+        int target;
+        cin >> target;
+        cin.ignore();
+        vector<int> res = searchRange(nums, target);
+        print_array(res);
     }
 #endif
     return 0;
