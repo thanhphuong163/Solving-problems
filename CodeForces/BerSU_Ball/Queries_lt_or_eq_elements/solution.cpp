@@ -47,7 +47,7 @@ void query(vector<long> &a, vector<long> &b) {
     map<long, int>::iterator it;
     int i = 0;
     for (it = mp.begin(); it != mp.end(); it++) {
-        while (a[i] <= it->first && i <= n) i++;
+        while (a[i] <= it->first && i < n) i++;
         it->second = i;
     }
     for (long val : b) {
