@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <map>
 
 using namespace std;
 
@@ -31,23 +32,26 @@ void print_array(vector<long> &nums) {
 }
 
 /*
-Write your solution here
+    create a map to store counts of each value in b
+    then sort a and b in order to use two-pointer technique
+    complexity O(N+M)
 */
 void query(vector<long> &a, vector<long> &b) {
     int n = a.size();
     int m = b.size();
     sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+    map<long, int> mp;
+    for (long val : b) {
+        mp[val] = 0;
+    }
+    map<long, int>::iterator it;
     int i = 0;
-    int j = 0;
-    while (j < m) {
-        if (a[i] <= b[j]) {
-            i++;
-        }
-        else {
-            cout << i << " ";
-            j++;
-        }
+    for (it = mp.begin(); it != mp.end(); it++) {
+        while (a[i] <= it->first && i <= n) i++;
+        it->second = i;
+    }
+    for (long val : b) {
+        cout << mp[val] << " ";
     }
     puts("");
 }
