@@ -9,13 +9,15 @@
 #include <string>
 #include <vector>
 
+#define ulli unsigned long long int
+
 using namespace std;
 
 // Read input
-void read_array(string line, vector<int> &nums)
+void read_array(string line, vector<ulli> &nums)
 {
     stringstream ss(line);
-    int num;
+    ulli num;
     while (ss >> num)
     {
         nums.push_back(num);
@@ -40,26 +42,30 @@ void print_array(vector<int> &nums)
         if sum1 < sum3 then left++
         if sum1 > sum3 then right--
         if sum1 == sum3 then record the sum
+    NOTE: Be aware with very large integer, better use unsigned long long int
 */
-int getPartition(vector<int> &nums)
+ulli getPartition(vector<ulli> &nums)
 {
-    int len = nums.size();
-    int left = 0;
-    int right = len - 1;
-    int sum1 = nums[left];
-    int sum3 = nums[right];
-    int res = 0;
+    long long len = nums.size();
+    long long left = 0;
+    long long right = len - 1;
+    ulli sum1 = nums[left];
+    ulli sum3 = nums[right];
+    ulli res = 0;
     while (left < right)
     {
-        if (sum1 == sum3) {
+        if (sum1 == sum3)
+        {
             res = sum1;
             sum1 += nums[++left];
             sum3 += nums[--right];
         }
-        else if (sum1 > sum3) {
+        else if (sum1 > sum3)
+        {
             sum3 += nums[--right];
         }
-        else {
+        else
+        {
             sum1 += nums[++left];
         }
     }
@@ -73,12 +79,12 @@ int main(int argc, char const *argv[])
     /* Put your debugging code here */
 #else
     string line;
-    int n;
+    long long n;
     while (cin >> n)
     {
         cin.ignore();
         getline(cin, line);
-        vector<int> nums;
+        vector<ulli> nums;
         read_array(line, nums);
         cout << getPartition(nums) << endl;
     }
