@@ -65,9 +65,9 @@ vector<int> searchRange(vector<int> &nums, int target)
     {
         int left = index;
         int right = index;
-        while (nums[left - 1] == target)
+        while (left > 0 && nums[left - 1] == target)
             left--;
-        while (nums[right + 1] == target)
+        while (right < nums.size() - 1 && nums[right + 1] == target)
             right++;
         return {left, right};
     }
