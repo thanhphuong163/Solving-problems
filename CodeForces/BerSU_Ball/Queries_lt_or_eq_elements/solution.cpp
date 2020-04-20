@@ -49,6 +49,7 @@ void query(vector<long> &a, vector<long> &b) {
             j++;
         }
     }
+    puts("");
 }
 
 // #define DEBUG_MODE
