@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 using namespace std;
 
@@ -34,22 +35,32 @@ void print_array(vector<int> &nums)
 }
 
 /*
+    sort first O(NlogN)
+    use two-pointer O(N)
     abs(b[i] - g[j]) <= 1 ==> make pair
-    change value of one of two into INT_MAX
 */
 int getMaxPairs(vector<int> boys, vector<int> girls) {
     int n = boys.size();
     int m = girls.size();
     int cntPair = 0;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            if (abs(boys[i] - girls[j]) <= 1) {
-                cntPair++;
-                girls[j] = INT_MAX;
-                break;
-            }
+    int i = 0;
+    int j = 0;
+    sort(boys.begin(), boys.end());
+    sort(girls.begin(), girls.end());
+    while (i < m && j < n) {
+        if (abs(boys[i] - girls[j]) <= 1) {
+            cntPair++;
+            i++;
+            j++;
+        }
+        else if (boys[i] - girls[j] > 1) {
+            j++;
+        }
+        else {
+            i++;
         }
     }
+    
     return cntPair;
 }
 
