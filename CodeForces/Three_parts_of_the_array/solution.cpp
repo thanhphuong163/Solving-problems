@@ -66,7 +66,7 @@ int main(int argc, char const *argv[]) {
         getline(cin, line);
         vector<int> nums;
         read_array(line, nums);
-        /* your code here */
+        cout << getPartition(nums) << endl;
     }
 #endif
     return 0;
