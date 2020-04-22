@@ -1,7 +1,7 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
-// Submit: 
+// Problem: https://codeforces.com/problemset/problem/961/B
+// Submit:
 
 #include <stdio.h>
 #include <iostream>
@@ -10,21 +10,25 @@
 #include <vector>
 
 #define ulli unsigned long long int
+#define max(a, b) (a > b ? a : b)
 
 using namespace std;
 
 // Read input
-void read_array(string line, vector<ulli> &nums) {
+void read_array(string line, vector<long> &nums)
+{
     stringstream ss(line);
-    ulli num;
-    while (ss >> num) {
-    	nums.push_back(num);
+    long num;
+    while (ss >> num)
+    {
+        nums.push_back(num);
     }
 }
 
 // Print out input
-void prulli_array(vector<ulli> &nums) {
-    for (ulli i : nums)
+void prulli_array(vector<long> &nums)
+{
+    for (long i : nums)
     {
         cout << i << " ";
     }
@@ -32,20 +36,47 @@ void prulli_array(vector<ulli> &nums) {
 }
 
 /*
-Write your solution here
+    Use brute force O(n*k)
 */
+long wakeMishka(vector<long> &a, vector<long> &t, long k)
+{
+    long n = a.size();
+    long maxTheorem = 0;
+    long fix = 0;
+    for (long i = 0; i < n; i++)
+    {
+        fix += a[i] * t[i];
+    }
+    for (long i = 0; i < n - k + 1; i++)
+    {
+        long sum = 0;
+        for (long j = 0; j < k; j++)
+        {
+            sum += a[i + j] * (t[i + j] ^ (long)0);
+        }
+        maxTheorem = max(maxTheorem, fix+sum);
+    }
+    return maxTheorem;
+}
 
 // #define DEBUG_MODE
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
 #ifdef DEBUG_MODE
     /* Put your debugging code here */
 #else
     string line;
-    while (getline(cin, line))
+    long n, k;
+    while (cin >> n >> k)
     {
-        vector<ulli> nums;
-        read_array(line, nums);
-        /* your code here */
+        cin.ignore();
+        getline(cin, line);
+        vector<long> a;
+        read_array(line, a);
+        getline(cin, line);
+        vector<long> t;
+        read_array(line, t);
+        cout << wakeMishka(a, t, k) << endl;
     }
 #endif
     return 0;
