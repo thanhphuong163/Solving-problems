@@ -36,25 +36,26 @@ void prulli_array(vector<long> &nums)
 }
 
 /*
-    Use brute force O(n*k)
+    Use two-pointer technique
 */
 long wakeMishka(vector<long> &a, vector<long> &t, long k)
 {
     long n = a.size();
-    long maxTheorem = 0;
     long fix = 0;
-    for (long i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         fix += a[i] * t[i];
     }
-    for (long i = 0; i < n - k + 1; i++)
-    {
-        long sum = 0;
-        for (long j = 0; j < k; j++)
-        {
-            sum += a[i + j] * (t[i + j] ^ (long)1);
+    for (int i = 0; i < k; i++) {
+        fix += a[i] * (t[i] ^ (long)1);
+    }
+    
+    long maxTheorem = fix;
+    for (int i = 1; i < n - k + 1; i++) {
+        long oldStart = a[i-1] * (t[i-1] ^(long)1);
+        long newEnd = a[i+k-1] * (t[i+k-1] ^ (long)1);
+        if (oldStart < newEnd) {
+            maxTheorem += newEnd - oldStart;
         }
-        maxTheorem = max(maxTheorem, fix+sum);
     }
     return maxTheorem;
 }
