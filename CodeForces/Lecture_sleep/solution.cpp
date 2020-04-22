@@ -56,10 +56,8 @@ long wakeMishka(vector<long> &a, vector<long> &t, long k)
     {
         long oldStart = a[i - 1] * (t[i - 1] ^ (long)1);
         long newEnd = a[i + k - 1] * (t[i + k - 1] ^ (long)1);
-        if (oldStart < newEnd)
-        {
-            maxTheorem += (newEnd - oldStart);
-        }
+        long tmp = fix - oldStart + newEnd;
+        maxTheorem = max(maxTheorem, tmp);
     }
     return maxTheorem;
 }
@@ -68,9 +66,9 @@ long wakeMishka(vector<long> &a, vector<long> &t, long k)
 int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
-    vector<long> a{1, 3, 5, 2, 5, 4};
-    vector<long> t{1, 1, 0, 1, 0, 0};
-    long n = 6;
+    vector<long> a{76, 83, 17, 34, 24, 46, 95};
+    vector<long> t{0, 1, 0, 1, 1, 1, 0};
+    long n = 7;
     long k = 3;
     cout << wakeMishka(a, t, k) << endl;
 #else
