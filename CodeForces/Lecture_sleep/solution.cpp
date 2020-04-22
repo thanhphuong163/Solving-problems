@@ -52,11 +52,12 @@ long wakeMishka(vector<long> &a, vector<long> &t, long k)
     }
 
     long maxTheorem = fix;
+    long tmp = fix;
     for (int i = 1; i < n - k + 1; i++)
     {
         long oldStart = a[i - 1] * (t[i - 1] ^ (long)1);
         long newEnd = a[i + k - 1] * (t[i + k - 1] ^ (long)1);
-        long tmp = fix - oldStart + newEnd;
+        tmp += newEnd - oldStart;
         maxTheorem = max(maxTheorem, tmp);
     }
     return maxTheorem;
