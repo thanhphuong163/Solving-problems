@@ -42,19 +42,23 @@ long wakeMishka(vector<long> &a, vector<long> &t, long k)
 {
     long n = a.size();
     long fix = 0;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         fix += a[i] * t[i];
     }
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < k; i++)
+    {
         fix += a[i] * (t[i] ^ (long)1);
     }
-    
+
     long maxTheorem = fix;
-    for (int i = 1; i < n - k + 1; i++) {
-        long oldStart = a[i-1] * (t[i-1] ^(long)1);
-        long newEnd = a[i+k-1] * (t[i+k-1] ^ (long)1);
-        if (oldStart < newEnd) {
-            maxTheorem += newEnd - oldStart;
+    for (int i = 1; i < n - k + 1; i++)
+    {
+        long oldStart = a[i - 1] * (t[i - 1] ^ (long)1);
+        long newEnd = a[i + k - 1] * (t[i + k - 1] ^ (long)1);
+        if (oldStart < newEnd)
+        {
+            maxTheorem += (newEnd - oldStart);
         }
     }
     return maxTheorem;
