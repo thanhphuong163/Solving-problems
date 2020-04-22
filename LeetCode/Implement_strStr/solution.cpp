@@ -1,7 +1,7 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
-// Submit: 
+// Problem: https://leetcode.com/problems/implement-strstr/
+// Submit:
 
 #include <stdio.h>
 #include <iostream>

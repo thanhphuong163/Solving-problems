@@ -8,9 +8,10 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 #define ulli unsigned long long int
-#define max(a,b) (a > b ? a : b)
+#define max(a, b) (a > b ? a : b)
 
 using namespace std;
 
@@ -19,8 +20,9 @@ void read_array(string line, vector<ulli> &nums)
 {
     stringstream ss(line);
     ulli num;
-    while (ss >> num) {
-    	nums.push_back(num);
+    while (ss >> num)
+    {
+        nums.push_back(num);
     }
 }
 
@@ -43,21 +45,25 @@ void print_array(vector<ulli> &nums)
     1 2 10 12 15 17
 
 */
-long assembleTeam(vector<ulli> &nums) {
+long assembleTeam(vector<ulli> &nums)
+{
     long size = nums.size();
     long start = 0;
     long end = 0;
     long maxSize = 0;
     sort(nums.begin(), nums.end());
-    while (start < size) {
-        if (nums[end] - nums[start] <= 5) {
+    while (start < size)
+    {
+        if (nums[end] - nums[start] <= 5)
+        {
             maxSize = max(maxSize, end - start + 1);
             if (end < size - 1)
                 end++;
             else
                 start++;
         }
-        else {
+        else
+        {
             start++;
         }
     }
@@ -65,7 +71,8 @@ long assembleTeam(vector<ulli> &nums) {
 }
 
 // #define DEBUG_MODE
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
 #ifdef DEBUG_MODE
     /* Put your debugging code here */
 #else
