@@ -31,21 +31,20 @@ void print_array(vector<int> &nums) {
 }
 
 /*
-    94 -80 46 -40 90 -27 -60
-    96
-
+    Use prefix sum hash technique
+    prefixSum[j] - k = prefixSum[i] 
 */
 int subarraySum(vector<int> &nums, int k) {
     unordered_map<int, int> hash;
-    int ans = 0, prefixsum = 0;
+    int count = 0, prefixSum = 0;
     hash[0] = 1;
     for (auto n : nums)
     {
-        prefixsum += n;
-        ans += hash[prefixsum - k];
-        hash[prefixsum]++;
+        prefixSum += n;
+        count += hash[prefixSum - k];
+        hash[prefixSum]++;
     }
-    return ans;
+    return count;
 }
 
 // #define DEBUG_MODE
