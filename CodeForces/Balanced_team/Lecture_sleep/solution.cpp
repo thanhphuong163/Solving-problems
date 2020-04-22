@@ -59,7 +59,7 @@ long wakeMishka(vector<long> &a, vector<long> &t, long k)
     return maxTheorem;
 }
 
-#define DEBUG_MODE
+// #define DEBUG_MODE
 int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
