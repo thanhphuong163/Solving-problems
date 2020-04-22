@@ -52,18 +52,22 @@ long wakeMishka(vector<long> &a, vector<long> &t, long k)
         long sum = 0;
         for (long j = 0; j < k; j++)
         {
-            sum += a[i + j] * (t[i + j] ^ (long)0);
+            sum += a[i + j] * (t[i + j] ^ (long)1);
         }
         maxTheorem = max(maxTheorem, fix+sum);
     }
     return maxTheorem;
 }
 
-// #define DEBUG_MODE
+#define DEBUG_MODE
 int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
-    /* Put your debugging code here */
+    vector<long> a{1, 3, 5, 2, 5, 4};
+    vector<long> t{1, 1, 0, 1, 0, 0};
+    long n = 6;
+    long k = 3;
+    cout << wakeMishka(a, t, k) << endl;
 #else
     string line;
     long n, k;
