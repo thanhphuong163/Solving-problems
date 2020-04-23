@@ -42,6 +42,8 @@ void print_array(vector<ulli> &nums)
     0 1 2 3 4 5 6 7 8 9 10
     5 4 5 5 6 7 8 8 8 7 6
     -1 1 0 1 1 1 0 0 -1 -1
+    1 2 3 3  2
+     1 1 0 -1
 */
 int getRange(vector<ulli> &nums)
 {
@@ -60,15 +62,16 @@ int getRange(vector<ulli> &nums)
         {
             maxRange = max(maxRange, i - l + 1);
         }
-        else if (nums[i] - nums[i - 1] != lastDiff)
-        {
-            maxRange = max(maxRange, i - l + 1);
-            lastDiff = nums[i] - nums[i - 1];
-            j = i;
-        }
-        else
-        {
-            l = j;
+        else {
+            if (nums[i] - nums[i - 1] != lastDiff)
+            {
+                maxRange = max(maxRange, i - l + 1);
+                lastDiff = nums[i] - nums[i - 1];
+            }
+            else
+            {
+                l = j;
+            }
             j = i;
         }
     }
@@ -76,10 +79,12 @@ int getRange(vector<ulli> &nums)
 }
 
 // #define DEBUG_MODE
+
 int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
-    /* Put your debugging code here */
+    vector<ulli> nums={1, 2, 3, 3, 2};
+    cout << getRange(nums) << endl;
 #else
     string line;
     int n;
