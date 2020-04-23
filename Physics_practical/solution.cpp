@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
 #define ulli unsigned long long int
 
@@ -33,47 +34,32 @@ void print_array(vector<ulli> &nums) {
 }
 
 /*
-    sort array
-    2 2 3 4
+    - sort
+    0 1 2 3 4 5 6 7 8 9
     2 3 3 3 4 5 6 6 7 8
-    mid = (n-1) / 2
-    l = mid
-    r = mid
-    while (nums[l]*2 >= nums[r]) {
-        if (l > 0 && nums[l-1]*2 >= nums[r])
-            l--;
-        if (r < n-1 && nums[l]*2 >= nums[r+1])
-            r++;
-        if (l == 0 && r == n-1)
-            len = n;
-            break;
-        if (nums[l-1]*2 < nums[r] && nums[l]*2 < nums[r+1])
-            len = r-l+1;
-            break;
-    }
-    return n - len;
+    - use two-pointer technique
+    if (nums[0]*2 <= nums[n-1]) return 0;
+    l = 0;
+    r = 0;
+
 */
 int eraseResult(vector<ulli> &nums) {
-    int n = nums.size();
-    int mid = (n-1)/2;
-    int l = mid;
-    int r = mid;
-    int len = 1;
-    while (nums[l] * 2 >= nums[r]) {
-        if (l > 0 && nums[l - 1] * 2 >= nums[r])
-            l--;
-        if (r < n - 1 && nums[l] * 2 >= nums[r + 1])
+    ulli n = nums.size();
+    sort(nums.begin(), nums.end());
+    if (nums[0]*2 <= nums[n-1]) return 0;
+    ulli l = 0;
+    ulli r = 0;
+    ulli ans = n;
+    while (r-1 != n) {
+        if (nums[l]*2 <= nums[r]) {
             r++;
-        if (l == 0 && r == n - 1) {
-            len = n;
-            break;
         }
-        if (nums[l - 1] * 2 < nums[r] && nums[l] * 2 < nums[r + 1]) {
-            len = r - l + 1;
-            break;
+        else {
+            l++;
         }
+        ans = min(ans, n-r+l);
     }
-    return n - len;
+    return ans;
 }
 
 // #define DEBUG_MODE
@@ -81,8 +67,10 @@ int main(int argc, char const *argv[]) {
 #ifdef DEBUG_MODE
     /* Put your debugging code here */
 #else
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
     string line;
-    int n;
+    long long n;
     while (cin >> n)
     {
         cin.ignore();
