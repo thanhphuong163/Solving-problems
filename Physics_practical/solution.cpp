@@ -56,7 +56,7 @@ int eraseResult(vector<ulli> &nums) {
         else {
             r++;
         }
-        ans = min(ans, n-r+l);
+        ans = min(ans, n-r+l-1);
     }
     return ans;
 }
