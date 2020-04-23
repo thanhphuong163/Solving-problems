@@ -35,8 +35,7 @@ void print_array(vector<ulli> &nums) {
 
 /*
     - sort
-    0 1 2 3 4 5 6 7 8 9
-    2 3 3 3 4 5 6 6 7 8
+    3 3 4 5 7 8
     - use two-pointer technique
     if (nums[0]*2 <= nums[n-1]) return 0;
     l = 0;
@@ -57,7 +56,7 @@ int eraseResult(vector<ulli> &nums) {
         else {
             r++;
         }
-        ans = min(ans, n-l+r-1);
+        ans = min(ans, n-r+l);
     }
     return ans;
 }
