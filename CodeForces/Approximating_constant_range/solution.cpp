@@ -28,7 +28,7 @@ void read_array(string line, vector<ulli> &nums)
 }
 
 // Print out input
-void prulli_array(vector<ulli> &nums)
+void print_array(vector<ulli> &nums)
 {
     for (ulli i : nums)
     {
@@ -38,18 +38,41 @@ void prulli_array(vector<ulli> &nums)
 }
 
 /*
-Write your solution here
+    11
+    0 1 2 3 4 5 6 7 8 9 10
+    5 4 5 5 6 7 8 8 8 7 6
+    -1 1 0 1 1 1 0 0 -1 -1
 */
 int getRange(vector<ulli> &nums)
 {
     long n = nums.size();
-    long range = 0;
-    long left = 0;
-    long right = 0;
-    long min_ = nums[0];
-    long max_ = nums[0];
-
-    return 0;
+    if (n == 0)
+        return 0;
+    if (n <= 2)
+        return n;
+    long maxRange = 2;
+    long l = 0;
+    int lastDiff = nums[l + 1] - nums[l];
+    int j = 0;
+    for (int i = 2; i < n; ++i)
+    {
+        if (nums[i] - nums[i - 1] == 0)
+        {
+            maxRange = max(maxRange, i - l + 1);
+        }
+        else if (nums[i] - nums[i - 1] != lastDiff)
+        {
+            maxRange = max(maxRange, i - l + 1);
+            lastDiff = nums[i] - nums[i - 1];
+            j = i;
+        }
+        else
+        {
+            l = j;
+            j = i;
+        }
+    }
+    return maxRange;
 }
 
 // #define DEBUG_MODE
