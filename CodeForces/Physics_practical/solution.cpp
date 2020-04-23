@@ -54,7 +54,7 @@ int eraseResult(vector<ulli> &nums)
     ulli l = 0;
     ulli r = 0;
     ulli ans = n;
-    while (r <= n)
+    while (r < n)
     {
         if (nums[l] * 2 >= nums[r])
         {
@@ -64,7 +64,7 @@ int eraseResult(vector<ulli> &nums)
         {
             l++;
         }
-        ans = min(ans, n - r + l);
+        ans = min(ans, n - r + l + 1);
     }
     return ans;
 }
