@@ -38,9 +38,9 @@ void print_array(vector<ulli> &nums)
 
 /*
     - sort
-    3 3 4 5 7 8
+    3 4 4 5 7 8
     - use two-pointer technique
-    if (nums[0]*2 <= nums[n-1]) return 0;
+    if (nums[0]*2 >= nums[n-1]) return 0;
     l = 0;
     r = 0;
 
@@ -54,7 +54,7 @@ int eraseResult(vector<ulli> &nums)
     ulli l = 0;
     ulli r = 0;
     ulli ans = n;
-    while (r - 1 != n)
+    while (r < n)
     {
         if (nums[l] * 2 >= nums[r])
         {
