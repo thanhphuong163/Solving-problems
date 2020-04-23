@@ -46,18 +46,18 @@ void print_array(vector<ulli> &nums) {
 int eraseResult(vector<ulli> &nums) {
     ulli n = nums.size();
     sort(nums.begin(), nums.end());
-    if (nums[0]*2 > nums[n-1]) return 0;
+    if (nums[0]*2 >= nums[n-1]) return 0;
     ulli l = 0;
     ulli r = 0;
     ulli ans = n;
     while (r-1 != n) {
-        if (nums[l]*2 <= nums[r]) {
-            r++;
-        }
-        else {
+        if (nums[l]*2 < nums[r]) {
             l++;
         }
-        ans = min(ans, n-r+l);
+        else {
+            r++;
+        }
+        ans = min(ans, n-l+r-1);
     }
     return ans;
 }
