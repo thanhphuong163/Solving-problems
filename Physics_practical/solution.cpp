@@ -50,13 +50,13 @@ int eraseResult(vector<ulli> &nums) {
     ulli r = 0;
     ulli ans = n;
     while (r-1 != n) {
-        if (nums[l]*2 < nums[r]) {
-            l++;
-        }
-        else {
+        if (nums[l]*2 >= nums[r]) {
             r++;
         }
-        ans = min(ans, n-r+l-1);
+        else {
+            l++;
+        }
+        ans = min(ans, n-r+l);
     }
     return ans;
 }
