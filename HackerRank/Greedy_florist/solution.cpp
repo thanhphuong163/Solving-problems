@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 #define ulli unsigned long long int
 
@@ -52,15 +53,16 @@ void print_array(vector<ulli> &nums)
 */
 int getMinimumCost(int k, vector<int> c)
 {
+    sort(c.begin(), c.end());
     int n = c.size();
     int a = floor(n / k) + 1;
     int r = n % k;
     int sum = 0;
-    for (ulli i = 0; i < r; ++i)
+    for (int i = 0; i < r; ++i)
     {
         sum += c[i] * a;
     }
-    for (ulli i = r; i < n; ++i)
+    for (int i = r; i < n; ++i)
     {
         if ((i - r) % k == 0)
             --a;
