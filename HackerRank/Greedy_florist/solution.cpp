@@ -15,10 +15,10 @@
 using namespace std;
 
 // Read input
-void read_array(string line, vector<ulli> &nums)
+void read_array(string line, vector<int> &nums)
 {
     stringstream ss(line);
-    ulli num;
+    int num;
     while (ss >> num)
     {
         nums.push_back(num);
@@ -50,21 +50,21 @@ void print_array(vector<ulli> &nums)
             --a;
         sum += cost[i]*a;
 */
-ulli buyFlower(vector<ulli> cost, ulli k)
+int getMinimumCost(int k, vector<int> c)
 {
-    ulli n = cost.size();
-    ulli a = floor(n / k) + 1;
-    ulli r = n % k;
-    ulli sum = 0;
+    int n = c.size();
+    int a = floor(n / k) + 1;
+    int r = n % k;
+    int sum = 0;
     for (ulli i = 0; i < r; ++i)
     {
-        sum += cost[i] * a;
+        sum += c[i] * a;
     }
     for (ulli i = r; i < n; ++i)
     {
         if ((i - r) % k == 0)
             --a;
-        sum += cost[i] * a;
+        sum += c[i] * a;
     }
     return sum;
 }
@@ -76,14 +76,14 @@ int main(int argc, char const *argv[])
     /* Put your debugging code here */
 #else
     string line;
-    ulli n, k;
+    int n, k;
     while (cin >> n >> k)
     {
         cin.ignore();
         getline(cin, line);
-        vector<ulli> nums;
+        vector<int> nums;
         read_array(line, nums);
-        cout << buyFlower(nums, k) << endl;
+        cout << getMinimumCost(k, nums) << endl;
     }
 #endif
     return 0;
