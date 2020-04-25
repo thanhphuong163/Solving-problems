@@ -42,7 +42,7 @@ int maxMin(int k, vector<int> arr)
     int n = arr.size();
     sort(arr.begin(), arr.end());
     int unfairness = INT_MAX;
-    for (int i = 0; i < n-k; i++) {
+    for (int i = 0; i <= n-k; i++) {
         unfairness = min(unfairness, arr[i+k-1] - arr[i]);
     }
     return unfairness;
