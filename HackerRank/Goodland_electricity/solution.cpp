@@ -78,7 +78,7 @@ int pylons(int k, vector<int> arr)
     return trans;
 }
 
-#define DEBUG_MODE
+// #define DEBUG_MODE
 
 int main(int argc, char const *argv[])
 {
