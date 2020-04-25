@@ -1,7 +1,7 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
 // Problem: https://www.hackerrank.com/challenges/angry-children/problem
-// Submit: 
+// Submit:
 
 #include <stdio.h>
 #include <iostream>
@@ -16,16 +16,19 @@
 using namespace std;
 
 // Read input
-void read_array(string line, vector<ulli> &nums) {
+void read_array(string line, vector<ulli> &nums)
+{
     stringstream ss(line);
     ulli num;
-    while (ss >> num) {
-    	nums.push_back(num);
+    while (ss >> num)
+    {
+        nums.push_back(num);
     }
 }
 
 // Print out input
-void print_array(vector<ulli> &nums) {
+void print_array(vector<ulli> &nums)
+{
     for (ulli i : nums)
     {
         cout << i << " ";
@@ -42,21 +45,24 @@ int maxMin(int k, vector<int> arr)
     int n = arr.size();
     sort(arr.begin(), arr.end());
     int unfairness = INT_MAX;
-    for (int i = 0; i <= n-k; i++) {
-        unfairness = min(unfairness, arr[i+k-1] - arr[i]);
+    for (int i = 0; i <= n - k; i++)
+    {
+        unfairness = min(unfairness, arr[i + k - 1] - arr[i]);
     }
     return unfairness;
 }
 
 // #define DEBUG_MODE
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
 #ifdef DEBUG_MODE
     /* Put your debugging code here */
 #else
     int n;
-    
-    while (cin >> n) {
+
+    while (cin >> n)
+    {
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         int k;
@@ -78,7 +84,7 @@ int main(int argc, char const *argv[]) {
 
         cout << result << "\n";
     }
-    
+
 #endif
     return 0;
 }
