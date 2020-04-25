@@ -43,7 +43,7 @@ void print_array(vector<ulli> &nums)
     0 1 1 0 1 0
     7 2
     0 1 0 0 1 0 1
-                j
+                  j
     i = 6
     loc = 5
     trans = 2
@@ -52,19 +52,24 @@ int pylons(int k, vector<int> arr)
 {
     int n = arr.size();
     int i = 0, j = 0, loc = 0, trans = 0;
-    while (i < n) {
+    while (i < n)
+    {
         trans++;
         j = i + k - 1;
-        if (j > n) {
-            j = n-1;
+        if (j >= n)
+        {
+            j = n - 1;
         }
-        while (loc <= j && arr[j] == 0) {
+        while (loc <= j && arr[j] == 0)
+        {
             j--;
         }
-        if (j < loc) {
+        if (j < i)
+        {
             return -1;
         }
-        else {
+        else
+        {
             loc = j;
             j += k;
             i = j;
@@ -73,15 +78,18 @@ int pylons(int k, vector<int> arr)
     return trans;
 }
 
-// #define DEBUG_MODE
+#define DEBUG_MODE
+
 int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
-    /* Put your debugging code here */
+    vector<int> arr = {0, 1, 1, 0, 1, 0, 0};
+    cout << pylons(2, arr) << endl;
 #else
     int n, k;
     string line;
-    while (cin >> n >> k) {
+    while (cin >> n >> k)
+    {
         cin.ignore();
         getline(cin, line);
         vector<int> arr;
