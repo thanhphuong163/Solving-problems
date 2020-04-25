@@ -86,7 +86,7 @@ int main(int argc, char const *argv[])
         getline(cin, line);
         vector<int> arr;
         read_array(line, arr);
-        cout << pylons(k, arr);
+        cout << pylons(k, arr) << endl;
     }
 
 #endif
