@@ -47,28 +47,23 @@ void print_array(vector<ulli> &nums)
 int pylons(int k, vector<int> arr)
 {
     int n = arr.size();
-    int x = -k;
-    int i = x + 2 * k - 1;
-    int trans = 0;
+    int i = 0;
+    int x = 0;
+    int count = 0;
     while (i < n)
     {
-        trans++;
-        while (x + k <= i && arr[i] == 0)
-        {
-            i--;
-        }
-        if (i < x + k)
-            return -1;
+        count++;
+        int take = min(i + k - 1, n - 1);
+        while (i + k <= take && arr[take] == 0)
+            take--;
+        if (take < i + k)
+            return 0;
         else
         {
-            x = i;
-            i = x + 2 * k - 1;
-            if (x+k<n && i >= n) {
-                i = n-1;
-            }
+            x = take;
+            i = x + k;
         }
     }
-    return trans;
 }
 
 // #define DEBUG_MODE
