@@ -40,8 +40,12 @@ void print_array(vector<ulli> &nums)
     - The next tower must be placed at x+k <= i < x+2k
     - If we cannot place tower in this way, then return -1
     - If x+k > n, then end the procedure.
+    Use extra array to accelerate time complexity
+    - An n-size array to store the last placable positions
     7 2
     0 1 1 1 1 0 1
+    extra array:
+    -1 1 2 3 4 4 6
     ==> 3 at indices 1 4 6
 */
 int pylons(int k, vector<int> arr)
