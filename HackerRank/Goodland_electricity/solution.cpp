@@ -58,7 +58,7 @@ int pylons(int k, vector<int> arr)
             take--;
         }
         if (take < i + k)
-            return 0;
+            return -1;
         else
         {
             x = take;
