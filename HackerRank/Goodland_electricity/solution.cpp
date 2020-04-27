@@ -54,10 +54,10 @@ int pylons(int k, vector<int> arr)
     {
         count++;
         int take = min(i + k - 1, n - 1);
-        while (i <= take && arr[take] == 0) {
+        while (x <= take && arr[take] == 0) {
             take--;
         }
-        if (take < i)
+        if (take < x)
             return -1;
         else
         {
