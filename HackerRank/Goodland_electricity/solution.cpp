@@ -47,7 +47,7 @@ void print_array(vector<ulli> &nums)
 int pylons(int k, vector<int> arr)
 {
     int n = arr.size();
-    int last = -1;
+    int last = -1, count = 0;
     int prv[n];
     for (int i = 0; i < n; i++)
     {
@@ -55,7 +55,7 @@ int pylons(int k, vector<int> arr)
             last = i;
         prv[i] = last;
     }
-    int count = 0;
+    
     for (int i = 0; i < n;)
     {
         int take = prv[min(i + k - 1, n - 1)];
