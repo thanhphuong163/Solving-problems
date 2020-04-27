@@ -47,23 +47,22 @@ void print_array(vector<ulli> &nums)
 int pylons(int k, vector<int> arr)
 {
     int n = arr.size();
-    int i = 0;
-    int x = 0;
-    int count = 0;
-    while (i < n)
+    int last = -1;
+    int prv[n];
+    for (int i = 0; i < n; i++)
     {
-        count++;
-        int take = min(i + k - 1, n - 1);
-        while (x <= take && arr[take] == 0) {
-            take--;
-        }
-        if (take < x)
+        if (arr[i] == 1)
+            last = i;
+        prv[i] = last;
+    }
+    int count = 0;
+    for (int i = 0; i < n;)
+    {
+        int take = prv[min(i + k - 1, n - 1)];
+        if (take == -1 || take + k <= i)
             return -1;
-        else
-        {
-            x = take;
-            i = x + k;
-        }
+        i = take + k;
+        count++;
     }
     return count;
 }
