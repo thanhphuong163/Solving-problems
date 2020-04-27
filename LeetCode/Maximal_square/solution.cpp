@@ -48,8 +48,10 @@ void print_array(vector<ulli> &nums) {
 int maximalSquare(vvc &matrix)
 {
     int m = matrix.size();
+    if (m == 0)
+        return 0;
     int n = matrix[0].size();
-    if (n == 0 || m == 0)
+    if (n == 0)
         return 0;
     vector<vector<int>> dp(m, vector<int>(n, 0));
     int maxSquare = 0;
