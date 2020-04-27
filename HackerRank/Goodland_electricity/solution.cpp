@@ -35,44 +35,37 @@ void print_array(vector<ulli> &nums)
 }
 
 /*
-    6 2
-    0 1 1 1 1 0
-    6 2
-    0 1 0 0 0 1
-    0 1 1 0 0 1
-    0 1 1 0 1 0
+    Use Greedy:
+    - The first tower must be placed at x < k
+    - The next tower must be placed at x+k <= i < x+2k
+    - If we cannot place tower in this way, then return -1
+    - If x+k > n, then end the procedure.
     7 2
-    0 1 0 0 1 0 1
-                  j
-    i = 6
-    loc = 5
-    trans = 2
+    0 1 1 1 1 0 1
+    ==> 3 at indices 1 4 6
 */
 int pylons(int k, vector<int> arr)
 {
     int n = arr.size();
-    int i = 0, j = 0, loc = 0, trans = 0;
+    int x = -k;
+    int i = x + 2 * k - 1;
+    int trans = 0;
     while (i < n)
     {
         trans++;
-        j = i + k - 1;
-        if (j >= n)
+        while (x + k <= i && arr[i] == 0)
         {
-            j = n - 1;
+            i--;
         }
-        while (loc <= j && arr[j] == 0)
-        {
-            j--;
-        }
-        if (j < i)
-        {
+        if (i < x + k)
             return -1;
-        }
         else
         {
-            loc = j;
-            j += k;
-            i = j;
+            x = i;
+            i = x + 2 * k - 1;
+            if (x+k<n && i >= n) {
+                i = n-1;
+            }
         }
     }
     return trans;
