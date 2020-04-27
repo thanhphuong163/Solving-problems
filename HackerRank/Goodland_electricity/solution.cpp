@@ -65,6 +65,7 @@ int pylons(int k, vector<int> arr)
             i = x + k;
         }
     }
+    return count;
 }
 
 // #define DEBUG_MODE
