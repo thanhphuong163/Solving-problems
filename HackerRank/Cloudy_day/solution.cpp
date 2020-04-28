@@ -8,17 +8,19 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <map>
+#include <set>
+#include <cmath>
 
 #define ulli unsigned long long int
-#define vulli vector<ulli>
 
 using namespace std;
 
 // Read input
-void read_array(string line, vector<ulli> &nums)
+void read_array(string line, vector<long> &nums)
 {
     stringstream ss(line);
-    ulli num;
+    long num;
     while (ss >> num)
     {
         nums.push_back(num);
@@ -26,9 +28,9 @@ void read_array(string line, vector<ulli> &nums)
 }
 
 // Print out input
-void print_array(vector<ulli> &nums)
+void print_array(vector<long> &nums)
 {
-    for (ulli i : nums)
+    for (long i : nums)
     {
         cout << i << " ";
     }
@@ -36,45 +38,62 @@ void print_array(vector<ulli> &nums)
 }
 
 /*
-    Iterate each town:
-        - under_cloud = -1
-        - Iterate each cloud:
-            - if (y[cloud] - r[cloud] <= x[town] && x[town] <= y[cloud] + r[cloud]) then 
-                - if under_cloud == -1 then under_cloud = cloud
-                - else under_cloud = -2;
-        - If under_cloud == -1 then sunny_pop += p[town]
-        - If under_cloud != -2 then pop_cloud[under_cloud] += p[town]
-    Iterate each cloud:
-        - maxPopulation = max(pop_cloud[cloud], maxPopulation)
-    return sunny_pop + maxPopulation
-
+    Use sweep line technique to determine number of people under each cloud.
+        - Create a map of events whose keys are coordinates:
+            - y[i] - r[i] : the i-th cloud active.
+            - y[i] + r[i] + 1: the i-th cloud inactive.
+            - x[j]: the j-th town.
+        - The values of the map are sorted lists of pairs <key, value>
+    Regard to greedy, choose the cloud which covers the most population.
 */
-long maximumPeople(vulli p, vulli x, vulli y, vulli r)
+typedef pair<long,long> pll;
+typedef pair<pll, long> plll;
+#define vpll vector<pll>
+map<long, vpll> events;
+#define vl vector<long>
+
+long maximumPeople(vl p, vl x, vl y, vl r)
 {
     long n = p.size();
     long m = y.size();
-    ulli sunnyPeople = 0;
-    vulli cloudPeople(m, 0);
-    for (long town = 0; town < n; town++) {
-        long underCloud = -1;
-        for (int cloud = 0; cloud < m; cloud++) {
-            if (y[cloud] - r[cloud] <= x[town] && x[town] <= y[cloud] + r[cloud]) {
-                if (underCloud == -1)
-                    underCloud = cloud;
-                else
-                    underCloud = -2;    // under more than one cloud
+    for (int i = 0; i < n; i++) {
+        events[x[i]].push_back(pair(2, p[i]));
+    }
+    for (int i = 0; i < m; i++) {
+        events[y[i]-r[i]].push_back(pair(1, i));
+        events[y[i]+r[i]+1].push_back(pair(-1, i));
+    }
+    map<long, vpll>::iterator it;
+    set<long> active;
+    vector<long> underPop(m);
+    long sunnyPop = 0;
+    for (it = events.begin(); it != events.end(); it++) {
+        long coord = it->first;
+        vpll lst_event = it->second;
+        sort(lst_event.begin(), lst_event.end());
+        vpll::iterator e;
+        for (e = lst_event.begin(); e != lst_event.end(); e++) {
+            if (e->first == -1) {
+                active.erase(e->second);
+            }
+            else if (e->first == 1) {
+                active.insert(e->second);
+            }
+            else {
+                if (active.size() == 1) {
+                    underPop[*active.begin()] += e->second;
+                }
+                else if (active.size() == 0) {
+                    sunnyPop += e->second;
+                }
             }
         }
-        if (underCloud == -1)
-            sunnyPeople += p[town];
-        if (underCloud != -2)
-            cloudPeople[underCloud] += p[town];
     }
-    ulli maxPeople = 0;
-    for (long cloud = 0; cloud < m; cloud++) {
-        maxPeople = max(maxPeople, cloudPeople[cloud]);
+    long mx = 0;
+    for (long x : underPop) {
+        mx = max(mx, x);
     }
-    return (long) maxPeople+sunnyPeople;
+    return sunnyPop+mx;
 }
 
 // #define DEBUG_MODE
@@ -83,19 +102,19 @@ int main(int argc, char const *argv[])
 #ifdef DEBUG_MODE
     /* Put your debugging code here */
 #else
-    ulli n, m;
+    int n, m;
     string line;
     while (cin >> n)
     {
         cin.ignore();
-        vulli p, x;
+        vl p, x;
         getline(cin, line);
         read_array(line, p);
         getline(cin, line);
         read_array(line, x);
         cin >> m;
         cin.ignore();
-        vulli y, r;
+        vl y, r;
         getline(cin, line);
         read_array(line, y);
         getline(cin, line);
