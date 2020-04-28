@@ -45,9 +45,9 @@ void print_array(vector<long> &nums)
             - x[j]: the j-th town.
         - The values of the map are sorted lists of pairs <key, value>
     Regard to greedy, choose the cloud which covers the most population.
+    Complexity O((n+m)log(n+m))
 */
 typedef pair<long,long> pll;
-typedef pair<pll, long> plll;
 #define vpll vector<pll>
 map<long, vpll> events;
 #define vl vector<long>
