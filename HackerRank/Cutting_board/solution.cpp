@@ -84,7 +84,7 @@ ulli boardCutting(vector<ulli> cost_y, vector<ulli> cost_x)
             }
         }
     }
-    return res%c;
+    return res % c;
 }
 
 // #define DEBUG_MODE
@@ -102,11 +102,11 @@ int main(int argc, char const *argv[]) {
         cin >> n >> m;
         cin.ignore();
         getline(cin,line);
-        vector<ulli> cost_x;
-        read_array(line, cost_x);
-        getline(cin, line);
         vector<ulli> cost_y;
         read_array(line, cost_y);
+        getline(cin, line);
+        vector<ulli> cost_x;
+        read_array(line, cost_x);
         cout << boardCutting(cost_y, cost_x) << endl;
     }
 #endif
