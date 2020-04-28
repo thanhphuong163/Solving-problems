@@ -57,11 +57,11 @@ long maximumPeople(vl p, vl x, vl y, vl r)
     long n = p.size();
     long m = y.size();
     for (int i = 0; i < n; i++) {
-        events[x[i]].push_back(pair(2, p[i]));
+        events[x[i]].push_back(make_pair(2, p[i]));
     }
     for (int i = 0; i < m; i++) {
-        events[y[i]-r[i]].push_back(pair(1, i));
-        events[y[i]+r[i]+1].push_back(pair(-1, i));
+        events[y[i]-r[i]].push_back(make_pair(1, i));
+        events[y[i]+r[i]+1].push_back(make_pair(-1, i));
     }
     map<long, vpll>::iterator it;
     set<long> active;
