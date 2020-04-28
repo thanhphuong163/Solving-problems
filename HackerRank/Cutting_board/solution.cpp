@@ -72,7 +72,7 @@ ulli boardCutting(vector<ulli> cost_y, vector<ulli> cost_x)
         else {
             long long cost1 = cost_y[y] * x_pieces;
             long long cost2 = cost_x[x] * y_pieces;
-            if (cost1 >= cost2) {
+            if (cost1 < cost2) {
                 res += cost1 % c;
                 y++;
                 y_pieces++;
