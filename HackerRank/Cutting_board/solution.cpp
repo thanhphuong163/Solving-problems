@@ -39,19 +39,13 @@ void print_array(vector<ulli> &nums) {
     use two-pointer technique to choose vertical or horizontal cut:
     - if x cut, then cost = cost_x[i] * y_pieces; y_pieces++;
     - if y cut, then cost = cost_y[j] * x_pieces; x_pieces++;
-    x: 4 3 2 1 1
-       ^
-    y: 4 2 1
-       ^
-    x_pieces = 1
-    y_pieces = 1
 */
 ulli boardCutting(vector<ulli> cost_y, vector<ulli> cost_x)
 {
     ulli c = 1e9+7;
     ulli res = 0;
-    sort(cost_x.begin(), cost_x.end(), greater<int>());
-    sort(cost_y.begin(), cost_y.end(), greater<int>());
+    sort(cost_x.begin(), cost_x.end(), greater<ulli>());
+    sort(cost_y.begin(), cost_y.end(), greater<ulli>());
     long long n = cost_x.size();
     long long m = cost_y.size();
     long long x = 0;
