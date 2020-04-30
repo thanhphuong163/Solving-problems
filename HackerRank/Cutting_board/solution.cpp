@@ -11,6 +11,8 @@
 #include <algorithm>
 
 #define ulli unsigned long long int
+#define ll long long
+#define pil pair<ulli, int>
 
 using namespace std;
 
@@ -33,52 +35,38 @@ void print_array(vector<ulli> &nums) {
 }
 
 /*
-    sort cost_x[] and cost_y[] descending order
-    x_pieces = 1
-    y_pieces = 1
-    use two-pointer technique to choose vertical or horizontal cut:
-    - if x cut, then cost = cost_x[i] * y_pieces; y_pieces++;
-    - if y cut, then cost = cost_y[j] * x_pieces; x_pieces++;
+    Use Greedy
+    Combine both arrays into one
+    Sort in descending order
+    
 */
 ulli boardCutting(vector<ulli> cost_y, vector<ulli> cost_x)
 {
     ulli c = 1e9+7;
     ulli res = 0;
-    sort(cost_x.begin(), cost_x.end(), greater<ulli>());
-    sort(cost_y.begin(), cost_y.end(), greater<ulli>());
-    long long n = cost_x.size();
-    long long m = cost_y.size();
-    long long x = 0;
-    long long y = 0;
-    long long x_pieces = 1;
-    long long y_pieces = 1;
-    while (x < n || y < m) {
-        if (cost_x[x] > cost_y[y]) {
-            res += (cost_x[x] * y_pieces) % c;
+
+    vector<pil> cuts;
+    for (ulli x: cost_x) {
+        cuts.push_back(make_pair(x, 0));
+    }
+    for (ulli y: cost_y) {
+        cuts.push_back(make_pair(y, 1));
+    }
+    sort(cuts.begin(), cuts.end(), greater());
+    ll x_pieces = 1;
+    ll y_pieces = 1;
+    ulli cost = 0;
+    for (int i = 0; i < cuts.size(); i++) {
+        if (cuts[i].second == 0) {
+            cost += cuts[i].first * y_pieces;
             x_pieces++;
-            x++;
-        }
-        else if (cost_x[x] < cost_y[y]) {
-            res += (cost_y[y] * x_pieces) % c;
-            y_pieces++;
-            y++;
         }
         else {
-            long long cost1 = cost_y[y] * x_pieces;
-            long long cost2 = cost_x[x] * y_pieces;
-            if (cost1 < cost2) {
-                res += cost1 % c;
-                y++;
-                y_pieces++;
-            }
-            else {
-                res += cost2 % c;
-                x++;
-                x_pieces++;
-            }
+            cost += cuts[i].first * x_pieces;
+            y_pieces++;
         }
     }
-    return res % c;
+    return cost;
 }
 
 // #define DEBUG_MODE
