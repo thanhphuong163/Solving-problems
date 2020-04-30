@@ -14,10 +14,10 @@
 using namespace std;
 
 // Read input
-void read_array(string line, vector<ulli> &nums)
+void read_array(string line, vector<int> &nums)
 {
     stringstream ss(line);
-    ulli num;
+    int num;
     while (ss >> num)
     {
         nums.push_back(num);
@@ -25,9 +25,9 @@ void read_array(string line, vector<ulli> &nums)
 }
 
 // Print out input
-void print_array(vector<ulli> &nums)
+void print_array(vector<int> &nums)
 {
-    for (ulli i : nums)
+    for (int i : nums)
     {
         cout << i << " ";
     }
@@ -75,7 +75,7 @@ int main(int argc, char const *argv[])
     string line;
     while (getline(cin, line))
     {
-        vector<ulli> nums;
+        vector<int> nums;
         read_array(line, nums);
         print_array(nums);
     }
