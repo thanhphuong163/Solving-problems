@@ -52,7 +52,7 @@ ulli boardCutting(vector<ulli> cost_y, vector<ulli> cost_x)
     for (ulli y: cost_y) {
         cuts.push_back(make_pair(y, 1));
     }
-    sort(cuts.begin(), cuts.end(), greater<ulli, int>());
+    sort(cuts.begin(), cuts.end(), greater<pil>());
     ll x_pieces = 1;
     ll y_pieces = 1;
     ulli cost = 0;
