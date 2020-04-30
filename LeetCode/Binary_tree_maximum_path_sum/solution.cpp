@@ -77,7 +77,6 @@ int main(int argc, char const *argv[])
     {
         vector<int> nums;
         read_array(line, nums);
-        print_array(nums);
     }
 #endif
     return 0;
