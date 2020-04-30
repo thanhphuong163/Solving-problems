@@ -43,7 +43,6 @@ void print_array(vector<ulli> &nums) {
 ulli boardCutting(vector<ulli> cost_y, vector<ulli> cost_x)
 {
     ulli c = 1e9+7;
-    ulli res = 0;
 
     vector<pil> cuts;
     for (ulli x: cost_x) {
@@ -58,15 +57,15 @@ ulli boardCutting(vector<ulli> cost_y, vector<ulli> cost_x)
     ulli cost = 0;
     for (int i = 0; i < cuts.size(); i++) {
         if (cuts[i].second == 0) {
-            cost += cuts[i].first * y_pieces;
+            cost += (cuts[i].first * y_pieces)%c;
             x_pieces++;
         }
         else {
-            cost += cuts[i].first * x_pieces;
+            cost += (cuts[i].first * x_pieces)%c;
             y_pieces++;
         }
     }
-    return cost;
+    return cost%c;
 }
 
 // #define DEBUG_MODE
