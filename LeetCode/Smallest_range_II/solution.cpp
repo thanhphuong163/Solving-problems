@@ -8,6 +8,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <cmath>
+#include <algorithm>
 
 #define ulli unsigned long long int
 
@@ -40,15 +42,15 @@ Write your solution here
 ulli smallestRangeII(vector<ulli> &A, ulli K)
 {
     int size = A.size();
-    ulli min = A[0], max = A[0];
-    for (int i = 1; i < size; i++)
-    {
-        if (A[i] < min)
-            min = A[i];
-        if (A[i] > max)
-            max = A[i];
+    sort(A.begin(), A.end());
+    int ans = A[size-1] - A[0];
+    for (int i = 0; i < size - 1; i++) {
+        int a = A[i], b = A[i+1];
+        int high = max(A[size-1]-K, a+K);
+        int low = min(A[0]+K, b-K);
+        ans = min(ans, high - low);
     }
-    return max - min;
+    return ans;
 }
 
 // #define DEBUG_MODE
