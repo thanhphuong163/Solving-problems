@@ -64,6 +64,7 @@ int main(int argc, char const *argv[])
         read_array(line, nums);
         ulli k;
         cin >> k;
+        cin.ignore();
         cout << smallestRangeII(nums, k) << endl;
     }
 #endif
