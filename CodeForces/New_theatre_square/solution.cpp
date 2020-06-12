@@ -46,9 +46,10 @@ int paveTheatre(vector<int> &params, vector<string> theatre) {
     y = params[3];
     for (int i = 0; i < n; i++) {
         int j = 0;
+        string row = theatre[i];
         while (j < m) {
-            if (theatre[i][j] == '.') {
-                if (theatre[i][j+1] == '.') {
+            if (row[j] == '.') {
+                if (row[j+1] == '.') {
                     ans += y;
                     j += 2;
                 }
