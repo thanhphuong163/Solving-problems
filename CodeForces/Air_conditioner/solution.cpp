@@ -34,25 +34,25 @@ void print_array(vector<ulli> &nums) {
 }
 
 /*
-    Using greedy algorithm:
+    Using greedy algorithm with two pointers in order to create a feasible range
 */
 void isSatisfied(int n, int m, vector<lli> &t, vector<lli> &l, vector<lli> &h)
 {
     bool ans = true;
-    lli lb = m;
-    lli ub = m;
-    for (int i = 1; i <= n; i++) {
-        lli distance = t[i] - t[i-1];
-        if (h[i-1] < l[i]) {    // Heating
-            lb = min(l[i], lb+distance);
-            ub = min(h[i], ub+distance);
-            if (ub < l[i]) ans = false;
+    lli mn = m;
+    lli mx = m;
+    int prev = 0;
+    for (int i = 0; i < n; i++) {
+        lli k = t[i] - prev;
+        mn -= k;
+        mx += k;
+        if (l[i] > mx || h[i] < mn) {
+            ans = false;
+            break;
         }
-        else if (h[i] < l[i-1]) {   // Cooling
-            lb = max(l[i], lb-distance);
-            ub = max(h[i], ub-distance);
-            if (lb > h[i]) ans = false;
-        }
+        mn = max(mn, l[i]);
+        mx = min(mx, h[i]);
+        prev = t[i];
     }
 
     if (ans) {
@@ -75,13 +75,10 @@ int main(int argc, char const *argv[]) {
         int n, m;
         cin >> n >> m;
         cin.ignore();
-        vector<lli> t(n+1);
-        vector<lli> l(n+1);
-        vector<lli> h(n+1);
-        t[0] = 0;
-        l[0] = m;
-        h[0] = m;
-        for (int i = 1; i <= n; i++) {
+        vector<lli> t(n);
+        vector<lli> l(n);
+        vector<lli> h(n);
+        for (int i = 0; i < n; i++) {
             cin >> t[i] >> l[i] >> h[i];
             cin.ignore();
         }
