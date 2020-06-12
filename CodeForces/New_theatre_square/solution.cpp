@@ -85,9 +85,9 @@ int main(int argc, char const *argv[]) {
         int n = params[0];
         while(n--) {
             getline(cin, line);
-            theatre.push_back(line);
+            cout << line << endl;
         }
-        cout << paveTheatre(params, theatre) << endl;
+        // cout << paveTheatre(params, theatre) << endl;
     }
 #endif
     return 0;
