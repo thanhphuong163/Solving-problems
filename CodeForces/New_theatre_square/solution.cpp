@@ -44,25 +44,9 @@ int paveTheatre(vector<int> &params, vector<string> theatre) {
     m = params[1];
     x = params[2];
     y = params[3];
+    cout << n << m << x << y << endl;
     for (int i = 0; i < n; i++) {
-        int j = 0;
-        string row = theatre[i];
-        cout << row << endl;
-        // while (j < m) {
-        //     if (row[j] == '.') {
-        //         if (row[j+1] == '.') {
-        //             ans += y;
-        //             j += 2;
-        //         }
-        //         else {
-        //             ans += x;
-        //             j++;
-        //         }
-        //     }
-        //     else {
-        //         j++;
-        //     }
-        // }
+        cout << theatre[i] << endl;
     }
     return ans;
 }
@@ -85,9 +69,9 @@ int main(int argc, char const *argv[]) {
         int n = params[0];
         while(n--) {
             getline(cin, line);
-            cout << line << endl;
+            theatre.push_back(line);
         }
-        // cout << paveTheatre(params, theatre) << endl;
+        cout << paveTheatre(params, theatre) << endl;
     }
 #endif
     return 0;
