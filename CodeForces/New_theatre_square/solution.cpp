@@ -61,10 +61,10 @@ int main(int argc, char const *argv[]) {
     cin >> t;
     cin.ignore();
     string line;
-    vector<string> theatre;
     while (t--) {
         getline(cin, line);
         vector<int> params;
+        vector<string> theatre;
         read_array(line, params);
         int n = params[0];
         while(n--) {
