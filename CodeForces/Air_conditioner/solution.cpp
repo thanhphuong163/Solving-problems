@@ -39,16 +39,22 @@ void print_array(vector<ulli> &nums) {
 void isSatisfied(int n, int m, vector<lli> &t, vector<lli> &l, vector<lli> &h)
 {
     bool ans = true;
+    lli lb = m;
+    lli ub = m;
     for (int i = 1; i <= n; i++) {
-        if (h[i] < l[i-1])  // cooling
-        {
-            if ((t[i] - t[i-1]) < (l[i-1] - h[i])) ans = false;
+        lli distance = t[i] - t[i-1];
+        if (h[i-1] < l[i]) {    // Heating
+            lb = min(l[i], lb+distance);
+            ub = min(h[i], ub+distance);
+            if (ub < l[i]) ans = false;
         }
-        else if (l[i] > h[i-1]) // heating
-        {
-            if ((t[i] - t[i-1]) < (l[i] - h[i-1])) ans = false;
+        else if (h[i] < l[i-1]) {   // Cooling
+            lb = max(l[i], lb-distance);
+            ub = max(h[i], ub-distance);
+            if (lb > h[i]) ans = false;
         }
     }
+
     if (ans) {
         cout << "yes" << endl;
     }
