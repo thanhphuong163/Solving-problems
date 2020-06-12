@@ -47,21 +47,22 @@ int paveTheatre(vector<int> &params, vector<string> theatre) {
     for (int i = 0; i < n; i++) {
         int j = 0;
         string row = theatre[i];
-        while (j < m) {
-            if (row[j] == '.') {
-                if (row[j+1] == '.') {
-                    ans += y;
-                    j += 2;
-                }
-                else {
-                    ans += x;
-                    j++;
-                }
-            }
-            else {
-                j++;
-            }
-        }
+        cout << row << endl;
+        // while (j < m) {
+        //     if (row[j] == '.') {
+        //         if (row[j+1] == '.') {
+        //             ans += y;
+        //             j += 2;
+        //         }
+        //         else {
+        //             ans += x;
+        //             j++;
+        //         }
+        //     }
+        //     else {
+        //         j++;
+        //     }
+        // }
     }
     return ans;
 }
