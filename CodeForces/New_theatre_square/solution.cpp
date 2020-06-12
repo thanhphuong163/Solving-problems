@@ -8,6 +8,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <cmath>
 
 #define ulli unsigned long long int
 
@@ -34,7 +35,7 @@ void print_array(vector<int> &nums) {
 /*
     Using greedy algorithm:
         - If square is white, then check the next square:
-            - If it is white then, use the two ties and jump one step
+            - If it is white then, cost += min(2*x, y) and jump 2 steps
             - Else use the one tie
 */
 int paveTheatre(vector<int> &params, vector<string> theatre) {
@@ -51,7 +52,7 @@ int paveTheatre(vector<int> &params, vector<string> theatre) {
         while (j < m) {
             if (row[j] == '.') {
                 if (row[j+1] == '.') {
-                    ans += y;
+                    ans += min(2*x, y);
                     j += 2;
                 }
                 else {
