@@ -1,6 +1,6 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
+// Problem: https://codeforces.com/problemset/problem/1304/C
 // Submit: 
 
 #include <stdio.h>
@@ -8,6 +8,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <cmath>
 
 #define ulli unsigned long long int
 
@@ -34,18 +35,34 @@ void print_array(vector<ulli> &nums) {
 /*
 Write your solution here
 */
+void isSatisfied(int n, int m, vector<ulli> &t, vector<ulli> &l, vector<ulli> &h)
+{
+    cout << n << m << endl;
+    for (int i = 0; i < n; i++) {
+        cout << t[i] << l[i] << h[i] << endl;
+    }
+}
 
 // #define DEBUG_MODE
 int main(int argc, char const *argv[]) {
 #ifdef DEBUG_MODE
     /* Put your debugging code here */
 #else
-    string line;
-    while (getline(cin, line))
-    {
-        vector<ulli> nums;
-        read_array(line, nums);
-        /* your code here */
+    int t;
+    cin >> t;
+    cin.ignore();
+    while (t--){
+        int n, m;
+        cin >> n >> m;
+        cin.ignore();
+        vector<ulli> t(n);
+        vector<ulli> l(n);
+        vector<ulli> h(n);
+        for (int i = 0; i < n; i++) {
+            cin >> t[i] >> l[i] >> h[i];
+            cin.ignore();
+        }
+        isSatisfied(n,m,t,l,h);
     }
 #endif
     return 0;
