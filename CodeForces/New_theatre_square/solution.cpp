@@ -1,6 +1,6 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
+// Problem: https://codeforces.com/problemset/problem/1359/B
 // Submit: 
 
 #include <stdio.h>
@@ -14,17 +14,17 @@
 using namespace std;
 
 // Read input
-void read_array(string line, vector<ulli> &nums) {
+void read_array(string line, vector<int> &nums) {
     stringstream ss(line);
-    ulli num;
+    int num;
     while (ss >> num) {
     	nums.push_back(num);
     }
 }
 
 // Print out input
-void print_array(vector<ulli> &nums) {
-    for (ulli i : nums)
+void print_array(vector<int> &nums) {
+    for (int i : nums)
     {
         cout << i << " ";
     }
@@ -32,20 +32,60 @@ void print_array(vector<ulli> &nums) {
 }
 
 /*
-Write your solution here
+    Using greedy algorithm:
+        - If square is white, then check the next square:
+            - If it is white then, use the two ties and jump one step
+            - Else use the one tie
 */
+int paveTheatre(vector<int> &params, vector<string> theatre) {
+    int n,m,x,y;
+    int ans = 0;
+    n = params[0];
+    m = params[1];
+    x = params[2];
+    y = params[3];
+    for (int i = 0; i < n; i++) {
+        int j = 0;
+        while (j < m) {
+            if (theatre[i][j] == '.') {
+                if (theatre[i][j+1] == '.') {
+                    ans += y;
+                    j += 2;
+                }
+                else {
+                    ans += x;
+                    j++;
+                }
+            }
+            else {
+                j++;
+            }
+        }
+    }
+    return ans;
+}
+
 
 // #define DEBUG_MODE
 int main(int argc, char const *argv[]) {
 #ifdef DEBUG_MODE
     /* Put your debugging code here */
 #else
+    int t;
+    cin >> t;
+    cin.ignore();
     string line;
-    while (getline(cin, line))
-    {
-        vector<ulli> nums;
-        read_array(line, nums);
-        /* your code here */
+    vector<string> theatre;
+    while (t--) {
+        getline(cin, line);
+        vector<int> params;
+        read_array(line, params);
+        int n = params[0];
+        while(n--) {
+            getline(cin, line);
+            theatre.push_back(line);
+        }
+        cout << paveTheatre(params, theatre) << endl;
     }
 #endif
     return 0;
