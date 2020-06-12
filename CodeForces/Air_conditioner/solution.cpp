@@ -56,10 +56,10 @@ void isSatisfied(int n, int m, vector<lli> &t, vector<lli> &l, vector<lli> &h)
     }
 
     if (ans) {
-        cout << "yes" << endl;
+        cout << "YES" << endl;
     }
     else {
-        cout << "no" << endl;
+        cout << "NO" << endl;
     }
 }
 
