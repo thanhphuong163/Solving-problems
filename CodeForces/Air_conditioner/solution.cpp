@@ -11,6 +11,7 @@
 #include <cmath>
 
 #define ulli unsigned long long int
+#define lli long long int
 
 using namespace std;
 
@@ -35,7 +36,7 @@ void print_array(vector<ulli> &nums) {
 /*
 Write your solution here
 */
-void isSatisfied(int n, int m, vector<ulli> &t, vector<ulli> &l, vector<ulli> &h)
+void isSatisfied(int n, int m, vector<lli> &t, vector<lli> &l, vector<lli> &h)
 {
     cout << n << m << endl;
     for (int i = 0; i < n; i++) {
@@ -55,9 +56,9 @@ int main(int argc, char const *argv[]) {
         int n, m;
         cin >> n >> m;
         cin.ignore();
-        vector<ulli> t(n);
-        vector<ulli> l(n);
-        vector<ulli> h(n);
+        vector<lli> t(n);
+        vector<lli> l(n);
+        vector<lli> h(n);
         for (int i = 0; i < n; i++) {
             cin >> t[i] >> l[i] >> h[i];
             cin.ignore();
