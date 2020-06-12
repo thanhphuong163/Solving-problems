@@ -45,7 +45,6 @@ int paveTheatre(vector<int> &params, vector<string> theatre) {
     m = params[1];
     x = params[2];
     y = params[3];
-    
     for (int i = 0; i < n; i++) {
         int j = 0;
         string row = theatre[i];
@@ -67,7 +66,6 @@ int paveTheatre(vector<int> &params, vector<string> theatre) {
     }
     return ans;
 }
-
 
 // #define DEBUG_MODE
 int main(int argc, char const *argv[]) {
