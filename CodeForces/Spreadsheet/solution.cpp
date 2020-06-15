@@ -1,6 +1,6 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
+// Problem: https://codeforces.com/problemset/problem/777/C
 // Submit: 
 
 #include <stdio.h>
@@ -8,8 +8,11 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <cmath>
 
 #define ulli unsigned long long int
+#define vulli vector<ulli>
+#define vvulli vector<vulli>
 
 using namespace std;
 
@@ -34,18 +37,33 @@ void print_array(vector<ulli> &nums) {
 /*
 Write your solution here
 */
+void executeTask(int l, int r, vvulli spreadsheet) {
+    cout << l << r << endl;
+}
 
 // #define DEBUG_MODE
 int main(int argc, char const *argv[]) {
 #ifdef DEBUG_MODE
     /* Put your debugging code here */
 #else
+    int n,m,k;
+    cin >> n >> m;
+    cin.ignore();
+    vvulli spreadsheet;
     string line;
-    while (getline(cin, line))
-    {
-        vector<ulli> nums;
+    while(n--) {
+        vulli nums;
+        getline(cin, line);
         read_array(line, nums);
-        /* your code here */
+        spreadsheet.push_back(nums);
+    }
+    cin >> k;
+    cin.ignore();
+    while(k--) {
+        int l,r;
+        cin >> l >> r;
+        cin.ignore();
+        executeTask(l,r,spreadsheet);
     }
 #endif
     return 0;
