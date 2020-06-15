@@ -13,6 +13,8 @@
 #define ulli unsigned long long int
 #define vulli vector<ulli>
 #define vvulli vector<vulli>
+#define vi vector<int>
+#define vvi vector<vi>
 
 using namespace std;
 
@@ -22,6 +24,16 @@ void read_array(string line, vector<ulli> &nums) {
     ulli num;
     while (ss >> num) {
     	nums.push_back(num);
+    }
+}
+
+void read_array(string line, vector<int> &nums)
+{
+    stringstream ss(line);
+    int num;
+    while (ss >> num)
+    {
+        nums.push_back(num);
     }
 }
 
@@ -35,16 +47,47 @@ void print_array(vector<ulli> &nums) {
 }
 
 /*
-Write your solution here
-*/
-void executeTask(int l, int r, vvulli spreadsheet) {
-    for (int i = l-1; i <= r-1; i++) {
-        for (int j = 0; j < spreadsheet[i].size(); j++) {
-            cout << spreadsheet[i][j] << " ";
-        }
-        cout << endl;
+    Use DP: create a same-size grid
+    if (spreadsheet[i][j] >= spreadsheet[i-1][j]) {
+        incr[i][j] = incr[i-1][j] + 1;
     }
-    cout << endl;
+    else {
+        incr[i][j] = 1;
+    }
+*/
+void executeTask(vvulli spreadsheet, vvi tasks) {
+    int n = spreadsheet.size();
+    int m = spreadsheet[0].size();
+    int k = tasks.size();
+    int incr[n][m];
+    memset(incr, 0, sizeof(incr));
+    for (int j = 0; j < m; j++) {
+        incr[0][j] = 1;
+    }
+    for(int j = 0; j < m; j++) {
+        for (int i = 1; i < n; i++) {
+            if (spreadsheet[i][j] >= spreadsheet[i-1][j]) {
+                incr[i][j] = incr[i-1][j] + 1;
+            }
+            else {
+                incr[i][j] = 1;
+            }
+        }
+    }
+    for (int t = 0; t < k; t++) {
+        int l = tasks[t][0];
+        int r = tasks[t][1];
+        int tot = r - l;
+        bool ok = false;
+        for (int j = 0; j < m; j++) {
+            if (incr[r-1][j] - incr[l-1][j] == tot) {
+                ok = true;
+                break;
+            }
+        }
+        if (ok) cout << "Yes" << endl;
+        else cout << "No" << endl;
+    }
 }
 
 // #define DEBUG_MODE
@@ -65,12 +108,14 @@ int main(int argc, char const *argv[]) {
     }
     cin >> k;
     cin.ignore();
+    vvi tasks;
     while(k--) {
-        int l,r;
-        cin >> l >> r;
-        cin.ignore();
-        executeTask(l,r,spreadsheet);
+        vi pair;
+        getline(cin, line);
+        read_array(line, pair);
+        tasks.push_back(pair);
     }
+    executeTask(spreadsheet, tasks);
 #endif
     return 0;
 }
