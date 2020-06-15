@@ -60,7 +60,7 @@ void executeTask(vvulli spreadsheet, vvi tasks) {
     int m = spreadsheet[0].size();
     int k = tasks.size();
     int incr[n][m];
-    memset(incr, 0, sizeof(incr));
+    // memset(incr, 0, sizeof(incr));
     for (int j = 0; j < m; j++) {
         incr[0][j] = 1;
     }
