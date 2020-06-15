@@ -38,7 +38,13 @@ void print_array(vector<ulli> &nums) {
 Write your solution here
 */
 void executeTask(int l, int r, vvulli spreadsheet) {
-    cout << l << r << endl;
+    for (int i = l; i <= r; i++) {
+        for (int j = 0; j < spreadsheet[i].size(); j++) {
+            cout << spreadsheet[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
 }
 
 // #define DEBUG_MODE
