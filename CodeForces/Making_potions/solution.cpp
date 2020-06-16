@@ -11,6 +11,7 @@
 
 #define ulli unsigned long long int
 #define vulli vector<ulli>
+#define INF INT64_MAX
 
 using namespace std;
 
@@ -35,12 +36,18 @@ void print_array(vector<ulli> &nums) {
 /*
 Write your solution here
 */
-ulli preparePotions(ulli s, vulli a, vulli b, vulli c, vulli d) {
+ulli preparePotions(ulli n, ulli x, ulli s, vulli &a, vulli &b, vulli &c, vulli &d) {
     ulli m = a.size();
     ulli k = c.size();
-    ulli cost = INT64_MAX;
+    ulli cost = x*n;
     // Your code here
-
+    for (int i = 0; i < m; i++) {
+        int j = 0;
+        while (s-b[i] >= d[j]) {
+            cost = min(cost, (n-c[j])*a[i]);
+            j++;
+        }
+    }
     return cost;
 }
 
@@ -65,7 +72,7 @@ ulli preparePotions(ulli s, vulli a, vulli b, vulli c, vulli d) {
         read_array(line, c);
         getline(cin, line);
         read_array(line, d);
-        cout << preparePotions(s,a,b,c,d) << endl;
+        cout << preparePotions(n,x,s,a,b,c,d) << endl;
     }
 #endif
     return 0;
