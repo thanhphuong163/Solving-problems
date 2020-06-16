@@ -67,6 +67,7 @@ void executeTask(vvulli ss, vvi tasks) {
                     if (ss[k - 1][j] <= ss[k][j])
                     {
                         memRow[i-1] = k;
+                        break;
                     }
                 }
             }
