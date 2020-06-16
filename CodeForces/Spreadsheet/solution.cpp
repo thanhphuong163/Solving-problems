@@ -59,12 +59,15 @@ void executeTask(vvulli ss, vvi tasks) {
     vector<int> memRow(n);
     vector<int> memCol(m);
     for (int i = 0; i < n-1; i++) {
-        memRow[i] = 0;
+        memRow[i] = i;
         for (int j = 0; j < m; j++) {
             if (memCol[j] <= i) {
-                for (int k = i; k < n-1; k++) {
-                    if (ss[k+1][j] < ss[k][j]) {
+                for (int k = i+1; k < n; k++)
+                {
+                    if (ss[k-1][j] <= ss[k][j]) {
                         memCol[j] = k;
+                    }
+                    else {
                         break;
                     }
                 }
