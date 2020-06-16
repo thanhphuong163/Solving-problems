@@ -58,23 +58,23 @@ void executeTask(vvulli ss, vvi tasks) {
     
     vector<int> memRow(n);
     vector<int> memCol(m);
-    for(int i = 1; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         int maxx = 0;
         for(int j = 0; j < m; j++) {
             if (memCol[j] < i) {
                 for (int k = i; k < n; k++)
                 {
-                    if (ss[k - 1][j] <= ss[k][j])
+                    if (ss[k + 1][j] < ss[k][j])
                     {
                         memCol[j] = k;
+                        break;
                     }
                 }
             }
             maxx = max(maxx, memCol[j]);
         }
-        memRow[i-1] = maxx;
+        memRow[i] = maxx;
     }
-    memRow[n-1] = n-1;
     // for (int t = 0; t < k; t++) {
     //     int l = tasks[t][0] - 1;
     //     int r = tasks[t][1] - 1;
