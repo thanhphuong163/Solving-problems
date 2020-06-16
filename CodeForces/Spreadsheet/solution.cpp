@@ -56,8 +56,8 @@ void executeTask(vvulli ss, vvi tasks) {
     int m = ss[0].size();
     int k = tasks.size();
     
-    vector<int> memRow(0,n);
-    vector<int> memCol(0,m);
+    vector<int> memRow(n);
+    vector<int> memCol(m);
     for(int i = 1; i < n; i++) {
         int maxx = 0;
         for(int j = 0; j < m; j++) {
