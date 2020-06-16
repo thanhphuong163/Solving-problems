@@ -55,33 +55,33 @@ void executeTask(vvulli ss, vvi tasks) {
     int n = ss.size();
     int m = ss[0].size();
     int k = tasks.size();
-    
-    vector<int> memRow(0,n);
-    vector<int> memCol(0,m);
-    for(int i = 1; i < n; i++) {
-        int maxx = 0;
-        for(int j = 0; j < m; j++) {
-            if (memCol[j] < i) {
-                for (int k = i; k < n; k++)
-                {
-                    if (ss[k - 1][j] <= ss[k][j])
-                    {
-                        memRow[i-1] = k;
-                    }
-                }
-            }
-            maxx = max(maxx, memCol[j]);
-        }
-        memRow[i] = maxx;
-    }
-    memRow[n-1] = n-1;
-    for (int t = 0; t < k; t++) {
-        int l = tasks[t][0] - 1;
-        int r = tasks[t][1] - 1;
-        if (memRow[l] >= r) cout << "Yes" << endl;
-        else cout << "No" << endl;
-    }
-    cout << "fdasfdsa" << endl;
+    cout << n << m << k << endl;
+    // vector<int> memRow(0,n);
+    // vector<int> memCol(0,m);
+    // for(int i = 1; i < n; i++) {
+    //     int maxx = 0;
+    //     for(int j = 0; j < m; j++) {
+    //         if (memCol[j] < i) {
+    //             for (int k = i; k < n; k++)
+    //             {
+    //                 if (ss[k - 1][j] <= ss[k][j])
+    //                 {
+    //                     memRow[i-1] = k;
+    //                 }
+    //             }
+    //         }
+    //         maxx = max(maxx, memCol[j]);
+    //     }
+    //     memRow[i] = maxx;
+    // }
+    // memRow[n-1] = n-1;
+    // for (int t = 0; t < k; t++) {
+    //     int l = tasks[t][0] - 1;
+    //     int r = tasks[t][1] - 1;
+    //     if (memRow[l] >= r) cout << "Yes" << endl;
+    //     else cout << "No" << endl;
+    // }
+    // cout << "fdasfdsa" << endl;
 }
 
 // #define DEBUG_MODE
@@ -110,6 +110,7 @@ int main(int argc, char const *argv[]) {
         tasks.push_back(pair);
     }
     executeTask(spreadsheet, tasks);
+
 #endif
     return 0;
 }
