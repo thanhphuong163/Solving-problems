@@ -43,6 +43,7 @@ ulli preparePotions(ulli n, ulli x, ulli s, vulli &a, vulli &b, vulli &c, vulli 
     // Your code here
     for (int i = 0; i < m; i++) {
         int j = 0;
+        cout << s-b[i] << d[j] << endl;
         while ((s-b[i] >= d[j]) && (j < k)) {
             cost = min(cost, (n-c[j])*a[i]);
             j++;
