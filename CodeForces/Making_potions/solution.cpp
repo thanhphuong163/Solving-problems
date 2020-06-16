@@ -1,7 +1,7 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
-// Submit: 
+// Problem: https://codeforces.com/problemset/problem/734/C
+// Submit:
 
 #include <stdio.h>
 #include <iostream>
@@ -10,6 +10,7 @@
 #include <vector>
 
 #define ulli unsigned long long int
+#define vulli vector<ulli>
 
 using namespace std;
 
@@ -34,18 +35,37 @@ void print_array(vector<ulli> &nums) {
 /*
 Write your solution here
 */
+ulli preparePotions(ulli s, vulli a, vulli b, vulli c, vulli d) {
+    ulli m = a.size();
+    ulli k = c.size();
+    ulli cost = INT64_MAX;
+    // Your code here
 
-// #define DEBUG_MODE
-int main(int argc, char const *argv[]) {
+    return cost;
+}
+
+    // #define DEBUG_MODE
+    int main(int argc, char const *argv[])
+{
 #ifdef DEBUG_MODE
     /* Put your debugging code here */
 #else
     string line;
-    while (getline(cin, line))
+    ulli n,m,k,x,s;
+    while (cin >> n >> m >> k)
     {
-        vector<ulli> nums;
-        read_array(line, nums);
-        /* your code here */
+        cin >> x >> s;
+        cin.ignore();
+        vector<ulli> a,b,c,d;
+        getline(cin, line);
+        read_array(line, a);
+        getline(cin, line);
+        read_array(line, b);
+        getline(cin, line);
+        read_array(line, c);
+        getline(cin, line);
+        read_array(line, d);
+        cout << preparePotions(s,a,b,c,d) << endl;
     }
 #endif
     return 0;
