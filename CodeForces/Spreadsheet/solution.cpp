@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <cmath>
+#include <map>
 
 #define ulli unsigned long long int
 #define vulli vector<ulli>
@@ -47,45 +48,37 @@ void print_array(vector<ulli> &nums) {
 }
 
 /*
-    Use DP: create a same-size grid
-    if (spreadsheet[i][j] >= spreadsheet[i-1][j]) {
-        incr[i][j] = incr[i-1][j] + 1;
-    }
-    else {
-        incr[i][j] = 1;
-    }
+    Use DP
+    Complexity: O(n*n*m)
 */
-void executeTask(vvulli spreadsheet, vvi tasks) {
-    int n = spreadsheet.size();
-    int m = spreadsheet[0].size();
+void executeTask(vvulli ss, vvi tasks) {
+    int n = ss.size();
+    int m = ss[0].size();
     int k = tasks.size();
-    int incr[n][m];
-    // memset(incr, 0, sizeof(incr));
-    for (int j = 0; j < m; j++) {
-        incr[0][j] = 1;
-    }
-    for(int j = 0; j < m; j++) {
-        for (int i = 1; i < n; i++) {
-            if (spreadsheet[i][j] >= spreadsheet[i-1][j]) {
-                incr[i][j] = incr[i-1][j] + 1;
+    
+    vector<int> memRow(0,n);
+    vector<int> memCol(0,m);
+    for(int i = 1; i < n; i++) {
+        int maxx = 0;
+        for(int j = 0; j < m; j++) {
+            if (memCol[j] < i) {
+                for (int k = i; k < n; k++)
+                {
+                    if (ss[k - 1][j] <= ss[k][j])
+                    {
+                        memRow[i-1] = k;
+                    }
+                }
             }
-            else {
-                incr[i][j] = 1;
-            }
+            maxx = max(maxx, memCol[j]);
         }
+        memRow[i] = maxx;
     }
+    memRow[n-1] = n-1;
     for (int t = 0; t < k; t++) {
-        int l = tasks[t][0];
-        int r = tasks[t][1];
-        int tot = r - l;
-        bool ok = false;
-        for (int j = 0; j < m; j++) {
-            if (incr[r-1][j] - incr[l-1][j] == tot) {
-                ok = true;
-                break;
-            }
-        }
-        if (ok) cout << "Yes" << endl;
+        int l = tasks[t][0] - 1;
+        int r = tasks[t][1] - 1;
+        if (memRow[l] >= r) cout << "Yes" << endl;
         else cout << "No" << endl;
     }
 }
