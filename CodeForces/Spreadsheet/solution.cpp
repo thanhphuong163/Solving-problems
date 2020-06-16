@@ -76,13 +76,13 @@ void executeTask(vvulli ss, vvi tasks) {
         }
     }
     memRow[n-1] = n-1;
-    // for (int t = 0; t < k; t++) {
-    //     int l = tasks[t][0] - 1;
-    //     int r = tasks[t][1] - 1;
-    //     if (memRow[l] >= r) cout << "Yes" << endl;
-    //     else cout << "No" << endl;
-    // }
-    for (auto i : memRow) {cout << i << endl;}
+    for (int t = 0; t < k; t++) {
+        int l = tasks[t][0] - 1;
+        int r = tasks[t][1] - 1;
+        if (memRow[l] >= r) cout << "Yes" << endl;
+        else cout << "No" << endl;
+    }
+    // for (auto i : memRow) {cout << i << endl;}
 }
 
 // #define DEBUG_MODE
