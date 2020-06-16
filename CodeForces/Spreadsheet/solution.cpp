@@ -81,7 +81,7 @@ void executeTask(vvulli ss, vvi tasks) {
     //     if (memRow[l] >= r) cout << "Yes" << endl;
     //     else cout << "No" << endl;
     // }
-    for (auto i : memRow) {
+    for (int i : memRow) {
         cout << i << endl;
     }
 }
