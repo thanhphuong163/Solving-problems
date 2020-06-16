@@ -81,6 +81,7 @@ void executeTask(vvulli ss, vvi tasks) {
         if (memRow[l] >= r) cout << "Yes" << endl;
         else cout << "No" << endl;
     }
+    cout << "fdasfdsa" << endl;
 }
 
 // #define DEBUG_MODE
