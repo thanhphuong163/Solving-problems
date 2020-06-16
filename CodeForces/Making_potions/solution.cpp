@@ -10,15 +10,17 @@
 #include <vector>
 
 #define ulli unsigned long long int
+#define lli long long int
 #define vulli vector<ulli>
+#define vlli vector<lli>
 #define INF INT64_MAX
 
 using namespace std;
 
 // Read input
-void read_array(string line, vector<ulli> &nums) {
+void read_array(string line, vector<lli> &nums) {
     stringstream ss(line);
-    ulli num;
+    lli num;
     while (ss >> num) {
     	nums.push_back(num);
     }
@@ -36,7 +38,7 @@ void print_array(vector<ulli> &nums) {
 /*
 Write your solution here
 */
-ulli preparePotions(ulli n, ulli x, ulli s, vulli &a, vulli &b, vulli &c, vulli &d) {
+ulli preparePotions(ulli n, ulli x, lli s, vlli &a, vlli &b, vlli &c, vlli &d) {
     ulli m = a.size();
     ulli k = c.size();
     ulli cost = x*n;
@@ -59,12 +61,13 @@ ulli preparePotions(ulli n, ulli x, ulli s, vulli &a, vulli &b, vulli &c, vulli 
     /* Put your debugging code here */
 #else
     string line;
-    ulli n,m,k,x,s;
+    ulli n,m,k,x;
+    lli s;
     while (cin >> n >> m >> k)
     {
         cin >> x >> s;
         cin.ignore();
-        vector<ulli> a,b,c,d;
+        vector<lli> a,b,c,d;
         getline(cin, line);
         read_array(line, a);
         getline(cin, line);
