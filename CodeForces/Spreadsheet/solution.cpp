@@ -49,6 +49,10 @@ void print_array(vector<ulli> &nums) {
 
 /*
     Use DP
+    Store max position of non-descending sequence in memRow vector
+    memRow[l] = max_pos
+    if memRow[l] >= r then print "yes",
+    print "no" for otherwise
     Complexity: O(n*n*m)
 */
 void executeTask(vvulli ss, vvi tasks) {
