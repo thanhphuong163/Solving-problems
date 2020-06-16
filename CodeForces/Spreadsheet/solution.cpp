@@ -58,7 +58,7 @@ void executeTask(vvulli ss, vvi tasks) {
     
     vector<int> memRow(n);
     vector<int> memCol(m);
-    for(int i = 0; i < n; i++) {
+    for(int i = 1; i < n; i++) {
         int maxx = 0;
         for(int j = 0; j < m; j++) {
             if (memCol[j] < i) {
@@ -73,7 +73,7 @@ void executeTask(vvulli ss, vvi tasks) {
             }
             maxx = max(maxx, memCol[j]);
         }
-        memRow[i] = maxx;
+        memRow[i-1] = maxx;
     }
     memRow[n-1] = n-1;
     // for (int t = 0; t < k; t++) {
