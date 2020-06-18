@@ -68,23 +68,21 @@ ulli preparePotions(ulli n, ulli x, lli s, vlli &a, vlli &b, vlli &c, vlli &d) {
     ulli m = a.size();
     ulli k = c.size();
     ulli cost = x*n;
-    for (ulli i = 0; i < m; i++) {
+    for (ulli i = 0; i <= m; i++) {
         lli remain_mana = s - b[i];
         if (remain_mana < 0) continue;  // There are not enough manapoints for this first spell
-        if (remain_mana < d[0]) {   // There are not enough manapoints for any second spell
-            cost = min(cost, n*a[i]);
+        // Using binary search to find the second spell
+        ulli l = 0;
+        ulli r = k;
+        while (l < r)
+        {
+            ulli mid = l + (r - l + 1) / 2;
+            if (remain_mana >= d[mid])
+                l = mid;
+            else
+                r = mid - 1;
         }
-        else {
-            // Using binary search to find the second spell
-            ulli l = 0;
-            ulli r = k-1;
-            while (l < r) {
-                ulli mid = l+(r-l+1)/2;
-                if (remain_mana >= d[mid]) l = mid;
-                else r = mid-1;
-            }
-            cost = min(cost, (n-c[l])*a[i]);
-        }
+        cost = min(cost, (n - c[l]) * a[i]);
     }
     return cost;
 }
@@ -101,16 +99,19 @@ int main(int argc, char const *argv[])
     while (cin >> n >> m >> k)
     {
         cin >> x >> s;
-        cin.ignore();
-        vector<lli> a,b,c,d;
-        getline(cin, line);
-        read_array(line, a);
-        getline(cin, line);
-        read_array(line, b);
-        getline(cin, line);
-        read_array(line, c);
-        getline(cin, line);
-        read_array(line, d);
+        vector<lli> a(m+1),b(m+1),c(k+1),d(k+1);
+        a[0] = x;
+        b[0] = 0;
+        c[0] = 0;
+        d[0] = 0;
+        for (int i = 1; i <= m; i++)
+            cin >> a[i];
+        for (int i = 1; i <= m; i++)
+            cin >> b[i];
+        for (int i = 1; i <= k; i++)
+            cin >> c[i];
+        for (int i = 1; i <= k; i++)
+            cin >> d[i];
         cout << preparePotions(n,x,s,a,b,c,d) << endl;
     }
 #endif
