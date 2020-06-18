@@ -51,7 +51,7 @@ int killMonster(vulli a, vulli p, vulli s)
 {
     ulli n = a.size();
     ulli m = p.size();
-    
+
     vulli bst(n+1);
     for (ulli i = 0; i < m; i++) {
         bst[s[i]] = max(bst[s[i]], p[i]);
@@ -59,9 +59,7 @@ int killMonster(vulli a, vulli p, vulli s)
 
     for (int i = n-1; i >= 0; i--){
         bst[i] = max(bst[i], bst[i+1]);
-        cout << bst[i] << " ";
     }
-    cout << endl;
     
     // Play
     int days = 0;
@@ -106,8 +104,7 @@ int main(int argc, char const *argv[])
         vulli p(m), s(m);
         for (ulli i = 0; i < m; i++)
             cin >> p[i] >> s[i];
-        // cout << killMonster(a,p,s) << endl;
-        killMonster(a, p, s);
+        cout << killMonster(a,p,s) << endl;
     }
 #endif
     return 0;
