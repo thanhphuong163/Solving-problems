@@ -40,12 +40,12 @@ void print_array(vector<ulli> &nums)
 
 /*
     Using greedy algorithm:
-    - Sort heroes in order of non-increasing powers then endurances
+    - Sort heroes in order of non-increasing endurances then powers
     - Each day, choose one which the most power and endurance.
 */
 bool descOrder(const pll &a, const pll &b)
 {
-    return ((a.second >= b.second));
+    return ((a.second >= b.second) && (a.first >= b.first));
 }
 
 // pll chooseHero(vpll heroes, ulli monsterPower) {
@@ -65,7 +65,7 @@ int killMonster(vulli a, vulli p, vulli s)
     for (ulli i = 0; i < m; i++)
     {
         if (p_max < p[i]) p_max = p[i];
-        heroes.push_back(make_pair(p[i], s[i]));
+        heroes.push_back(make_pair(s[i], p[i]));
     }
     // sort in descending order
     sort(heroes.begin(), heroes.end(), descOrder);
