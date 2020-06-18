@@ -106,7 +106,8 @@ int main(int argc, char const *argv[])
         vulli p(m), s(m);
         for (ulli i = 0; i < m; i++)
             cin >> p[i] >> s[i];
-        cout << killMonster(a,p,s) << endl;
+        // cout << killMonster(a,p,s) << endl;
+        killMonster(a, p, s);
     }
 #endif
     return 0;
