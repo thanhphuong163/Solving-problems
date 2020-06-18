@@ -68,7 +68,7 @@ int killMonster(vulli a, vulli p, vulli s)
         days++;
         ulli npos = pos;
         ulli mx = 0;
-        while(true) {
+        while(npos < n) {
             mx = max(mx, a[npos]);
             if (mx > bst[npos-pos+1]) break;
             npos++;
