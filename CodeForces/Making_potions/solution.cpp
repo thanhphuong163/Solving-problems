@@ -77,7 +77,7 @@ ulli preparePotions(ulli n, ulli x, lli s, vlli &a, vlli &b, vlli &c, vlli &d) {
         else {
             // Using binary search to find the second spell
             ulli l = 0;
-            ulli r = k;
+            ulli r = k-1;
             while (l < r) {
                 ulli mid = l+(r-l+1)/2;
                 if (remain_mana >= d[mid]) l = mid;
