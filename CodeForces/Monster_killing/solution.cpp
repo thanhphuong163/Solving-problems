@@ -65,7 +65,7 @@ int killMonster(vulli a, vulli p, vulli s)
     for (ulli i = 0; i < m; i++)
     {
         if (p_max < p[i]) p_max = p[i];
-        heroes.push_back(make_pair(s[i], p[i]));
+        heroes.push_back(make_pair(p[i], s[i]));
     }
     // sort in descending order
     sort(heroes.begin(), heroes.end(), descOrder);
