@@ -65,19 +65,19 @@ int killMonster(vulli a, vulli p, vulli s)
     
     // Play
     int days = 0;
-    ulli pos = 0;
-    while (pos < n) {
-        days++;
-        ulli npos = pos;
-        ulli mx = 0;
-        while(true) {
-            mx = max(mx, a[npos]);
-            if (mx > bst[npos-pos+1]) break;
-            npos++;
-        }
-        if (npos == pos) return -1;
-        pos = npos;
-    }
+    // ulli pos = 0;
+    // while (pos < n) {
+    //     days++;
+    //     ulli npos = pos;
+    //     ulli mx = 0;
+    //     while(true) {
+    //         mx = max(mx, a[npos]);
+    //         if (mx > bst[npos-pos+1]) break;
+    //         npos++;
+    //     }
+    //     if (npos == pos) return -1;
+    //     pos = npos;
+    // }
     return days;
 }
 
