@@ -51,13 +51,14 @@ int killMonster(vulli a, vulli p, vulli s)
 {
     ulli n = a.size();
     ulli m = p.size();
-    
+    cout << n << " " << m << endl;
     vulli bst(n+1);
 
     for (ulli i = 0; i < m; i++) {
         bst[s[i]] = max(bst[s[i]], p[i]);
-        cout << bst[i] << endl;
+        cout << bst[i] << " ";
     }
+    cout << endl;
     // for (ulli i = n-1; i >= 0; i--) {
     //     bst[i] = max(bst[i], bst[i+1]);
     //     cout << bst[i] << endl;
