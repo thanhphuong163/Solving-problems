@@ -45,7 +45,7 @@ void print_array(vector<ulli> &nums)
 */
 bool descOrder(const pll &a, const pll &b)
 {
-    return ((a.first > b.first) && (a.second > b.second));
+    return ((a.first >= b.first) && (a.second >= b.second));
 }
 
 // pll chooseHero(vpll heroes, ulli monsterPower) {
