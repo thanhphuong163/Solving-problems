@@ -52,14 +52,14 @@ int killMonster(vulli a, vulli p, vulli s)
     ulli n = a.size();
     ulli m = p.size();
     ulli maxEndurance = 0;
-    for (int i = 0; i < m; i++) {
+    for (ulli i = 0; i < m; i++) {
         maxEndurance = max(maxEndurance, s[i]);
     }
     vulli bst(maxEndurance+2);
-    for (int i = 0; i < m; i++) {
+    for (ulli i = 0; i < m; i++) {
         bst[s[i]] = max(bst[s[i]], p[i]);
     }
-    for (int i = m-2; i >= 0; i--) {
+    for (ulli i = bst.size()-2; i >= 0; i--) {
         bst[i] = max(bst[i], bst[i+1]);
     }
 
