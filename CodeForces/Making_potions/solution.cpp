@@ -36,9 +36,9 @@ void print_array(vector<ulli> &nums) {
 }
 
 /*
-Write your solution here
+    The below code is a bruteforce solution
 */
-ulli preparePotions(ulli n, ulli x, lli s, vlli &a, vlli &b, vlli &c, vlli &d) {
+ulli preparePotions_bruteforce(ulli n, ulli x, lli s, vlli &a, vlli &b, vlli &c, vlli &d) {
     ulli m = a.size();
     ulli k = c.size();
     ulli cost = x*n;
@@ -58,8 +58,34 @@ ulli preparePotions(ulli n, ulli x, lli s, vlli &a, vlli &b, vlli &c, vlli &d) {
     return cost;
 }
 
-    // #define DEBUG_MODE
-    int main(int argc, char const *argv[])
+/*
+    What is the fast solution for this problem?
+    Using greedy approach:
+    We iterate all first type of spell, then find the second type of spell using binary search
+    O(m*logk)
+*/
+ulli preparePotions(ulli n, ulli x, lli s, vlli &a, vlli &b, vlli &c, vlli &d) {
+    ulli m = a.size();
+    ulli k = c.size();
+    ulli cost = x*n;
+    for (int i = 0; i < m; i++) {
+        lli remain_mana = s - b[i];
+        if (remain_mana < 0) continue;
+        ulli l = 0;
+        ulli r = k-1;
+        while (l < r) {
+            lli mid = l + (r-l+1)/2;
+            if (remain_mana >= d[mid]) l = mid;
+            else r = mid-1;
+        }
+        if (remain_mana >= d[l]) cost = min(cost, (n-c[l])*a[i]);
+        else cost = min(cost, n*a[i]);
+    }
+    return cost;
+}
+
+// #define DEBUG_MODE
+int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
     /* Put your debugging code here */
