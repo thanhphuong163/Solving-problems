@@ -39,10 +39,12 @@ void print_array(vector<ulli> &nums)
 }
 
 /*
-    Greedy approach: Kill as many monsters as possible everyday,
-    So we create a array with size of max endurance.
+    Greedy approach: Kill as many monsters as possible everyday.
+    So we create a array bst with size of max endurance, this is a list of candidates for each day.
     Each entry stores hero's maximum power whose endurance greater than or equal to the array's index.
-    
+    Now, suppose we've already killed pos monsters. If a[pos+1] > bts[pos] then return -1,
+    otherwise, we kill at least x = 1 monster. All we need to do is increasing value x ultil condition
+    max_{pos<i<pos+x} holds.
 */
 
 int killMonster(vulli a, vulli p, vulli s)
