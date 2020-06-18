@@ -71,15 +71,19 @@ ulli preparePotions(ulli n, ulli x, lli s, vlli &a, vlli &b, vlli &c, vlli &d) {
     for (int i = 0; i < m; i++) {
         lli remain_mana = s - b[i];
         if (remain_mana < 0) continue;
-        ulli l = 0;
-        ulli r = k-1;
-        while (l < r) {
-            lli mid = l + (r-l+1)/2;
-            if (remain_mana >= d[mid]) l = mid;
-            else r = mid-1;
+        if (remain_mana < d[0]) {
+            cost = min(cost, n*a[i]);
         }
-        if (remain_mana >= d[l]) cost = min(cost, (n-c[l])*a[i]);
-        else cost = min(cost, n*a[i]);
+        else {
+            ulli l = 0;
+            ulli r = k-1;
+            while (l < r) {
+                ulli mid = l+(r-l+1)/2;
+                if (remain_mana >= d[mid]) l = mid;
+                else r = mid-1;
+            }
+            cost = min(cost, (n-c[l])*a[i]);
+        }
     }
     return cost;
 }
