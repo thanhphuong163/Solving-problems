@@ -51,16 +51,12 @@ int killMonster(vulli a, vulli p, vulli s)
 {
     ulli n = a.size();
     ulli m = p.size();
-    cout << n << " " << m << endl;
+    
     vulli bst(n+1);
-
     for (ulli i = 0; i < m; i++) {
         bst[s[i]] = max(bst[s[i]], p[i]);
     }
-    for (auto i : bst) {
-        cout << i << " ";
-    }
-    cout << endl;
+
     for (int i = n-1; i >= 0; i--){
         bst[i] = max(bst[i], bst[i+1]);
         cout << bst[i] << " ";
@@ -69,19 +65,19 @@ int killMonster(vulli a, vulli p, vulli s)
     
     // Play
     int days = 0;
-    // ulli pos = 0;
-    // while (pos < n) {
-    //     days++;
-    //     ulli npos = pos;
-    //     ulli mx = 0;
-    //     while(true) {
-    //         mx = max(mx, a[npos]);
-    //         if (mx > bst[npos-pos+1]) break;
-    //         npos++;
-    //     }
-    //     if (npos == pos) return -1;
-    //     pos = npos;
-    // }
+    ulli pos = 0;
+    while (pos < n) {
+        days++;
+        ulli npos = pos;
+        ulli mx = 0;
+        while(true) {
+            mx = max(mx, a[npos]);
+            if (mx > bst[npos-pos+1]) break;
+            npos++;
+        }
+        if (npos == pos) return -1;
+        pos = npos;
+    }
     return days;
 }
 
