@@ -39,47 +39,42 @@ void print_array(vector<ulli> &nums)
 }
 
 /*
-    Using greedy algorithm:
-    - Sort heroes in order of non-increasing endurances then powers
-    - Each day, choose one which the most power and endurance.
+    Greedy approach: Kill as many monsters as possible everyday,
+    So we create a array with size of max endurance.
+    Each entry stores hero's maximum power whose endurance greater than or equal to the array's index.
+    
 */
-bool descOrder(const pll &a, const pll &b)
-{
-    if (a.second > b.second) return true;
-    else if (a.second < b.second) return false;
-    else {
-        if (a.first > b.first) return true;
-        else return false;
-    }
-}
-
-// pll chooseHero(vpll heroes, ulli monsterPower) {
-//     ulli l = 0;
-//     ulli r = heroes.size()-1;
-//     while(l < r) {
-        
-//     }
-// }
 
 int killMonster(vulli a, vulli p, vulli s)
 {
     ulli n = a.size();
     ulli m = p.size();
-    vpll heroes;
-    ulli p_max = 0;
-    for (ulli i = 0; i < m; i++)
-    {
-        if (p_max < p[i]) p_max = p[i];
-        heroes.push_back(make_pair(p[i], s[i]));
+    ulli maxEndurance = 0;
+    for (int i = 0; i < m; i++) {
+        maxEndurance = max(maxEndurance, s[i]);
     }
-    // sort in descending order
-    sort(heroes.begin(), heroes.end(), descOrder);
+    vulli bst(maxEndurance);
+    for (int i = 0; i < m; i++) {
+        bst[s[i]] = max(bst[s[i]], p[i]);
+    }
+    for (int i = m-2; i >= 0; i--) {
+        bst[i] = max(bst[i], bst[i+1]);
+    }
 
     // Play
     int days = 0;
-    ulli i = 0;
-    for (pll hero : heroes) {
-        cout << hero.first << " " << hero.second << endl;
+    ulli pos = 0;
+    while (pos < n) {
+        days++;
+        ulli npos = pos;
+        ulli mx = 0;
+        while(true) {
+            mx = max(mx, a[npos]);
+            if (mx > bst[npos-pos+1]) break;
+            npos++;
+        }
+        if (npos == pos) return -1;
+        pos = npos;
     }
     return days;
 }
