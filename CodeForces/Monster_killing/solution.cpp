@@ -55,7 +55,7 @@ int killMonster(vulli a, vulli p, vulli s)
     for (int i = 0; i < m; i++) {
         maxEndurance = max(maxEndurance, s[i]);
     }
-    vulli bst(maxEndurance);
+    vulli bst(maxEndurance+1);
     for (int i = 0; i < m; i++) {
         bst[s[i]] = max(bst[s[i]], p[i]);
     }
