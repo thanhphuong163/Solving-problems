@@ -12,8 +12,6 @@
 
 #define ulli unsigned long long int
 #define vulli vector<ulli>
-#define pll pair<ulli, ulli>
-#define vpll vector<pll>
 
 using namespace std;
 
