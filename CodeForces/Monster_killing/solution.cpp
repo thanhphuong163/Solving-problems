@@ -52,7 +52,7 @@ int killMonster(vulli a, vulli p, vulli s)
     ulli n = a.size();
     ulli m = p.size();
     
-    vulli bst(n+2);
+    vulli bst(2e5);
     for (ulli i = 0; i < m; i++) {
         bst[s[i]] = max(bst[s[i]], p[i]);
     }
@@ -82,7 +82,12 @@ int killMonster(vulli a, vulli p, vulli s)
 int main(int argc, char const *argv[])
 {
 #ifdef DEBUG_MODE
-    /* Put your debugging code here */
+    ulli n = 5;
+    ulli m = 2;
+    vulli p = {30,90};
+    vulli s = {5,1};
+    vulli a = {3,5,100,2,3};
+    cout << killMonster(a,p,s) << endl;
 #else
     int t;
     cin >> t;
