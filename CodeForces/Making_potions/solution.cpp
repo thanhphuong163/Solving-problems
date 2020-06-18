@@ -70,13 +70,14 @@ ulli preparePotions(ulli n, ulli x, lli s, vlli &a, vlli &b, vlli &c, vlli &d) {
     ulli cost = x*n;
     for (int i = 0; i < m; i++) {
         lli remain_mana = s - b[i];
-        if (remain_mana < 0) continue;
-        if (remain_mana < d[0]) {
+        if (remain_mana < 0) continue;  // There are not enough manapoints for this first spell
+        if (remain_mana < d[0]) {   // There are not enough manapoints for any second spell
             cost = min(cost, n*a[i]);
         }
         else {
+            // Using binary search to find the second spell
             ulli l = 0;
-            ulli r = k-1;
+            ulli r = k;
             while (l < r) {
                 ulli mid = l+(r-l+1)/2;
                 if (remain_mana >= d[mid]) l = mid;
