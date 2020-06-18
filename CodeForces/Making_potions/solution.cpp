@@ -65,8 +65,8 @@ ulli preparePotions_bruteforce(ulli n, ulli x, lli s, vlli &a, vlli &b, vlli &c,
     O(m*logk)
 */
 ulli preparePotions(ulli n, ulli x, lli s, vlli &a, vlli &b, vlli &c, vlli &d) {
-    ulli m = a.size();
-    ulli k = c.size();
+    ulli m = a.size()-1;
+    ulli k = c.size()-1;
     ulli cost = x*n;
     for (ulli i = 0; i <= m; i++) {
         lli remain_mana = s - b[i];
