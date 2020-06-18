@@ -43,9 +43,17 @@ void print_array(vector<ulli> &nums)
     - Sort heroes in order of non-increasing powers then endurances
     - Each day, choose one which the most power and endurance.
 */
-bool desc_order(const pll &a, const pll &b)
+bool descOrder(const pll &a, const pll &b)
 {
-    return ((a.first >= b.first) && (a.second >= b.second));
+    return ((a.second >= b.second) && (a.first >= b.first));
+}
+
+pll chooseHero(vpll heroes, ulli monsterPower) {
+    ulli l = 0;
+    ulli r = heroes.size()-1;
+    while(l < r) {
+        
+    }
 }
 
 int killMonster(vulli a, vulli p, vulli s)
@@ -53,19 +61,19 @@ int killMonster(vulli a, vulli p, vulli s)
     ulli n = a.size();
     ulli m = p.size();
     vpll heroes;
+    ulli p_max = 0;
     for (ulli i = 0; i < m; i++)
     {
+        if (p_max < p[i]) p_max = p[i];
         heroes.push_back(make_pair(p[i], s[i]));
     }
     // sort in descending order
-    sort(heroes.begin(), heroes.end(), desc_order);
+    sort(heroes.begin(), heroes.end(), descOrder);
 
     // Play
     int days = 0;
-    for (pll hero : heroes)
-    {
-        cout << hero.first << " " << hero.second << endl;
-    }
+    ulli i = 0;
+    
     return days;
 }
 
