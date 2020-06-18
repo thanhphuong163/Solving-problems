@@ -39,6 +39,7 @@ void print_array(vector<ulli> &nums) {
     What is the fast solution for this problem?
     Using greedy approach:
     We iterate all first type of spell, then find the second type of spell using binary search
+    Note: we should use one of both types of spell if we have enough manapoints.
     O(m*logk)
 */
 ulli preparePotions(ulli n, ulli x, lli s, vlli &a, vlli &b, vlli &c, vlli &d) {
