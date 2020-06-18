@@ -45,7 +45,7 @@ void print_array(vector<ulli> &nums)
 */
 bool desc_order(const pll &a, const pll &b)
 {
-    return (((a.first >= b.first) && (a.second >= b.second)));
+    return ((a.first >= b.first) && (a.second >= b.second));
 }
 
 int killMonster(vulli a, vulli p, vulli s)
