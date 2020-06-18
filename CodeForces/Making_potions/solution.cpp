@@ -36,29 +36,6 @@ void print_array(vector<ulli> &nums) {
 }
 
 /*
-    The below code is a bruteforce solution
-*/
-ulli preparePotions_bruteforce(ulli n, ulli x, lli s, vlli &a, vlli &b, vlli &c, vlli &d) {
-    ulli m = a.size();
-    ulli k = c.size();
-    ulli cost = x*n;
-    // Your code here
-    for (int i = 0; i < m; i++) {
-        int j = k-1;
-        while (j >= 0) {
-            if (s-b[i] >= d[j]) {
-                cost = min(cost, (n-c[j])*a[i]);
-                break;
-            }
-            j--;
-        }
-        if (s - b[i] >= 0)
-            cost = min(cost, n * a[i]);
-    }
-    return cost;
-}
-
-/*
     What is the fast solution for this problem?
     Using greedy approach:
     We iterate all first type of spell, then find the second type of spell using binary search
