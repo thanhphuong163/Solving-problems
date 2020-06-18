@@ -56,7 +56,9 @@ int killMonster(vulli a, vulli p, vulli s)
 
     for (ulli i = 0; i < m; i++) {
         bst[s[i]] = max(bst[s[i]], p[i]);
-        cout << bst[i] << " ";
+    }
+    for (auto i : bst) {
+        cout << i << " ";
     }
     cout << endl;
     // for (ulli i = n-1; i >= 0; i--) {
