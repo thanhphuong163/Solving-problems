@@ -52,14 +52,14 @@ int killMonster(vulli a, vulli p, vulli s)
     ulli n = a.size();
     ulli m = p.size();
     
-    vulli bst(n+1,0);
+    vulli bst(n+1);
     for (ulli i = 0; i < m; i++) {
         bst[s[i]] = max(bst[s[i]], p[i]);
     }
     for (ulli i = n-1; i >= 0; i--) {
         bst[i] = max(bst[i], bst[i+1]);
     }
-    cout << n << m << endl;
+    
     // Play
     int days = 0;
     ulli pos = 0;
