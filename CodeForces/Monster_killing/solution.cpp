@@ -61,7 +61,9 @@ int killMonster(vulli a, vulli p, vulli s)
         cout << i << " ";
     }
     cout << endl;
-    cout << bst[n-2];
+    for (int i = n-2; i >= 0; i--){
+        cout << i << " ";
+    }
     cout << endl;
     
     // Play
