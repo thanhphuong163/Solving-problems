@@ -48,13 +48,13 @@ bool descOrder(const pll &a, const pll &b)
     return ((a.second >= b.second) && (a.first >= b.first));
 }
 
-pll chooseHero(vpll heroes, ulli monsterPower) {
-    ulli l = 0;
-    ulli r = heroes.size()-1;
-    while(l < r) {
+// pll chooseHero(vpll heroes, ulli monsterPower) {
+//     ulli l = 0;
+//     ulli r = heroes.size()-1;
+//     while(l < r) {
         
-    }
-}
+//     }
+// }
 
 int killMonster(vulli a, vulli p, vulli s)
 {
@@ -73,7 +73,9 @@ int killMonster(vulli a, vulli p, vulli s)
     // Play
     int days = 0;
     ulli i = 0;
-    
+    for (pll hero : heroes) {
+        cout << hero.first << " " << hero.second << endl;
+    }
     return days;
 }
 
