@@ -1,6 +1,6 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
+// Problem: https://www.hackerrank.com/challenges/reverse-shuffle-merge
 // Submit: 
 
 #include <stdio.h>

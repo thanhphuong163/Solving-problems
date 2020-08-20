@@ -37,7 +37,7 @@ void print_array(vector<ulli> &nums)
 }
 
 /*
-Write your solution here
+    Use greedy algorithm
 */
 ulli smallestRangeII(vector<ulli> &A, ulli K)
 {

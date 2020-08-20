@@ -50,21 +50,23 @@ void epidemicMotrospolis(vulli &a, vulli &b) {
     for (int i = 1; i <= n; i++) {
         prefix[i] = prefix[i-1] + a[i-1];
     }
-    int pos = 0;
-    int j = 0;
+    int pos[k+1];
+    pos[0] = 0;
+    int j = 1;
     for (int i = 0; i <= n; i++) {
-        if (prefix[i]-prefix[pos] > b[j]) {
+        if (prefix[i]-prefix[pos[j-1]] > b[j-1]) {
             ans = false;
             break;
         }
-        else if (prefix[i] - prefix[pos] == b[j]) {
-            pos = i;
+        else if (prefix[i] - prefix[pos[j-1]] == b[j-1]) {
+            pos[j] = i;
             j++;
         }
     }
-    if (ans) cout << "YES";
-    else cout << "NO";
-    cout << endl;
+    if (!ans) cout << "NO" << endl;
+    else {
+        
+    }
 }
 
 // #define DEBUG_MODE
