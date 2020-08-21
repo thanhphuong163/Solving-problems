@@ -44,9 +44,6 @@ bool checkAlice(vvi &metro, int station, int alice) {
     if (station == alice) {
         return true;
     }
-    else if (metro[station].size() == 0) {
-        return false;
-    }
     else {
         for (int i = 0; i < metro[station].size(); i++) {
             return checkAlice(metro, metro[station][i], alice);
