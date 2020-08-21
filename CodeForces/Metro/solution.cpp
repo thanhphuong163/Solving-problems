@@ -80,9 +80,9 @@ void checkRoute(vi &forward, vi &backward, int alice) {
         }
         cout << endl;
     }
-    if (checkAlice(metro, 0, alice)) cout << "YES";
-    else cout << "NO";
-    cout << endl;
+    // if (checkAlice(metro, 0, alice)) cout << "YES";
+    // else cout << "NO";
+    // cout << endl;
 }
 
 // #define DEBUG_MODE
