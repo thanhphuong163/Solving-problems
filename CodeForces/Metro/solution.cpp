@@ -56,6 +56,7 @@ Use dfs to find the
 
 void checkRoute(vi &forward, vi &backward, int alice) {
     int n = forward.size();
+    cout << n << endl;
     vvi metro(n, vi());
     int prev = -1;
     for (int i = 0; i < n; i++) {
