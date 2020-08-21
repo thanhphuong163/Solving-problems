@@ -76,12 +76,16 @@ void checkRoute(vi &forward, vi &backward, int alice) {
         }
     }
     for (int i = 0; i < n; i++) {
-        cout << i << ": ";
-        for (int j = 0; j < metro[i].size(); j++) {
-            cout << metro[i][j] << " ";
-        }
-        cout << endl;
+        cout << forward[i] << " ";
     }
+    cout << endl;
+    // for (int i = 0; i < n; i++) {
+    //     cout << i << ": ";
+    //     for (int j = 0; j < metro[i].size(); j++) {
+    //         cout << metro[i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
     // if (checkAlice(metro, 0, alice)) cout << "YES";
     // else cout << "NO";
     // cout << endl;
