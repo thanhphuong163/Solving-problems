@@ -40,26 +40,31 @@ void print_array(vector<ulli> &nums) {
 /*
 Create graph and use dfs to find final destination
 */
-bool checkAlice(vvi &metro, int station, int alice) {
-    if (station == alice) {
-        return true;
+bool checkAlice(vvi &metro, vi &visited, int station, int alice) {
+    if (visited[station]) {
+        visited[station]--;
+        if (station == alice)
+        {
+            return true;
+        }
+        else
+        {
+            for (int i = 0; i < metro[station].size(); i++) {
+                return checkAlice(metro, visited, metro[station][i], alice);
+            }
+        }
     }
-    else if (metro[station].size() != 0){
-        bool ans = checkAlice(metro, metro[station][0], alice);
-        metro[station].erase(metro[station].begin());
-        return ans;
-    }
-    else {
-        return false;
-    }
+    return false;
 }
 
 void checkRoute(vi &forward, vi &backward, int alice) {
     int n = forward.size();
     vvi metro(n, vi());
+    vi visited(n,0);
     int prev = -1;
     for (int i = 0; i < n; i++) {
         if (forward[i]) {
+            visited[i]++;
             if (prev != -1) {
                 metro[prev].push_back(i);
             }
@@ -69,24 +74,25 @@ void checkRoute(vi &forward, vi &backward, int alice) {
     prev = -1;
     for (int i = n-1; i >= 0; i--) {
         if (backward[i]) {
+            visited[i]++;
             if (prev != -1) {
                 metro[prev].push_back(i);
             }
             prev = i;
         }
     }
-    if (checkAlice(metro, 0, alice)) cout << "YES";
+    if (checkAlice(metro, visited, 0, alice)) cout << "YES";
     else cout << "NO";
     cout << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cout << i << ": ";
-        for (int j = 0; j < metro[i].size(); j++)
-        {
-            cout << metro[i][j] << " ";
-        }
-        cout << endl;
-    }
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cout << i << ": ";
+    //     for (int j = 0; j < metro[i].size(); j++)
+    //     {
+    //         cout << metro[i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
 }
 
 // #define DEBUG_MODE
