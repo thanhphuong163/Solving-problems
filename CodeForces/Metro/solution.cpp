@@ -49,9 +49,11 @@ bool checkAlice(vvi &metro, vi &visited, int station, int alice) {
         }
         else
         {
+            int ans = 0;
             for (int i = 0; i < metro[station].size(); i++) {
-                return checkAlice(metro, visited, metro[station][i], alice);
+                ans += checkAlice(metro, visited, metro[station][i], alice);
             }
+            return ans;
         }
     }
     return false;
