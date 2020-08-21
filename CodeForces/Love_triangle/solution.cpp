@@ -36,7 +36,7 @@ void print_array(vector<ulli> &nums) {
 }
 
 /*
-check g[g[g[i]]] == i
+check getCrush(getCrush(getCrush(i))) == i
 */
 void addEdge(vvi &graph, int v, int u) {
     graph[v].push_back(u);
