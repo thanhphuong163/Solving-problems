@@ -7,15 +7,10 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <map>
 
-#define ulli unsigned long long int
-#define vulli vector<ulli>
+
 #define vi vector<int>
 #define vvi vector<vi>
-#define pii pair<int,int>
-#define vpii vector<pii>
 
 using namespace std;
 
@@ -39,6 +34,7 @@ void print_array(vector<ulli> &nums) {
 
 /*
 Create graph and use dfs to find final destination
+Note: use visited to avoid cycle
 */
 bool checkAlice(vvi &metro, vi &visited, int station, int alice) {
     if (visited[station]) {
