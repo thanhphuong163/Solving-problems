@@ -59,6 +59,7 @@ void checkRoute(vi &forward, vi &backward, int alice) {
     cout << n << endl;
     vvi metro(n, vi());
     int prev = -1;
+    cout << prev << endl;
     for (int i = 0; i < n; i++) {
         if (forward[i]) {
             if (prev != -1) metro[prev].push_back(i);
