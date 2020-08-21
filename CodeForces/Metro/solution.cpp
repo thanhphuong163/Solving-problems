@@ -23,15 +23,6 @@ void read_array(string line, vector<int> &nums) {
     }
 }
 
-// Print out input
-void print_array(vector<ulli> &nums) {
-    for (ulli i : nums)
-    {
-        cout << i << " ";
-    }
-    puts("");
-}
-
 /*
 Create graph and use dfs to find final destination
 Note: use visited to avoid cycle
@@ -82,15 +73,6 @@ void checkRoute(vi &forward, vi &backward, int alice) {
     if (checkAlice(metro, visited, 0, alice)) cout << "YES";
     else cout << "NO";
     cout << endl;
-    // for (int i = 0; i < n; i++)
-    // {
-    //     cout << i << ": ";
-    //     for (int j = 0; j < metro[i].size(); j++)
-    //     {
-    //         cout << metro[i][j] << " ";
-    //     }
-    //     cout << endl;
-    // }
 }
 
 // #define DEBUG_MODE
