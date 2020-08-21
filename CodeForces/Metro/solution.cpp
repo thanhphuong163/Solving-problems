@@ -75,16 +75,18 @@ void checkRoute(vi &forward, vi &backward, int alice) {
             prev = i;
         }
     }
-    for (int i = 0; i < n; i++) {
+    if (checkAlice(metro, 0, alice)) cout << "YES";
+    else cout << "NO";
+    cout << endl;
+    for (int i = 0; i < n; i++)
+    {
         cout << i << ": ";
-        for (int j = 0; j < metro[i].size(); j++) {
+        for (int j = 0; j < metro[i].size(); j++)
+        {
             cout << metro[i][j] << " ";
         }
         cout << endl;
     }
-    if (checkAlice(metro, 0, alice)) cout << "YES";
-    else cout << "NO";
-    cout << endl;
 }
 
 // #define DEBUG_MODE
