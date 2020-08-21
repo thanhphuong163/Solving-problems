@@ -40,32 +40,24 @@ void print_array(vector<ulli> &nums) {
 /*
 Use dfs to find the 
 */
-// bool checkAlice(vvi &metro, int station, int alice) {
-//     if (station == alice) {
-//         return true;
-//     }
-//     else if (metro[station].size() == 0) {
-//         return false;
-//     }
-//     else {
-//         for (int i = 0; i < metro[station].size(); i++) {
-//             return checkAlice(metro, metro[station][i], alice);
-//         }
-//     }
-// }
+bool checkAlice(vvi &metro, int station, int alice) {
+    if (station == alice) {
+        return true;
+    }
+    else if (metro[station].size() == 0) {
+        return false;
+    }
+    else {
+        for (int i = 0; i < metro[station].size(); i++) {
+            return checkAlice(metro, metro[station][i], alice);
+        }
+    }
+    return false;
+}
 
 void checkRoute(vi &forward, vi &backward, int alice) {
     int n = forward.size();
-    cout << n << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cout << backward[i] << " ";
-    }
-    cout << endl;
     vvi metro(n, vi());
-    // for (int i = 0; i < n; i++) {
-    //     metro[i] = vector<int>();
-    // }
     int prev = -1;
     for (int i = 0; i < n; i++) {
         if (forward[i]) {
@@ -75,7 +67,6 @@ void checkRoute(vi &forward, vi &backward, int alice) {
             prev = i;
         }
     }
-    
     prev = -1;
     for (int i = n-1; i >= 0; i--) {
         if (backward[i]) {
@@ -85,18 +76,9 @@ void checkRoute(vi &forward, vi &backward, int alice) {
             prev = i;
         }
     }
-    for (int i = 0; i < n; i++)
-    {
-        cout << i << ": ";
-        for (int j = 0; j < metro[i].size(); j++)
-        {
-            cout << metro[i][j] << " ";
-        }
-        cout << endl;
-    }
-    // if (checkAlice(metro, 0, alice)) cout << "YES";
-    // else cout << "NO";
-    // cout << endl;
+    if (checkAlice(metro, 0, alice)) cout << "YES";
+    else cout << "NO";
+    cout << endl;
 }
 
 // #define DEBUG_MODE
