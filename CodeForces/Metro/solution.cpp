@@ -73,7 +73,7 @@ void checkRoute(vi &forward, vi &backward, int alice) {
         }
     }
     for (int i = 0; i < n; i++) {
-        cout << "i: ";
+        cout << i << ": ";
         for (int j = 0; j < metro[i].size(); j++) {
             cout << metro[i][j] << " ";
         }
