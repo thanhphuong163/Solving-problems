@@ -1,6 +1,6 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
+// Problem: https://codeforces.com/problemset/problem/1055/A
 
 #include <stdio.h>
 #include <iostream>
@@ -12,13 +12,17 @@
 
 #define ulli unsigned long long int
 #define vulli vector<ulli>
+#define vi vector<int>
+#define vvi vector<vi>
+#define pii pair<int,int>
+#define vpii vector<pii>
 
 using namespace std;
 
 // Read input
-void read_array(string line, vector<ulli> &nums) {
+void read_array(string line, vector<int> &nums) {
     stringstream ss(line);
-    ulli num;
+    int num;
     while (ss >> num) {
     	nums.push_back(num);
     }
@@ -34,8 +38,41 @@ void print_array(vector<ulli> &nums) {
 }
 
 /*
-Write your solution here
+Use dfs to find the 
 */
+bool checkAlice(vvi &metro, int station, int alice) {
+    if (metro[station].size() == 0) {
+        return false;
+    }
+    else {
+        for (int i = 0; i < metro[station].size(); i++) {
+            if (metro[station][i] == alice) return true;
+            else return checkAlice(metro, i, alice);
+        }
+    }
+}
+
+void checkRoute(vi &forward, vi &backward, int alice) {
+    int n = forward.size();
+    vvi metro(n, vi());
+    int prev = -1;
+    for (int i = 0; i < n; i++) {
+        if (forward[i]) {
+            if (prev != -1) metro[prev].push_back(i);
+            prev = i;
+        }
+    }
+    prev = -1;
+    for (int i = n-1; i >= 0; i++) {
+        if (backward[i]) {
+            if (prev != -1) metro[prev].push_back(i);
+            prev = i;
+        }
+    }
+    if (checkAlice(metro, 0, alice)) cout << "YES";
+    else cout << "NO";
+    cout << endl;
+}
 
 // #define DEBUG_MODE
 int main(int argc, char const *argv[]) {
@@ -43,11 +80,16 @@ int main(int argc, char const *argv[]) {
     /* Put your debugging code here */
 #else
     string line;
-    while (getline(cin, line))
+    int n, alice;
+    while (cin >> n >> alice)
     {
-        vector<ulli> nums;
-        read_array(line, nums);
-        /* your code here */
+        cin.ignore();
+        getline(cin, line);
+        vector<int> forward, backward;
+        read_array(line, forward);
+        getline(cin, line);
+        read_array(line, backward);
+        checkRoute(forward, backward, alice);
     }
 #endif
     return 0;
