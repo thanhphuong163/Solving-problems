@@ -104,6 +104,7 @@ int main(int argc, char const *argv[]) {
         getline(cin, line);
         vector<int> forward, backward;
         read_array(line, forward);
+        cin.ignore();
         getline(cin, line);
         read_array(line, backward);
         checkRoute(forward, backward, alice);
