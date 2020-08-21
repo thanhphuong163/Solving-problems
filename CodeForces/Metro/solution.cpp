@@ -44,12 +44,14 @@ bool checkAlice(vvi &metro, int station, int alice) {
     if (station == alice) {
         return true;
     }
-    else {
+    else if (metro[station].size() != 0){
         bool ans = checkAlice(metro, metro[station][0], alice);
         metro[station].erase(metro[station].begin());
         return ans;
     }
-    return false;
+    else {
+        return false;
+    }
 }
 
 void checkRoute(vi &forward, vi &backward, int alice) {
