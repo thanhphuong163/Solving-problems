@@ -57,6 +57,11 @@ Use dfs to find the
 void checkRoute(vi &forward, vi &backward, int alice) {
     int n = forward.size();
     cout << n << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << forward[i] << " ";
+    }
+    cout << endl;
     vvi metro(n);
     for (int i = 0; i < n; i++) {
         metro[i] = vector<int>();
@@ -75,10 +80,6 @@ void checkRoute(vi &forward, vi &backward, int alice) {
             prev = i;
         }
     }
-    for (int i = 0; i < n; i++) {
-        cout << forward[i] << " ";
-    }
-    cout << endl;
     // for (int i = 0; i < n; i++) {
     //     cout << i << ": ";
     //     for (int j = 0; j < metro[i].size(); j++) {
@@ -104,7 +105,6 @@ int main(int argc, char const *argv[]) {
         getline(cin, line);
         vector<int> forward, backward;
         read_array(line, forward);
-        cin.ignore();
         getline(cin, line);
         read_array(line, backward);
         checkRoute(forward, backward, alice);
