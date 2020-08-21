@@ -38,7 +38,7 @@ void print_array(vector<ulli> &nums) {
 }
 
 /*
-Use dfs to find the 
+Create graph and use dfs to find final destination
 */
 bool checkAlice(vvi &metro, int station, int alice) {
     if (station == alice) {
@@ -72,6 +72,13 @@ void checkRoute(vi &forward, vi &backward, int alice) {
             }
             prev = i;
         }
+    }
+    for (int i = 0; i < n; i++) {
+        cout << i << ": ";
+        for (int j = 0; j < metro[i].size(); i++) {
+            cout << metro[i][j] << " ";
+        }
+        cout << endl;
     }
     if (checkAlice(metro, 0, alice)) cout << "YES";
     else cout << "NO";
