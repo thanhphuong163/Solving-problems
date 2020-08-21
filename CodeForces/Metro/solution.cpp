@@ -71,10 +71,18 @@ void checkRoute(vi &forward, vi &backward, int alice) {
         if (forward[i]) {
             if (prev != -1) {
                 metro[prev].push_back(i);
-                cout << prev << " " << i << endl;
             }
             prev = i;
         }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << i << ": ";
+        for (int j = 0; j < metro[i].size(); j++)
+        {
+            cout << metro[i][j] << " ";
+        }
+        cout << endl;
     }
     prev = -1;
     for (int i = n-1; i >= 0; i++) {
@@ -83,13 +91,7 @@ void checkRoute(vi &forward, vi &backward, int alice) {
             prev = i;
         }
     }
-    // for (int i = 0; i < n; i++) {
-    //     cout << i << ": ";
-    //     for (int j = 0; j < metro[i].size(); j++) {
-    //         cout << metro[i][j] << " ";
-    //     }
-    //     cout << endl;
-    // }
+    
     // if (checkAlice(metro, 0, alice)) cout << "YES";
     // else cout << "NO";
     // cout << endl;
