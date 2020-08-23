@@ -63,6 +63,7 @@ int play(vi &balls, int x)
             {
                 while (balls[l - 1] == balls[r + 1])
                 {
+                    tmp = r-l+1;
                     l--;
                     r++;
                     while (balls[r + 1] == balls[r])
@@ -70,8 +71,13 @@ int play(vi &balls, int x)
                     while (balls[l - 1] == balls[l])
                         l--;
                     tmp = (r - l + 1) - tmp;
-                    if (tmp <= 2) break;
+                    if (tmp <= 2) {
+                        l++;
+                        r--;
+                        break;
+                    }
                 }
+                max_len = max(max_len, r - l + 1);
             }
         }
         i++;
