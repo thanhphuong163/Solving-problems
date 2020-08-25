@@ -38,7 +38,10 @@ void print_array(vector<ulli> &nums)
 }
 
 /*
-Write your solution here
+Use greedy:
+add first element into answer
+if the next element has the same order then remove the last element and add this element
+else add this element into the answer
 */
 vector<ulli> findSubsequence(vulli &nums)
 {
