@@ -59,13 +59,7 @@ vector<ulli> findSubsequence(vulli &nums)
             isUp = !isUp;
         }
     }
-    long long int sum = 0;
-    for (int i = 1; i < ans.size(); ++i)
-    {
-        long long int tmp = ans[i] - ans[i-1];
-        sum += tmp > 0 ? tmp : -tmp;
-    }
-    cout << sum << endl;
+    cout << ans.size() << endl;
     return ans;
 }
 
