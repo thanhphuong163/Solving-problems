@@ -81,8 +81,8 @@ int main(int argc, char const *argv[]) {
     /* Put your debugging code here */
 #else
     string line;
-    int n, alice;
-    while (cin >> n >> alice)
+    int n, des;
+    while (cin >> n >> des)
     {
         cin.ignore();
         getline(cin, line);
@@ -90,7 +90,7 @@ int main(int argc, char const *argv[]) {
         read_array(line, forward);
         getline(cin, line);
         read_array(line, backward);
-        checkRoute(forward, backward, alice-1);
+        checkRoute(forward, backward, des-1);
     }
 #endif
     return 0;
