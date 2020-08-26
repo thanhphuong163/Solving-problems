@@ -36,6 +36,10 @@ void print_array(vector<ulli> &nums) {
 /*
 Write your solution here
 */
+void completeWord(string word) {
+    string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    
+}
 
 // #define DEBUG_MODE
 int main(int argc, char const *argv[]) {
@@ -45,9 +49,7 @@ int main(int argc, char const *argv[]) {
     string line;
     while (getline(cin, line))
     {
-        vector<ulli> nums;
-        read_array(line, nums);
-        /* your code here */
+        completeWord(line);/* your code here */
     }
 #endif
     return 0;
