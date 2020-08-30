@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 
+#define pii pair<int,int>
+#define vpii vector<pii>
+
 using namespace std;
 
 void printArray(vector<int> &arr) {

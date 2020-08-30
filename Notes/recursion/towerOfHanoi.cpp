@@ -4,9 +4,17 @@
 using namespace std;
 
 // Goal: move n disks from 1 to 3
-// move n-1 disks from 1 to 2
-// move nth disk from 1 to 3
-// move n-1 disk from 2 to 3
+// move n-1 disks from 1 to 2 ==> T(n-1)
+// move nth disk from 1 to 3  ==> 1
+// move n-1 disk from 2 to 3  ==> T(n-1)
+// Complexity analysis:
+// T(n) = 2T(n-1) + 1
+//      = 2(2T(n-2) + 1) + 1
+//      = 2^2*T(n-2) + 2 + 1
+//      = 2^3*T(n-3) + 2^2 + 2 + 1
+//      = 2^(n-1)*T(1) + .... + 2^2 + 2 + 1
+//      = 2^(n-1) + ... + 2^2 + 2 + 1
+//      = 2^n - 1 = O(2^n)
 
 void solveTowerOfHanoi(int n, int src, int des)
 {
