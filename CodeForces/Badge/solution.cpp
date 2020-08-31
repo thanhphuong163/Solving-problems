@@ -69,7 +69,7 @@ void putAHole(int n, vi &p) {
     for (int i = 0; i < n; i++) {
         vi mark(n, 0);
         int pos = i;
-        while (mark[pos] == 2) {
+        while (mark[pos] < 2) {
             mark[pos]++;
             pos = graph[pos];
         }
