@@ -1,6 +1,6 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
+// Problem: https://codeforces.com/problemset/problem/500/A
 
 #include <stdio.h>
 #include <iostream>
@@ -60,17 +60,33 @@ void printArray(vi &nums) {
 /*
 Write your solution here
 */
+void transport(vi &a, int t, int n) {
+    vi portal(n);
+    for (int i = 0; i < n-1; i++) {
+        portal[i] = i + a[i];
+    }
+    int position = 0;
+    while (position < t) {
+        position = portal[position];
+    }
+    if (position == t) cout << "YES";
+    else cout << "NO";
+    cout << endl;
+}
 
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     /* Put your debugging code here */
 #else
     string line;
-    while (getline(cin, line))
+    int n, t;
+    while (cin >> n >> t)
     {
+        cin.ignore();
+        getline(cin, line);
         vi nums;
         readArray(line, nums);
-        /* your code here */
+        transport(nums, t-1, n);
     }
 #endif
     return 0;
