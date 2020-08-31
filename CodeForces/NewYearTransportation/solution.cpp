@@ -27,13 +27,6 @@
 using namespace std;
 
 // Read input
-void readArray(string line, vector<ulli> &nums) {
-    stringstream ss(line);
-    ulli num;
-    while (ss >> num) {
-    	nums.push_back(num);
-    }
-}
 void readArray(string line, vi &nums) {
     stringstream ss(line);
     int num;
@@ -42,23 +35,8 @@ void readArray(string line, vi &nums) {
     }
 }
 
-// Print array
-void printArray(vulli &nums) {
-    for (ulli num : nums)
-    {
-        cout << num << " ";
-    }
-    puts("");
-}
-void printArray(vi &nums) {
-    for(int num : nums) {
-        cout << num << " ";
-    }
-    puts("");
-}
-
 /*
-Write your solution here
+    create a adjacency list, dfs until current position >= t
 */
 void transport(vi &a, int t, int n) {
     vi portal(n);
