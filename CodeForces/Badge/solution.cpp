@@ -1,6 +1,6 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
+// Problem: https://codeforces.com/problemset/problem/1020/B
 
 #include <stdio.h>
 #include <iostream>
@@ -27,13 +27,6 @@
 using namespace std;
 
 // Read input
-void readArray(string line, vector<ulli> &nums) {
-    stringstream ss(line);
-    ulli num;
-    while (ss >> num) {
-    	nums.push_back(num);
-    }
-}
 void readArray(string line, vi &nums) {
     stringstream ss(line);
     int num;
@@ -43,13 +36,6 @@ void readArray(string line, vi &nums) {
 }
 
 // Print array
-void printArray(vulli &nums) {
-    for (ulli num : nums)
-    {
-        cout << num << " ";
-    }
-    puts("");
-}
 void printArray(vi &nums) {
     for(int num : nums) {
         cout << num << " ";
@@ -58,7 +44,8 @@ void printArray(vi &nums) {
 }
 
 /*
-Write your solution here
+    graph and dfs, 
+    use a vector<int> mark to count number of holes on each student's badge
 */
 void putAHole(int n, vi &p) {
     vi graph(n);
