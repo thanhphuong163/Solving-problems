@@ -60,17 +60,37 @@ void printArray(vi &nums) {
 /*
 Write your solution here
 */
+void putAHole(int n, vi &p) {
+    vi graph(n);
+    for (int i = 0; i < n; i++) {
+        graph[i] = p[i];
+    }
+    vi ans(n);
+    for (int i = 0; i < n; i++) {
+        vi mark(n, 0);
+        int pos = i;
+        while (mark[pos] == 2) {
+            mark[pos]++;
+            pos = graph[pos];
+        }
+        ans[i] = pos;
+    }
+    printArray(ans);
+}
 
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     /* Put your debugging code here */
 #else
     string line;
-    while (getline(cin, line))
+    int n;
+    while (cin >> n)
     {
+        cin.ignore();
+        getline(cin, line);
         vi nums;
         readArray(line, nums);
-        /* your code here */
+        putAHole(n, nums);
     }
 #endif
     return 0;
