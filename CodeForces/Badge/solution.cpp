@@ -63,7 +63,7 @@ Write your solution here
 void putAHole(int n, vi &p) {
     vi graph(n);
     for (int i = 0; i < n; i++) {
-        graph[i] = p[i];
+        graph[i] = p[i]-1;
     }
     vi ans(n);
     for (int i = 0; i < n; i++) {
@@ -73,7 +73,7 @@ void putAHole(int n, vi &p) {
             mark[pos]++;
             pos = graph[pos];
         }
-        ans[i] = pos;
+        ans[i] = pos+1;
     }
     printArray(ans);
 }
