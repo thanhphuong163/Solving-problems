@@ -77,7 +77,7 @@ void solve(vvi &graph, int n) {
             cout << "IMPROVE" << endl;
             for (int j = 0; j < n; j++) {
                 if (princes[j] == 0) {
-                    cout << i << " " << j << endl;
+                    cout << i+1 << " " << j+1 << endl;
                     return;
                 }
             }
