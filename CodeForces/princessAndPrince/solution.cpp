@@ -72,7 +72,6 @@ void solve(vvi &graph, int n) {
             }
         }
     }
-    printArray(princes);
     printArray(princesses);
     // for (int i = 0; i < n; i++) {
     //     if (princesses[i] == 0) {
