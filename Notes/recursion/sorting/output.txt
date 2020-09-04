@@ -1,0 +1,600 @@
+125
+Selection sort: 2696
+Buble sort: 3718
+195
+Selection sort: 7666
+Buble sort: 10051
+16
+Selection sort: 28
+Buble sort: 53
+89
+Selection sort: 1551
+Buble sort: 1940
+63
+Selection sort: 570
+Buble sort: 861
+177
+Selection sort: 5412
+Buble sort: 7234
+102
+Selection sort: 2007
+Buble sort: 2611
+133
+Selection sort: 3141
+Buble sort: 4161
+195
+Selection sort: 6473
+Buble sort: 9535
+251
+Selection sort: 11078
+Buble sort: 16284
+260
+Selection sort: 12695
+Buble sort: 16934
+161
+Selection sort: 4947
+Buble sort: 6502
+238
+Selection sort: 11208
+Buble sort: 14450
+52
+Selection sort: 530
+Buble sort: 666
+266
+Selection sort: 12744
+Buble sort: 17475
+225
+Selection sort: 9443
+Buble sort: 12835
+114
+Selection sort: 2165
+Buble sort: 2967
+231
+Selection sort: 9442
+Buble sort: 12874
+139
+Selection sort: 3638
+Buble sort: 5182
+17
+Selection sort: 66
+Buble sort: 88
+148
+Selection sort: 3708
+Buble sort: 5503
+153
+Selection sort: 4045
+Buble sort: 5384
+111
+Selection sort: 2378
+Buble sort: 3634
+111
+Selection sort: 2352
+Buble sort: 3096
+53
+Selection sort: 444
+Buble sort: 611
+204
+Selection sort: 7801
+Buble sort: 10439
+265
+Selection sort: 12914
+Buble sort: 17803
+10
+Selection sort: 21
+Buble sort: 23
+94
+Selection sort: 1311
+Buble sort: 2085
+210
+Selection sort: 8588
+Buble sort: 11426
+17
+Selection sort: 38
+Buble sort: 53
+209
+Selection sort: 7570
+Buble sort: 10185
+12
+Selection sort: 31
+Buble sort: 36
+60
+Selection sort: 597
+Buble sort: 879
+69
+Selection sort: 708
+Buble sort: 1103
+205
+Selection sort: 7116
+Buble sort: 10125
+132
+Selection sort: 2924
+Buble sort: 4010
+221
+Selection sort: 8587
+Buble sort: 11507
+85
+Selection sort: 1440
+Buble sort: 1860
+77
+Selection sort: 1086
+Buble sort: 1400
+236
+Selection sort: 9515
+Buble sort: 12818
+148
+Selection sort: 3888
+Buble sort: 5126
+121
+Selection sort: 2735
+Buble sort: 3453
+135
+Selection sort: 3172
+Buble sort: 4394
+185
+Selection sort: 6662
+Buble sort: 8752
+260
+Selection sort: 12540
+Buble sort: 16795
+161
+Selection sort: 4560
+Buble sort: 6065
+126
+Selection sort: 3174
+Buble sort: 3882
+165
+Selection sort: 4791
+Buble sort: 6467
+243
+Selection sort: 10252
+Buble sort: 14213
+65
+Selection sort: 734
+Buble sort: 1112
+37
+Selection sort: 245
+Buble sort: 363
+113
+Selection sort: 1894
+Buble sort: 2718
+149
+Selection sort: 4247
+Buble sort: 5324
+16
+Selection sort: 30
+Buble sort: 43
+228
+Selection sort: 9638
+Buble sort: 13385
+292
+Selection sort: 14532
+Buble sort: 21035
+42
+Selection sort: 231
+Buble sort: 359
+79
+Selection sort: 1088
+Buble sort: 1466
+138
+Selection sort: 3251
+Buble sort: 4668
+96
+Selection sort: 1490
+Buble sort: 2477
+42
+Selection sort: 285
+Buble sort: 445
+96
+Selection sort: 1688
+Buble sort: 2191
+65
+Selection sort: 718
+Buble sort: 1017
+71
+Selection sort: 894
+Buble sort: 1241
+298
+Selection sort: 17048
+Buble sort: 22363
+221
+Selection sort: 7806
+Buble sort: 10415
+33
+Selection sort: 171
+Buble sort: 255
+89
+Selection sort: 1325
+Buble sort: 1782
+175
+Selection sort: 5163
+Buble sort: 7246
+214
+Selection sort: 8330
+Buble sort: 11592
+65
+Selection sort: 873
+Buble sort: 1136
+223
+Selection sort: 8291
+Buble sort: 11591
+226
+Selection sort: 9477
+Buble sort: 12786
+194
+Selection sort: 6200
+Buble sort: 8840
+217
+Selection sort: 8988
+Buble sort: 12141
+59
+Selection sort: 525
+Buble sort: 754
+296
+Selection sort: 16650
+Buble sort: 21533
+143
+Selection sort: 3825
+Buble sort: 5129
+44
+Selection sort: 317
+Buble sort: 448
+198
+Selection sort: 7285
+Buble sort: 9964
+140
+Selection sort: 3812
+Buble sort: 4948
+134
+Selection sort: 3212
+Buble sort: 4231
+166
+Selection sort: 4862
+Buble sort: 6293
+155
+Selection sort: 4629
+Buble sort: 5923
+240
+Selection sort: 10127
+Buble sort: 14054
+271
+Selection sort: 13660
+Buble sort: 17960
+268
+Selection sort: 13812
+Buble sort: 18255
+207
+Selection sort: 8099
+Buble sort: 10824
+140
+Selection sort: 3477
+Buble sort: 4907
+80
+Selection sort: 1232
+Buble sort: 1725
+176
+Selection sort: 5756
+Buble sort: 7806
+119
+Selection sort: 2344
+Buble sort: 3292
+171
+Selection sort: 4823
+Buble sort: 7239
+196
+Selection sort: 7064
+Buble sort: 9946
+100
+Selection sort: 1570
+Buble sort: 2103
+277
+Selection sort: 14045
+Buble sort: 18936
+114
+Selection sort: 2497
+Buble sort: 3380
+284
+Selection sort: 14068
+Buble sort: 18980
+257
+Selection sort: 11406
+Buble sort: 15523
+285
+Selection sort: 15293
+Buble sort: 20651
+33
+Selection sort: 225
+Buble sort: 276
+128
+Selection sort: 2998
+Buble sort: 3862
+265
+Selection sort: 13375
+Buble sort: 17899
+39
+Selection sort: 276
+Buble sort: 408
+285
+Selection sort: 13957
+Buble sort: 19340
+54
+Selection sort: 420
+Buble sort: 581
+278
+Selection sort: 14497
+Buble sort: 19388
+198
+Selection sort: 7643
+Buble sort: 10545
+47
+Selection sort: 389
+Buble sort: 568
+14
+Selection sort: 26
+Buble sort: 50
+150
+Selection sort: 3628
+Buble sort: 5121
+224
+Selection sort: 8806
+Buble sort: 12336
+259
+Selection sort: 11130
+Buble sort: 16012
+280
+Selection sort: 14345
+Buble sort: 18894
+34
+Selection sort: 270
+Buble sort: 312
+285
+Selection sort: 15502
+Buble sort: 20258
+90
+Selection sort: 1484
+Buble sort: 2133
+23
+Selection sort: 87
+Buble sort: 115
+149
+Selection sort: 4338
+Buble sort: 5806
+149
+Selection sort: 3850
+Buble sort: 4932
+149
+Selection sort: 4404
+Buble sort: 5738
+210
+Selection sort: 8212
+Buble sort: 11034
+93
+Selection sort: 1655
+Buble sort: 2154
+62
+Selection sort: 743
+Buble sort: 936
+58
+Selection sort: 474
+Buble sort: 605
+158
+Selection sort: 4191
+Buble sort: 5713
+179
+Selection sort: 5546
+Buble sort: 8067
+186
+Selection sort: 6329
+Buble sort: 7899
+203
+Selection sort: 7155
+Buble sort: 9636
+74
+Selection sort: 960
+Buble sort: 1243
+241
+Selection sort: 11117
+Buble sort: 14381
+120
+Selection sort: 2618
+Buble sort: 3599
+115
+Selection sort: 2589
+Buble sort: 3505
+149
+Selection sort: 4262
+Buble sort: 5396
+154
+Selection sort: 4551
+Buble sort: 6015
+93
+Selection sort: 1589
+Buble sort: 2246
+54
+Selection sort: 663
+Buble sort: 765
+129
+Selection sort: 3040
+Buble sort: 4432
+60
+Selection sort: 604
+Buble sort: 792
+18
+Selection sort: 35
+Buble sort: 71
+101
+Selection sort: 2006
+Buble sort: 2457
+260
+Selection sort: 12206
+Buble sort: 16749
+21
+Selection sort: 70
+Buble sort: 100
+24
+Selection sort: 64
+Buble sort: 121
+113
+Selection sort: 2226
+Buble sort: 3052
+143
+Selection sort: 3673
+Buble sort: 5461
+152
+Selection sort: 4032
+Buble sort: 5234
+275
+Selection sort: 14025
+Buble sort: 19148
+262
+Selection sort: 13339
+Buble sort: 17551
+124
+Selection sort: 2573
+Buble sort: 3664
+68
+Selection sort: 839
+Buble sort: 1204
+268
+Selection sort: 13131
+Buble sort: 17477
+163
+Selection sort: 4713
+Buble sort: 6395
+238
+Selection sort: 10096
+Buble sort: 14167
+214
+Selection sort: 9328
+Buble sort: 11476
+249
+Selection sort: 10851
+Buble sort: 14843
+115
+Selection sort: 2539
+Buble sort: 3351
+55
+Selection sort: 531
+Buble sort: 638
+203
+Selection sort: 7612
+Buble sort: 10489
+24
+Selection sort: 78
+Buble sort: 101
+256
+Selection sort: 13090
+Buble sort: 17067
+177
+Selection sort: 5566
+Buble sort: 7713
+284
+Selection sort: 14451
+Buble sort: 20125
+78
+Selection sort: 1184
+Buble sort: 1558
+182
+Selection sort: 5841
+Buble sort: 8020
+88
+Selection sort: 1477
+Buble sort: 2058
+173
+Selection sort: 5533
+Buble sort: 7470
+155
+Selection sort: 4781
+Buble sort: 6235
+184
+Selection sort: 6452
+Buble sort: 8871
+211
+Selection sort: 8078
+Buble sort: 10960
+165
+Selection sort: 4666
+Buble sort: 6512
+193
+Selection sort: 6900
+Buble sort: 9830
+169
+Selection sort: 4834
+Buble sort: 6736
+96
+Selection sort: 1614
+Buble sort: 2413
+138
+Selection sort: 3379
+Buble sort: 4448
+20
+Selection sort: 61
+Buble sort: 77
+22
+Selection sort: 73
+Buble sort: 104
+84
+Selection sort: 1268
+Buble sort: 1780
+228
+Selection sort: 8309
+Buble sort: 12657
+76
+Selection sort: 978
+Buble sort: 1504
+88
+Selection sort: 1352
+Buble sort: 1831
+38
+Selection sort: 226
+Buble sort: 349
+190
+Selection sort: 6030
+Buble sort: 7912
+175
+Selection sort: 5762
+Buble sort: 6954
+142
+Selection sort: 3968
+Buble sort: 5349
+119
+Selection sort: 2558
+Buble sort: 3535
+24
+Selection sort: 108
+Buble sort: 131
+166
+Selection sort: 4789
+Buble sort: 6588
+250
+Selection sort: 11590
+Buble sort: 15128
+36
+Selection sort: 145
+Buble sort: 253
+261
+Selection sort: 13014
+Buble sort: 16855
+174
+Selection sort: 5264
+Buble sort: 6709
+97
+Selection sort: 1915
+Buble sort: 2315
+60
+Selection sort: 685
+Buble sort: 915
+80
+Selection sort: 1152
+Buble sort: 1597
+109
+Selection sort: 1954
+Buble sort: 2690
+89
+Selection sort: 1443
+Buble sort: 1813
+242
+Selection sort: 11441
+Buble sort: 15130
+279
+Selection sort: 13773
+Buble sort: 17907
