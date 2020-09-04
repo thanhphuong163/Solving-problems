@@ -27,9 +27,11 @@ def fib_dp_(n):
 if __name__ == "__main__":
     t = input()  # number of tests
     for i in range(int(t)):
-        n = input()
+        n = input("Enter an interger: ")
         ans = [-1 for i in range(int(n)+1)]
         print(n)
         print("Result using dp top-down: ", fib_dp(int(n), ans))
         print("Result using dp bottom-up: ", fib_dp_(int(n)))
         print("Result using recursion: ", fib(int(n)))
+        print()
+
