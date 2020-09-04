@@ -103,7 +103,7 @@ int main(int argc, char const *argv[]) {
             vi nums;
             getline(cin, line);
             readArray(line, nums);
-            for (int i = 1; i < nums[0]; i++) {
+            for (int i = 1; i <= nums[0]; i++) {
                 graph[j].push_back(nums[i]);
             }
         }
