@@ -26,7 +26,7 @@ def solveBacktracking(board):
                         board[i, j] = 0
                 backtrack += 1
                 return
-    # print(board)
+    print("Stupid backtracking:", backtrack, "backtracks")
 
 
 def chooseCell(board):
@@ -51,6 +51,7 @@ def solveSmartBacktracking(board):
     global smartBacktrack
     i, j = chooseCell(board)
     if (i == -1):
+        print("Smart backtracking:", smartBacktrack, "backtracks")
         return
     for n in range(1, 10):
         if possible(board, i, j, n):
@@ -73,18 +74,5 @@ if __name__ == "__main__":
             boards.append({"difficulty": difficulty, "board": np.array(board)})
     for board in boards:
         print(board["difficulty"])
-        solveBacktracking(board["board"].copy())
-        print("Backtracking:", backtrack, "backtracks")
         solveSmartBacktracking(board["board"].copy())
-        print("Smart backtracking:", smartBacktrack, "backtracks")
-    # startTime = time.time_ns()
-    # solveBacktracking(board)
-    # runningTime = time.time_ns() - startTime
-    # print("Backtracking:", runningTime/1e9)
-    # print("Number of backtrack:", backtrack)
-    
-    # startTime = time.time_ns()
-    # solveSmartBacktracking(board)
-    # runningTime = time.time_ns() - startTime
-    # print("Smart Backtracking:", runningTime/1e9)
-    # print("Number of backtrack:", smartBacktrack)
+        solveBacktracking(board["board"].copy())
