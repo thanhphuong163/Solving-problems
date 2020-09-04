@@ -61,31 +61,30 @@ def solveSmartBacktracking(board):
 
 
 if __name__ == "__main__":
-    board = np.array([[5, 3, 0, 0, 7, 0, 0, 0, 0],
-                      [6, 0, 0, 1, 9, 5, 0, 0, 0],
-                      [0, 9, 8, 0, 0, 0, 0, 6, 0],
-                      [8, 0, 0, 0, 6, 0, 0, 0, 3],
-                      [4, 0, 0, 8, 0, 3, 0, 0, 1],
-                      [7, 0, 0, 0, 2, 0, 0, 0, 6],
-                      [0, 6, 0, 0, 0, 0, 2, 8, 0],
-                      [0, 0, 0, 4, 1, 9, 0, 0, 5],
-                      [0, 0, 0, 0, 8, 0, 0, 7, 9]])
-    startTime = time.time_ns()
-    solveBacktracking(board)
-    runningTime = time.time_ns() - startTime
-    print("Backtracking:", runningTime/1e9)
-    print("Number of backtrack:", backtrack)
-    board1 = np.array([[5, 3, 0, 0, 7, 0, 0, 0, 0],
-                       [6, 0, 0, 1, 9, 5, 0, 0, 0],
-                       [0, 9, 8, 0, 0, 0, 0, 6, 0],
-                       [8, 0, 0, 0, 6, 0, 0, 0, 3],
-                       [4, 0, 0, 8, 0, 3, 0, 0, 1],
-                       [7, 0, 0, 0, 2, 0, 0, 0, 6],
-                       [0, 6, 0, 0, 0, 0, 2, 8, 0],
-                       [0, 0, 0, 4, 1, 9, 0, 0, 5],
-                       [0, 0, 0, 0, 8, 0, 0, 7, 9]])
-    startTime = time.time_ns()
-    solveSmartBacktracking(board1)
-    runningTime = time.time_ns() - startTime
-    print("Smart Backtracking:", runningTime/1e9)
-    print("Number of backtrack:", smartBacktrack)
+    boards = []
+    with open('sudoku.txt', 'r') as f:
+        t = f.readline()
+        for i in range(0, int(t)):
+            difficulty = f.readline().strip()
+            board = []
+            for i in range(0,9):
+                line = f.readline().strip().split(' ')
+                board.append([int(i) for i in line])
+            boards.append({"difficulty": difficulty, "board": np.array(board)})
+    for board in boards:
+        print(board["difficulty"])
+        solveBacktracking(board["board"].copy())
+        print("Backtracking:", backtrack, "backtracks")
+        solveSmartBacktracking(board["board"].copy())
+        print("Smart backtracking:", smartBacktrack, "backtracks")
+    # startTime = time.time_ns()
+    # solveBacktracking(board)
+    # runningTime = time.time_ns() - startTime
+    # print("Backtracking:", runningTime/1e9)
+    # print("Number of backtrack:", backtrack)
+    
+    # startTime = time.time_ns()
+    # solveSmartBacktracking(board)
+    # runningTime = time.time_ns() - startTime
+    # print("Smart Backtracking:", runningTime/1e9)
+    # print("Number of backtrack:", smartBacktrack)
