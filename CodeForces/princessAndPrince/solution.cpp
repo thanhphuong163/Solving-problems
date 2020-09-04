@@ -72,18 +72,20 @@ void solve(vvi &graph, int n) {
             }
         }
     }
-    for (int i = 0; i < n; i++) {
-        if (princesses[i] == 0) {
-            cout << "IMPROVE" << endl;
-            for (int j = 0; j < n; j++) {
-                if (princes[j] == 0) {
-                    cout << i << " " << j << endl;
-                    return;
-                }
-            }
-        }
-    }
-    cout << "OPTIMAL" << endl;
+    printArray(princes);
+    printArray(princesses);
+    // for (int i = 0; i < n; i++) {
+    //     if (princesses[i] == 0) {
+    //         cout << "IMPROVE" << endl;
+    //         for (int j = 0; j < n; j++) {
+    //             if (princes[j] == 0) {
+    //                 cout << i << " " << j << endl;
+    //                 return;
+    //             }
+    //         }
+    //     }
+    // }
+    // cout << "OPTIMAL" << endl;
 }
 
 int main(int argc, char const *argv[]) {
