@@ -27,13 +27,6 @@
 using namespace std;
 
 // Read input
-void readArray(string line, vector<ulli> &nums) {
-    stringstream ss(line);
-    ulli num;
-    while (ss >> num) {
-    	nums.push_back(num);
-    }
-}
 void readArray(string line, vi &nums) {
     stringstream ss(line);
     int num;
@@ -43,13 +36,6 @@ void readArray(string line, vi &nums) {
 }
 
 // Print array
-void printArray(vulli &nums) {
-    for (ulli num : nums)
-    {
-        cout << num << " ";
-    }
-    puts("");
-}
 void printArray(vi &nums) {
     for(int num : nums) {
         cout << num << " ";
@@ -58,7 +44,9 @@ void printArray(vi &nums) {
 }
 
 /*
-Write your solution here
+    Use graph to store choices of each princess
+    Use array to store matches
+    Use greedy to create matches
 */
 void solve(vvi &graph, int n) {
     vi princesses(n, 0);
