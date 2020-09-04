@@ -60,17 +60,52 @@ void printArray(vi &nums) {
 /*
 Write your solution here
 */
+void solve(vvi &graph, int n) {
+    vi princesses(n, 0);
+    vi princes(n, 0);
+    for (int i = 0; i < n; i++) {
+        for (int p : graph[i]) {
+            if (princes[p-1] == 0) {
+                princesses[i] = p;
+                princes[p-1] = i+1;
+                break;
+            }
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        if (princesses[i] == 0) {
+            cout << "IMPROVE" << endl;
+            for (int j = 0; j < n; j++) {
+                if (princes[j] == 0) {
+                    cout << i << " " << j << endl;
+                    return;
+                }
+            }
+        }
+    }
+    cout << "OPTIMAL" << endl;
+}
 
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     /* Put your debugging code here */
 #else
     string line;
-    while (getline(cin, line))
+    int t, n;
+    cin >> t;
+    while (t--)
     {
-        vi nums;
-        readArray(line, nums);
-        /* your code here */
+        cin >> n;
+        vvi graph(n, vi());
+        for (int j = 0; j < n; j++) {
+            vi nums;
+            getline(cin, line);
+            readArray(line, nums);
+            for (int i = 1; i < nums[0]; i++) {
+                graph[j].push_back(nums[i]);
+            }
+        }
+        solve(graph, n);
     }
 #endif
     return 0;
