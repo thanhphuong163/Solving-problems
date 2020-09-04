@@ -99,6 +99,7 @@ int main(int argc, char const *argv[]) {
     {
         cin >> n;
         vvi graph(n, vi());
+        cin.ignore();
         for (int j = 0; j < n; j++) {
             vi nums;
             getline(cin, line);
