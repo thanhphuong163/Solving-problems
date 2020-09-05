@@ -94,6 +94,7 @@ bool isStar(vi &vertices) {
 
 void checkNetworkType(int n, vpii &edgeList) {
     vi vertices(n, 0);
+    cout << edgeList.size() << endl;
     for (pii edge : edgeList) {
         cout << edge.first << " " << edge.second << endl;
         vertices[edge.first]++;
