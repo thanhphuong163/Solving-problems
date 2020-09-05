@@ -125,6 +125,7 @@ int main(int argc, char const *argv[]) {
             cout << v << " " << u << endl;
             edgeList.push_back(pii(v-1,u-1));
         }
+        cin.ignore();
         checkNetworkType(n, edgeList);
     }
 #endif
