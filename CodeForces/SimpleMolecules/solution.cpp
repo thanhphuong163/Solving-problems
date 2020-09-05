@@ -9,6 +9,7 @@
 #include <vector>
 #include <algorithm>
 #include <map>
+#include <cmath>
 
 #define ulli unsigned long long int
 #define lli long long int
@@ -47,9 +48,11 @@ void printArray(vi &nums) {
 compare c-(b-i) == a-i for i from 0 to a
 */
 void checkMolecules(int a, int b, int c) {
-    for (int i = 0; i <= a; i++) {
+    int min_ = min(a,min(b,c));
+    for (int i = 0; i <= min; i++) {
         if (c-(b-i) == a-i) {
             cout << i << " " << b-i << " " << a-i << endl;
+            return;
         }
     }
     cout << "Impossible\n";
