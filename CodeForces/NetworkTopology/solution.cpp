@@ -67,7 +67,7 @@ bool isBus(vi &vertices) {
     int n = vertices.size();
     for (int i = 0; i < n; i++) {
         if (vertices[i] == 1) count++;
-        if (vertices[i] != 2) return false;
+        if (vertices[i] != 2 && vertices[i] != 1) return false;
     }
     if (count == 2) return true;
     else return false;
@@ -95,11 +95,11 @@ bool isStar(vi &vertices) {
 void checkNetworkType(int n, vpii &edgeList) {
     vi vertices(n, 0);
     for (pii edge : edgeList) {
-        cout << edge.first << " " << edge.second << endl;
+        // cout << edge.first << " " << edge.second << endl;
         vertices[edge.first]++;
         vertices[edge.second]++;
     }
-    printArray(vertices);
+    // printArray(vertices);
     if (isBus(vertices))
         cout << "bus topology\n";
     else if (isRing(vertices))
@@ -124,7 +124,6 @@ int main(int argc, char const *argv[]) {
             cin >> v >> u;
             edgeList[i] = pii(v-1,u-1);
         }
-        cout << edgeList.size() << endl;
         checkNetworkType(n, edgeList);
     }
 #endif
