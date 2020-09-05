@@ -49,7 +49,7 @@ compare c-(b-i) == a-i for i from 0 to a
 */
 void checkMolecules(int a, int b, int c) {
     int min_ = min(a,min(b,c));
-    for (int i = 0; i <= min; i++) {
+    for (int i = 0; i <= min_; i++) {
         if (c-(b-i) == a-i) {
             cout << i << " " << b-i << " " << a-i << endl;
             return;
