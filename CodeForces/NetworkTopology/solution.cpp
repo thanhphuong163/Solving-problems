@@ -120,6 +120,7 @@ int main(int argc, char const *argv[]) {
     {
         vpii edgeList(m);
         int v,u;
+        cin.ignore();
         for (int i = 0; i < n; i++) {
             cin >> v >> u;
             edgeList.push_back(pii(v-1,u-1));
