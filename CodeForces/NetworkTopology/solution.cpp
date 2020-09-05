@@ -95,7 +95,7 @@ bool isStar(vi &vertices) {
 void checkNetworkType(int n, vpii &edgeList) {
     vi vertices(n, 0);
     for (pii edge : edgeList) {
-        // cout << edge.first << " " << edge.second << endl;
+        cout << edge.first << " " << edge.second << endl;
         vertices[edge.first]++;
         vertices[edge.second]++;
     }
@@ -122,7 +122,6 @@ int main(int argc, char const *argv[]) {
         int v,u;
         for (int i = 0; i < m; i++) {
             cin >> v >> u;
-            cout << v << " " << u << endl;
             edgeList.push_back(pii(v-1,u-1));
         }
         checkNetworkType(n, edgeList);
