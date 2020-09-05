@@ -1,6 +1,6 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
+// Problem: https://codeforces.com/contest/344/problem/B
 
 #include <stdio.h>
 #include <iostream>
@@ -45,7 +45,7 @@ void printArray(vi &nums) {
 }
 
 /*
-compare c-(b-i) == a-i for i from 0 to a
+compare c-(b-i) == a-i for i from 0 to min(a,b)
 */
 void checkMolecules(int a, int b, int c) {
     int min_ = min(a,b);
