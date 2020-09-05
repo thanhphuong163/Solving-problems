@@ -120,7 +120,7 @@ int main(int argc, char const *argv[]) {
         int v,u;
         for (int i = 0; i < n; i++) {
             cin >> v >> u;
-            edgeList.push_back(pair(v-1,u-1));
+            edgeList.push_back(pii(v-1,u-1));
         }
         checkNetworkType(n, edgeList);
     }
