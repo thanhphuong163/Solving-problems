@@ -98,6 +98,7 @@ void checkNetworkType(int n, vpii &edgeList) {
         vertices[edge.first]++;
         vertices[edge.second]++;
     }
+    printArray(vertices);
     if (isBus(vertices))
         cout << "bus topology\n";
     else if (isRing(vertices))
