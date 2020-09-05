@@ -27,13 +27,6 @@
 using namespace std;
 
 // Read input
-void readArray(string line, vector<ulli> &nums) {
-    stringstream ss(line);
-    ulli num;
-    while (ss >> num) {
-    	nums.push_back(num);
-    }
-}
 void readArray(string line, vi &nums) {
     stringstream ss(line);
     int num;
@@ -43,13 +36,6 @@ void readArray(string line, vi &nums) {
 }
 
 // Print array
-void printArray(vulli &nums) {
-    for (ulli num : nums)
-    {
-        cout << num << " ";
-    }
-    puts("");
-}
 void printArray(vi &nums) {
     for(int num : nums) {
         cout << num << " ";
@@ -58,19 +44,25 @@ void printArray(vi &nums) {
 }
 
 /*
-Write your solution here
+compare c-(b-i) == a-i for i from 0 to a
 */
+void checkMolecules(int a, int b, int c) {
+    for (int i = 0; i <= a; i++) {
+        if (c-(b-i) == a-i) {
+            cout << i << " " << b-i << " " << a-i << endl;
+        }
+    }
+    cout << "Impossible\n";
+}
 
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     /* Put your debugging code here */
 #else
-    string line;
-    while (getline(cin, line))
+    int a,b,c;
+    while (cin >> a >> b >> c)
     {
-        vi nums;
-        readArray(line, nums);
-        /* your code here */
+        checkMolecules(a,b,c);
     }
 #endif
     return 0;
