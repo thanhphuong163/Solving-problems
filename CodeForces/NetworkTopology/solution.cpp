@@ -122,7 +122,7 @@ int main(int argc, char const *argv[]) {
         int v,u;
         for (int i = 0; i < m; i++) {
             cin >> v >> u;
-            edgeList.push_back(pii(v-1,u-1));
+            edgeList[i] = pii(v-1,u-1);
         }
         cout << edgeList.size() << endl;
         checkNetworkType(n, edgeList);
