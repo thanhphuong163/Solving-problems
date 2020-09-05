@@ -15,6 +15,8 @@
 #define vulli vector<ulli>
 #define vi vector<int>
 #define vvi vector<vi>
+#define pii pair<int,int>
+#define vpii vector<pii>
 
 #define DEBUG_MODE 0
 #if DEBUG_MODE == 1
@@ -60,17 +62,67 @@ void printArray(vi &nums) {
 /*
 Write your solution here
 */
+bool isBus(vi &vertices) {
+    int count = 0;
+    int n = vertices.size();
+    for (int i = 0; i < n; i++) {
+        if (vertices[i] == 1) count++;
+        if (vertices[i] != 2) return false;
+    }
+    if (count == 2) return true;
+    else return false;
+}
+
+bool isRing(vi &vertices) {
+    int n = vertices.size();
+    for (int i = 0; i < n; i++) {
+        if (vertices[i] != 2) return false;
+    }
+    return true;
+}
+
+bool isStar(vi &vertices) {
+    int n = vertices.size();
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if (vertices[i] != 1 && vertices[i] != n-1) return false;
+        if (vertices[i] == n-1) count++;
+    }
+    if (count == 1) return true;
+    else return false;
+}
+
+void checkNetworkType(int n, vpii &edgeList) {
+    vi vertices(n, 0);
+    for (pii edge : edgeList) {
+        vertices[edge.first]++;
+        vertices[edge.second]++;
+    }
+    if (isBus(vertices))
+        cout << "bus topology\n";
+    else if (isRing(vertices))
+        cout << "ring topology\n";
+    else if (isStar(vertices))
+        cout << "star topology\n";
+    else
+        cout << "unknown topology\n";
+}
 
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     /* Put your debugging code here */
 #else
     string line;
-    while (getline(cin, line))
+    int n, m;
+    while (cin >> n >> m)
     {
-        vi nums;
-        readArray(line, nums);
-        /* your code here */
+        vpii edgeList(m);
+        int v,u;
+        for (int i = 0; i < n; i++) {
+            cin >> v >> u;
+            edgeList.push_back(pair(v-1,u-1));
+        }
+        checkNetworkType(n, edgeList);
     }
 #endif
     return 0;
