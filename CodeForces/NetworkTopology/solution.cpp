@@ -120,12 +120,11 @@ int main(int argc, char const *argv[]) {
     {
         vpii edgeList(m);
         int v,u;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < m; i++) {
             cin >> v >> u;
             cout << v << " " << u << endl;
             edgeList.push_back(pii(v-1,u-1));
         }
-        cin.ignore();
         checkNetworkType(n, edgeList);
     }
 #endif
