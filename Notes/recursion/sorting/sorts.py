@@ -54,13 +54,47 @@ def quickSort(arr, low, high):
         count += quickSort(arr, pi+1, high)
     return count
 
+def merge(left, right):
+    ans = []
+    
+    return ans
+
+def mergeSort(nums):
+    count = 0
+    if len(nums) > 1:
+        mid = len(nums) // 2
+        left = nums[:mid]
+        right = nums[mid:]
+        count += mergeSort(left)
+        count += mergeSort(right)
+        i = j = k = 0
+        while i < len(left) and j < len(right):
+            count += 1
+            if left[i] <= right[j]:
+                nums[k] = left[i]
+                i += 1
+            else:
+                nums[k] = right[j]
+                j += 1
+            k += 1
+        while i < len(left):
+            nums[k] = left[i]
+            i += 1
+            k += 1
+        while j < len(right):
+            nums[k] = right[j]
+            j += 1
+            k += 1
+    return count
+
 if __name__ == "__main__":
     result = {
         "n": [],
         "Selection": [],
         "Bubble": [],
         "Insertion": [],
-        "Quick": []
+        "Quick": [],
+        "Merge": []
     }
     with open('test.txt', 'r') as f:
         lines = f.readlines()
@@ -71,19 +105,15 @@ if __name__ == "__main__":
             result["Bubble"].append(bubbleSort(nums.copy()))
             result["Insertion"].append(insertionSort(nums.copy()))
             result["Quick"].append(quickSort(nums.copy(), 0, len(nums)-1))
-    df = pd.DataFrame(data=result)
+            result["Merge"].append(mergeSort(nums.copy()))
 
+    df = pd.DataFrame(data=result)
+    print(df.head())
     # Plot complexity analysis
     features = df.columns[1:]
     fig, ax = plt.subplots(1, figsize=(10, 7))
     for feature in features:
         ax.scatter(df['n'], df[feature], alpha=0.5, label=feature)
-        # x = df['n'].values
-        # y = df[feature].values
-        # a,b,c = np.polyfit(x,y,2)
-        # x_ = np.linspace(0, 200, 200)
-        # y_ = a*x_**2 + b*x_ + c
-        # ax.plot(x_,y_,alpha=0.7, label=feature)
     ax.set_xlabel('n')
     ax.set_ylabel('T(n)')
     plt.legend()
