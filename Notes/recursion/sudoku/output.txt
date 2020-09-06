@@ -1,0 +1,6 @@
+easy
+Smart backtracking: 0 backtracks
+Stupid backtracking: 4157 backtracks
+difficult
+Smart backtracking: 45254 backtracks
+Stupid backtracking: 69179883 backtracks

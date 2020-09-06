@@ -72,6 +72,7 @@ if __name__ == "__main__":
                 line = f.readline().strip().split(' ')
                 board.append([int(i) for i in line])
             boards.append({"difficulty": difficulty, "board": np.array(board)})
+    
     for board in boards:
         print(board["difficulty"])
         solveSmartBacktracking(board["board"].copy())
