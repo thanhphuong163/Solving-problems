@@ -1,0 +1,4 @@
+bus topology
+ring topology
+star topology
+unknown topology
