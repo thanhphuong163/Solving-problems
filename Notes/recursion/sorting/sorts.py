@@ -4,10 +4,12 @@ import matplotlib.pyplot as plt
 def selectionSort(nums):
     count = 0
     for i in range(len(nums)):
+        minIndx = i
         for j in range(i+1, len(nums)):
             count += 1
             if nums[j] < nums[i]:
-                nums[j], nums[i] = nums[i], nums[j]
+                minIndx = j
+        nums[minIndx], nums[i] = nums[i], nums[minIndx]
     return count
 
 def bubbleSort(nums):
@@ -68,8 +70,7 @@ if __name__ == "__main__":
             result["Selection"].append(selectionSort(nums.copy()))
             result["Bubble"].append(bubbleSort(nums.copy()))
             result["Insertion"].append(insertionSort(nums.copy()))
-            count = quickSort(nums.copy(), 0, len(nums)-1)
-            result["Quick"].append(count)
+            result["Quick"].append(quickSort(nums.copy(), 0, len(nums)-1))
     df = pd.DataFrame(data=result)
 
     # Plot complexity analysis
