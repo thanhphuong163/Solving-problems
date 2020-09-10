@@ -66,10 +66,7 @@ int cutRibbon(vi &nums) {
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j < 4; j++) {
             if (i - nums[j] >= 0) {
-                if (dp[i-nums[j]] > 0)
-                    dp[i] = max(dp[i], dp[i-nums[j]] + 1);
-                else
-                    dp[i] = dp[i - nums[j]];
+                dp[i] = max(dp[i], dp[i - nums[j]] + 1);
             }
         }
     }
