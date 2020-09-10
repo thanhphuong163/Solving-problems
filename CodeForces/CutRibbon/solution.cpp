@@ -70,6 +70,7 @@ int cutRibbon(vi &nums) {
             dp[i] = max(dp[i], tmp);
         }
     }
+    printArray(dp);
     return dp[n];
 }
 
