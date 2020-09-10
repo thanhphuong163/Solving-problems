@@ -1,6 +1,6 @@
 // Author: Nguyen Thanh Phuong
 // Email: thanhphuong.its@gmail.com
-// Problem: 
+// Problem: https://codeforces.com/problemset/problem/189/A 
 
 #include <stdio.h>
 #include <iostream>
@@ -58,8 +58,20 @@ void printArray(vi &nums) {
 }
 
 /*
-Write your solution here
+    dp = [0, 0, 1, 1, 2, 2]
+    dp[n] = dp[n-last] + 1
 */
+int cutRibbon(vi &nums) {
+    int n = nums[0];
+    vi dp(n+1,0);
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j < 4; j++) {
+            int tmp = i-nums[j] > 0 ? dp[i-nums[j]] + 1 : 0;
+            dp[i] = max(dp[i], tmp);
+        }
+    }
+    return dp[n];
+}
 
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
@@ -70,7 +82,7 @@ int main(int argc, char const *argv[]) {
     {
         vi nums;
         readArray(line, nums);
-        /* your code here */
+        cout << cutRibbon(nums) << endl;
     }
 #endif
     return 0;
