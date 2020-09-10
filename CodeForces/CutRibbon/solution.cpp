@@ -69,7 +69,7 @@ int cutRibbon(vi &nums) {
                 if (dp[i-nums[j]] > 0)
                     dp[i] = max(dp[i], dp[i-nums[j]] + 1);
                 else
-                    dp[i] = 0
+                    dp[i] = 0;
             }
         }
     }
