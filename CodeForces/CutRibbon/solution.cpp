@@ -58,17 +58,17 @@ void printArray(vi &nums) {
 }
 
 /*
-    dp = [0, 0, 1, 1, 2, 2]
-    dp[n] = dp[n-last] + 1
+    dp = []
 */
 int cutRibbon(vi &nums) {
     int n = nums[0];
     vi dp(n+1,0);
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j < 4; j++) {
-            int tmp = i-nums[j] > 0 ? dp[i-nums[j]] + 1 : 0;
+            int tmp = i-nums[j] >= 0 ? dp[i-nums[j]] : 0;
             dp[i] = max(dp[i], tmp);
         }
+        dp[i]++;
     }
     printArray(dp);
     return dp[n];
