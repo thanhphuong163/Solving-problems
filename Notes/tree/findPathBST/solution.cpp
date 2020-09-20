@@ -57,6 +57,16 @@ void printArray(vi &nums) {
     }
     puts("");
 }
+void printBST(node* p) {
+    if (p) {
+        cout << p->val << " ";
+        printBST(p->left);
+        printBST(p->right);
+    }
+    else {
+        cout << "NULL ";
+    }
+}
 
 /*
     - First build a binary search tree
@@ -131,7 +141,9 @@ int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     vi nums {6,3,9,1,4,7,10,0,8};
     node* root = buildBST(nums);
-    printArray(findPathBST(root,4,8));
+    printBST(root);
+    cout << endl;
+    // printArray(findPathBST(root,4,8));
 #else
     string line;
     while (getline(cin, line))
