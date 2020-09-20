@@ -133,6 +133,7 @@ vi getPathBST(node* root, int L, int R) {
     for (int i = path2.size()-1; i >= 0; i--) {
         ans.push_back(path2[i]);
     }
+    return ans;
 }
 
 int main(int argc, char const *argv[]) {
