@@ -84,7 +84,7 @@ float mySqrt(float n, float precision) {
 
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
-    float n = 8;
+    float n = 10;
     float precision = 1e-3;
     cout << mySqrt(n, precision) << endl;
 #else
