@@ -16,7 +16,7 @@
 #define vi vector<int>
 #define vvi vector<vi>
 
-#define DEBUG_MODE 0
+#define DEBUG_MODE 1
 
 #if DEBUG_MODE == 1
     #define imie(...) "[" << #__VA_ARGS__ << ": " << (__VA_ARGS__) << "]"
