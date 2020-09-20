@@ -27,6 +27,23 @@
 
 using namespace std;
 
+struct node
+{
+    int val;
+    node *left = NULL;
+    node *right = NULL;
+    node(int val)
+    {
+        val = val;
+    }
+    node(int val, node *left, node *right)
+    {
+        val = val;
+        left = left;
+        right = right;
+    }
+};
+
 // Read input
 void readArray(string line, vector<ulli> &nums) {
     stringstream ss(line);
@@ -74,19 +91,6 @@ void printBST(node* p) {
         - Different subtrees of root node
         - Same subtrees of root node
 */
-struct node {
-    int val;
-    node* left = NULL;
-    node* right = NULL;
-    node(int val) {
-        val = val;
-    }
-    node(int val, node* left, node* right) {
-        val = val;
-        left = left;
-        right = right;
-    }
-};
 
 node* addNode(vi &nums, int i) {
     if (i < nums.size() && nums[i] != 0) {
