@@ -94,7 +94,8 @@ void printBST(node* p) {
 
 node* addNode(vi &nums, int i) {
     if (i < nums.size() && nums[i] != 0) {
-        node* p = new node(nums[i]);
+        node* p = new node();
+        p->val = nums[i];
         p->left = addNode(nums, 2*i + 1);
         p->right = addNode(nums, 2*i + 2);
         return p;
