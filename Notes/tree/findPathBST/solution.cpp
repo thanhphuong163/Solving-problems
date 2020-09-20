@@ -100,13 +100,12 @@ node* buildBST(vi &nums) {
     return root;
 }
 
-bool getPath(node* p, int x, vi &ans) {
-    if (!p) return false;
-    ans.push_back(p->val);
-    if (p->val == x) return true;
-    if (getPath(p->left, x, ans) || getPath(p->right, x, ans)) return true;
-    ans.pop_back();
-    return false;
+void getPath(node* p, int x, vi &ans) {
+    if (p) {
+        ans.push_back(p->val);
+        if (p->val > x) getPath(p->left, x, ans);
+        if (p->val < x) getPath(p->right, x, ans);
+    }
 }
 
 vi getPathBST(node* root, int L, int R) {
