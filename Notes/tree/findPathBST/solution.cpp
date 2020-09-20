@@ -138,7 +138,7 @@ vi getPathBST(node* root, int L, int R) {
 
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
-    vi nums = {6,3,9,1,4,7,10,0,0,0,0,8};
+    vi nums = {6,3,9,1,4,7,10,0,0,0,0,0,8};
     node* root = buildBST(nums);
     cout << root->right->left->right->val << endl;
     vi path = getPathBST(root, 4, 8);
