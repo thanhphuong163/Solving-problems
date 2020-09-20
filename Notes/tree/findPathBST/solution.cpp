@@ -100,13 +100,47 @@ node* buildBST(vi &nums) {
     return root;
 }
 
+bool getPath(node* p, int x, vi &ans) {
+    if (!p) return false;
+    ans.push_back(p->val);
+    if (p->val == x) return true;
+    if (getPath(p->left, x, ans) || getPath(p->right, x, ans)) return true;
+    ans.pop_back();
+    return false;
+}
 
+vi getPathBST(node* root, int L, int R) {
+    vi path1;
+    vi path2;
+    getPath(root, L, path1);
+    getPath(root, R, path2);
+    int intersection = -1;
+    int i = 0, j = 0;
+    while(i < path1.size() j < path2.size()) {
+        if (j == i && path1[i] == path2[j]) {
+            i++;
+            j++;
+        }
+        else {
+            intersection = j-1;
+            break;
+        }
+    }
+    vi ans;
+    for (int i = 0; i < path1.size(); i++) {
+        ans.push_back(path1[i]);
+    }
+    for (int i = path2.size()-1; i >= 0; i--) {
+        ans.push_back(path2[i]);
+    }
+}
 
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     vi nums = {6,3,9,1,4,7,10,0,8};
     node* root = buildBST(nums);
-    cout << root->left->right->val << endl;
+    vi path = getPathBST(root, 4, 8);
+    printArray(path);
 #else
     string line;
     while (getline(cin, line))
