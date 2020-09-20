@@ -64,16 +64,6 @@ void printArray(vi &nums) {
     }
     puts("");
 }
-void printBST(node* p) {
-    if (p) {
-        cout << p->val << " ";
-        printBST(p->left);
-        printBST(p->right);
-    }
-    else {
-        cout << "NULL ";
-    }
-}
 
 /*
     - First build a binary search tree
