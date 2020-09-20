@@ -71,7 +71,7 @@ void printArray(vi &nums) {
 float mySqrt(float n, float precision) {
     float l = 0, r = n;
     float mid = n/2;
-    int count = 1;
+    int count = 0;
     while (abs(mid * mid - n) > precision) {
         if (mid * mid > n) r = mid;
         else l = mid;
@@ -84,7 +84,7 @@ float mySqrt(float n, float precision) {
 
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
-    float n = 8;
+    float n = 20;
     float precision = 1e-3;
     cout << mySqrt(n, precision) << endl;
 #else
