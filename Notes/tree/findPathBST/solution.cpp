@@ -127,10 +127,11 @@ vi getPathBST(node* root, int L, int R) {
         }
     }
     vi ans;
-    for (int i = intersection; i < path1.size(); i++) {
+    for (int i = path1.size()-1; i > intersection ; i--)
+    {
         ans.push_back(path1[i]);
     }
-    for (int i = path2.size()-1; i >= intersection; i--) {
+    for (int i = intersection; i < path2.size(); i++) {
         ans.push_back(path2[i]);
     }
     return ans;
