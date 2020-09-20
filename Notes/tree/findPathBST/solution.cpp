@@ -144,10 +144,9 @@ vi findPathBST(node* root, int left, int right) {
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     vi nums = {6,3,9,1,4,7,10,0,8};
-    printArray(nums);
-    // node* root = buildBST(nums);
-    // printBST(root);
-    // cout << endl;
+    node* root = buildBST(nums);
+    printBST(root);
+    cout << endl;
     // printArray(findPathBST(root,4,8));
 #else
     string line;
