@@ -32,16 +32,6 @@ struct node
     int val;
     node *left = NULL;
     node *right = NULL;
-    node(int val)
-    {
-        val = val;
-    }
-    node(int val, node *left, node *right)
-    {
-        val = val;
-        left = left;
-        right = right;
-    }
 };
 
 // Read input
