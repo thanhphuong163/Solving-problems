@@ -79,7 +79,7 @@ struct node {
 };
 
 node* addNode(vi &nums, int i) {
-    if (i < nums.size() && nums[i] != NULL) {
+    if (i < nums.size() && nums[i] != 0) {
         node* p = new node(val);
         p->left = addNode(nums, 2*i + 1);
         p->right = addNode(nums, 2*i + 2);
@@ -129,7 +129,7 @@ vi findPathBST(node* root, int left, int right) {
 
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
-    vi nums {6,3,9,1,4,7,10,NULL,8};
+    vi nums {6,3,9,1,4,7,10,0,8};
     node* root = buildBST(nums);
     printArray(findPathBST(root,4,8));
 #else
