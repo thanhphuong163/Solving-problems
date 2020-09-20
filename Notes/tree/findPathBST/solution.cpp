@@ -116,7 +116,7 @@ vi getPathBST(node* root, int L, int R) {
     getPath(root, R, path2);
     int intersection = -1;
     int i = 0, j = 0;
-    while(i < path1.size() j < path2.size()) {
+    while(i < path1.size() || j < path2.size()) {
         if (j == i && path1[i] == path2[j]) {
             i++;
             j++;
