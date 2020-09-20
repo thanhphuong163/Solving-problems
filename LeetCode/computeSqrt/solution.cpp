@@ -71,11 +71,14 @@ void printArray(vi &nums) {
 float mySqrt(float n, float precision) {
     float l = 0, r = n;
     float mid = n/2;
+    int count = 1;
     while (abs(mid * mid - n) > precision) {
         if (mid * mid > n) r = mid;
         else l = mid;
         mid = l + (r - l) / 2;
+        count++;
     }
+    cout << count << endl;
     return mid;
 }
 
