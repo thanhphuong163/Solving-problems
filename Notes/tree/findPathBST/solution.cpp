@@ -51,13 +51,13 @@ void readArray(string line, vi &nums) {
 }
 
 // Print array
-void printArray(vulli &nums) {
-    for (ulli num : nums)
-    {
-        cout << num << " ";
-    }
-    puts("");
-}
+// void printArray(vulli &nums) {
+//     for (ulli num : nums)
+//     {
+//         cout << num << " ";
+//     }
+//     puts("");
+// }
 void printArray(vi &nums) {
     for(int num : nums) {
         cout << num << " ";
