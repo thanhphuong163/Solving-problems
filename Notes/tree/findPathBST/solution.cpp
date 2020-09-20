@@ -140,7 +140,7 @@ int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     vi nums = {6,3,9,1,4,7,10,0,0,0,0,0,8};
     node* root = buildBST(nums);
-    vi path = getPathBST(root, 4, 8);
+    vi path = getPathBST(root, 8, 10);
     printArray(path);
 #else
     string line;
