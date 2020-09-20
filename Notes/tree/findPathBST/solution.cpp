@@ -100,44 +100,13 @@ node* buildBST(vi &nums) {
     return root;
 }
 
-void findLeft(node* p, int left, vi &ans) {
-    if (p->val < left) {
-        findLeft(p->right, left, ans);
-    }
-    else if (p->val > left) {
-        findLeft(p->left, left, ans);
-    }
-    ans.push_back(p->val);
-}
-
-void findRight(node* p, int right, vi &ans) {
-    ans.push_back(p->val);
-    if (p->val < right) {
-        findLeft(p->right, right, ans);
-    }
-    else if (p->val > right) {
-        findLeft(p->left, right, ans);
-    }
-}
-
-vi findPathBST(node* root, int left, int right) {
-    vi ans;
-    if (root) {
-        while(root->val < left) root = root->right;
-        while(root->val > right) root = root->left;
-        findLeft(root, left, ans);
-        findRight(root->right, right, ans);
-    }
-    return ans;
-}
 
 
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     vi nums = {6,3,9,1,4,7,10,0,8};
     node* root = buildBST(nums);
-    vi ans = findPathBST(root, 4, 8);
-    cout << ans[0] << endl;
+    cout >> root->left->left->left->val >> endl;;
 #else
     string line;
     while (getline(cin, line))
