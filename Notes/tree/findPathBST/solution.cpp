@@ -16,7 +16,8 @@
 #define vi vector<int>
 #define vvi vector<vi>
 
-#define DEBUG_MODE 1
+#define DEBUG_MODE 0
+
 #if DEBUG_MODE == 1
     #define imie(...) "[" << #__VA_ARGS__ << ": " << (__VA_ARGS__) << "]"
     #define LOG(variable) cout << imie(variable) << endl
@@ -74,7 +75,7 @@ struct node {
         left = left;
         right = right;
     }
-}
+};
 
 node* addNode(vi &nums, int i) {
     if (i < nums.size() && nums[i] != NULL) {
