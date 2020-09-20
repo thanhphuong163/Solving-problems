@@ -66,7 +66,8 @@ void printArray(vi &nums) {
 */
 struct node {
     int val;
-    node* left = NULL, right = NULL;
+    node* left = NULL;
+    node* right = NULL;
     node(int val) {
         val = val;
     }
