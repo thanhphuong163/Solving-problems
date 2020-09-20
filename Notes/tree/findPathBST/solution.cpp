@@ -136,7 +136,7 @@ int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     vi nums = {6,3,9,1,4,7,10,0,8};
     node* root = buildBST(nums);
-    cout << root->val << endl;
+    cout << root->right->val << endl;
     // printBST(root);
     // cout << endl;
     // printArray(findPathBST(root,4,8));
