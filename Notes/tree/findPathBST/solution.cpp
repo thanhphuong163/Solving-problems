@@ -51,13 +51,13 @@ void readArray(string line, vi &nums) {
 }
 
 // Print array
-// void printArray(vulli &nums) {
-//     for (ulli num : nums)
-//     {
-//         cout << num << " ";
-//     }
-//     puts("");
-// }
+void printArray(vulli &nums) {
+    for (ulli num : nums)
+    {
+        cout << num << " ";
+    }
+    puts("");
+}
 void printArray(vi &nums) {
     for(int num : nums) {
         cout << num << " ";
@@ -136,7 +136,8 @@ int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     vi nums = {6,3,9,1,4,7,10,0,8};
     node* root = buildBST(nums);
-    printArray(findPathBST(root,4,8));
+    vi ans = findPathBST(root, 4, 8);
+    cout << ans[0] << endl;
 #else
     string line;
     while (getline(cin, line))
