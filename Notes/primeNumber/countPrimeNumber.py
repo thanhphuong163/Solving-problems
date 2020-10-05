@@ -1,5 +1,6 @@
 import numpy as np
 import time
+import math
 
 
 def countPrime(n):
@@ -32,8 +33,21 @@ def countPrimeV2(n):
             isPrime[i * prime[j]] = 0
             spf[i * prime[j]] = prime[j]
             j += 1
-    print(time.time() - start_time)
+    # print(time.time() - start_time)
     return len(prime)
 
-n = 10000000
-print(countPrime(n) == countPrimeV2(n))
+def isPrime(n):
+    for i in range(2, int(math.sqrt(n))+1):
+        if n % i == 0:
+            return False
+    return True
+
+def countPrimeV3(n):
+    count = 2
+    for i in range(4, n+1):
+        if isPrime(i):
+            count += 1
+    return count
+
+n = 100
+print(countPrime(n) == countPrimeV3(n))
