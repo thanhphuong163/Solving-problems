@@ -71,6 +71,7 @@ int remove_toy(vi &v, vi &x, vi &y) {
     for (int i = 0; i < m; i++) {
         energy += v[x[i]] < v[y[i]] ? v[x[i]] : v[y[i]];
     }
+    cout << energy << endl;
     return energy;
 }
 int main(int argc, char const *argv[]) {
