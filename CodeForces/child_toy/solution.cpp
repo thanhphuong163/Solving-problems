@@ -81,6 +81,7 @@ int main(int argc, char const *argv[]) {
 #else
     int n, m;
     cin >> n >> m;
+    cin.ignore();
     string line;
     getline(cin, line);
     vector<int> v;
