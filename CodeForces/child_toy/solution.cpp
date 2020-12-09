@@ -69,11 +69,11 @@ int remove_toy(vi &v, vi &x, vi &y) {
     int n = v.size();
     int energy = 0;
     for (int i = 0; i < m; i++) {
-        if (v[x[i]] < v[y[i]]) {
-            energy += v[x[i]];
+        if (v[x[i]-1] < v[y[i]-1]) {
+            energy += v[x[i]-1];
         }
         else {
-            energy += v[y[i]];
+            energy += v[y[i]-1];
         }
         cout << energy << endl;
         //energy += v[x[i]] < v[y[i]] ? v[x[i]] : v[y[i]];
