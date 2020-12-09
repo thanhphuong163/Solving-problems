@@ -75,7 +75,7 @@ int remove_toy(vi &v, vi &x, vi &y) {
         //else {
             //energy += v[y[i]-1];
         //}
-        energy += v[x[i]] < v[y[i]] ? v[x[i]] : v[y[i]];
+        energy += v[x[i]-1] < v[y[i]-1] ? v[x[i]-1] : v[y[i]-1];
     }
     return energy;
 }
