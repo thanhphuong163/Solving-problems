@@ -60,18 +60,37 @@ void printArray(vi &nums) {
 /*
 Write your solution here
 */
+bool comp_node(vi a, vi b) {
+    return a.size() > b.size();
+}
 
+int remove_toy(vi &v, vi &x, vi &y) {
+    int m = x.size();
+    int n = v.size();
+    int energy = 0;
+    for (int i = 0; i < m; i++) {
+        energy += v[x[i]] < v[y[i]] ? v[x[i]] : v[y[i]];
+    }
+    return energy;
+}
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     /* Put your debugging code here */
 #else
+    int n, m;
+    cin >> n >> m;
     string line;
-    while (getline(cin, line))
-    {
-        vi nums;
-        readArray(line, nums);
-        /* your code here */
+    getline(cin, line);
+    vector<int> v;
+    readArray(line, v);
+    vector<int> x, y;
+    for (int i = 0; i < m; i++){
+        int xi, yi;
+        cin >> xi >> yi;
+        x.push_back(xi);
+        y.push_back(yi);
     }
+    cout << remove_toy(v, x, y) << endl;
 #endif
     return 0;
 }
