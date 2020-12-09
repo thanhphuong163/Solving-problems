@@ -57,28 +57,16 @@ void printArray(vi &nums) {
     puts("");
 }
 
-/*
-Write your solution here
-*/
-bool comp_node(vi a, vi b) {
-    return a.size() > b.size();
-}
-
 int remove_toy(vi &v, vi &x, vi &y) {
     int m = x.size();
     int n = v.size();
     int energy = 0;
     for (int i = 0; i < m; i++) {
-        //if (v[x[i]-1] < v[y[i]-1]) {
-            //energy += v[x[i]-1];
-        //}
-        //else {
-            //energy += v[y[i]-1];
-        //}
         energy += v[x[i]-1] < v[y[i]-1] ? v[x[i]-1] : v[y[i]-1];
     }
     return energy;
 }
+
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     /* Put your debugging code here */
