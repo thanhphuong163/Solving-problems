@@ -67,6 +67,9 @@ bool comp_node(vi a, vi b) {
 int remove_toy(vi &v, vi &x, vi &y) {
     int m = x.size();
     int n = v.size();
+    printArray(v);
+    printArray(x);
+    printArray(y);
     int energy = 0;
     for (int i = 0; i < m; i++) {
         energy += v[x[i]] < v[y[i]] ? v[x[i]] : v[y[i]];
