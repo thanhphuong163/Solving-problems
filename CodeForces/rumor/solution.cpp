@@ -29,9 +29,9 @@
 using namespace std;
 
 // Read input
-void readArray(string line, vector<ulli> &nums) {
+void readArray(string line, vector<lli> &nums) {
     stringstream ss(line);
-    ulli num;
+    lli num;
     while (ss >> num) {
     	nums.push_back(num);
     }
