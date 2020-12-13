@@ -79,7 +79,7 @@ int explore(vvi &graph, vi &c, int v, vector<bool> &visited) {
 
 int spread_rumor(vi &c, vi &x, vi &y) {
     int n = c.size();
-    vvi graph = vvi(n, vi);
+    vvi graph = vvi(n, vi());
     int m = x.size();
     for (int i = 0; i < m; i++) {
         graph[x[i]-1].push_back(y[i]-1);
@@ -88,7 +88,7 @@ int spread_rumor(vi &c, vi &x, vi &y) {
     int cost = 0;
     vector<bool> heard_rumor = vector<bool>(n, false);
     for (int i = 0; i < n; i++) {
-        if (!heard_rumor[graph[i]]) {
+        if (!heard_rumor[i]) {
             cost += explore(graph, c, i, heard_rumor);
         }
     }
