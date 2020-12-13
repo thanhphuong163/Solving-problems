@@ -90,6 +90,7 @@ int spread_rumor(vi &c, vi &x, vi &y) {
     for (int i = 0; i < n; i++) {
         if (!heard_rumor[graph[i]]) {
             cost += explore(graph, c, i, heard_rumor);
+        }
     }
     return cost;
 }
