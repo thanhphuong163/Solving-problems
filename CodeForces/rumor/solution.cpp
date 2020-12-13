@@ -67,7 +67,7 @@ void printArray(vi &nums) {
 */
 
 
-int explore(vvulli &graph, vulli &c, ulli v, vector<bool> &visited) {
+ulli explore(vvulli &graph, vulli &c, ulli v, vector<bool> &visited) {
     visited[v] = true;
     ulli cost = c[v];
     for (ulli i = 0; i < graph[v].size(); i++) {
@@ -79,7 +79,7 @@ int explore(vvulli &graph, vulli &c, ulli v, vector<bool> &visited) {
     return cost;
 }
 
-int spread_rumor(vulli &c, vulli &x, vulli &y) {
+ulli spread_rumor(vulli &c, vulli &x, vulli &y) {
     ulli n = c.size();
     vvulli graph = vvulli(n, vulli());
     ulli m = x.size();
