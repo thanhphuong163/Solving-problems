@@ -15,8 +15,8 @@
 #define vulli vector<ulli>
 #define vi vector<int>
 #define vvi vector<vi>
-#define vlli vector<lli>
-#define vvlli vector<vlli>
+#define vulli vector<ulli>
+#define vvulli vector<vulli>
 
 #define DEBUG_MODE 0
 #if DEBUG_MODE == 1
@@ -29,9 +29,9 @@
 using namespace std;
 
 // Read input
-void readArray(string line, vector<lli> &nums) {
+void readArray(string line, vector<ulli> &nums) {
     stringstream ss(line);
-    lli num;
+    ulli num;
     while (ss >> num) {
     	nums.push_back(num);
     }
@@ -67,29 +67,29 @@ void printArray(vi &nums) {
 */
 
 
-int explore(vvlli &graph, vlli &c, lli v, vector<bool> &visited) {
+int explore(vvulli &graph, vulli &c, ulli v, vector<bool> &visited) {
     visited[v] = true;
-    lli cost = c[v];
-    for (lli i = 0; i < graph[v].size(); i++) {
+    ulli cost = c[v];
+    for (ulli i = 0; i < graph[v].size(); i++) {
         if (!visited[graph[v][i]]) {
-            lli tmp = explore(graph, c, graph[v][i], visited);
+            ulli tmp = explore(graph, c, graph[v][i], visited);
             cost = cost < tmp ? cost : tmp;
         }        
     }
     return cost;
 }
 
-int spread_rumor(vlli &c, vlli &x, vlli &y) {
-    lli n = c.size();
-    vvlli graph = vvlli(n, vlli());
-    lli m = x.size();
-    for (lli i = 0; i < m; i++) {
+int spread_rumor(vulli &c, vulli &x, vulli &y) {
+    ulli n = c.size();
+    vvulli graph = vvulli(n, vulli());
+    ulli m = x.size();
+    for (ulli i = 0; i < m; i++) {
         graph[x[i]-1].push_back(y[i]-1);
         graph[y[i]-1].push_back(x[i]-1);
     }
-    lli cost = 0;
+    ulli cost = 0;
     vector<bool> heard_rumor = vector<bool>(n, false);
-    for (lli i = 0; i < n; i++) {
+    for (ulli i = 0; i < n; i++) {
         if (!heard_rumor[i]) {
             cost += explore(graph, c, i, heard_rumor);
         }
@@ -100,16 +100,16 @@ int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     /* Put your debugging code here */
 #else
-    lli n, m;
+    ulli n, m;
     cin >> n >> m;
     cin.ignore();
     string line;
-    vlli c;
+    vulli c;
     getline(cin, line);
     readArray(line, c);
-    vlli x, y;
-    for (lli i = 0; i < m; i++) {
-        lli xi, yi;
+    vulli x, y;
+    for (ulli i = 0; i < m; i++) {
+        ulli xi, yi;
         cin >> xi >> yi;
         x.push_back(xi);
         y.push_back(yi);
