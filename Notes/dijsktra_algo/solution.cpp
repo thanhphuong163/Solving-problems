@@ -60,6 +60,16 @@ void printArray(vi &nums) {
 /*
 Write your solution here
 */
+class Graph {
+    public:
+    vector<int> numbers;
+    void print(){
+        for (auto x : this->numbers){
+            cout << x << " ";
+        }
+        cout << endl;
+    }
+}
 
 int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
@@ -70,7 +80,9 @@ int main(int argc, char const *argv[]) {
     {
         vi nums;
         readArray(line, nums);
-        /* your code here */
+        for (auto num : nums) {
+            cout << num << endl;
+        }
     }
 #endif
     return 0;
