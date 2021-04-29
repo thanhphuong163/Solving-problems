@@ -69,7 +69,9 @@ void add_edge(vvpii &graph, int u, int v, int w) {
 void find_shortest_path(vvpii graph, int source){
     int n = graph.size();
     for (int i = 0; i < n; i++) {
-        cout << graph[i][0].first << endl;
+        for(auto e : graph[i]) {
+            cout << i << " " <<  e.first << " " << e.second << endl;
+        }
     }
 }
 
@@ -88,7 +90,6 @@ int main(int argc, char const *argv[]) {
         cin.ignore();
         add_edge(graph, u-1, v-1, w);
     }
-    cout << graph[0][0].first << endl;
     find_shortest_path(graph, s-1);
 #endif
     return 0;
