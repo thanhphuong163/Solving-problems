@@ -81,6 +81,7 @@ int main(int argc, char const *argv[]) {
 #else
     int n, s;
     cin >> n >> s;
+    cout << n << " " << s << endl;
     cin.ignore();
     vvpii graph = vvpii(n, vpii());
     string line;
