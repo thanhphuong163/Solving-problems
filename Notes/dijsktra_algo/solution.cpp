@@ -90,7 +90,7 @@ int main(int argc, char const *argv[]) {
         cin.ignore();
         add_edge(graph, u-1, v-1, w);
     }
-    cout << graph.size() << endl;
+    cout << graph[0][0].first << endl;
     find_shortest_path(graph, s-1);
 #endif
     return 0;
