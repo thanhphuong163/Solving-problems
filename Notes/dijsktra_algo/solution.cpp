@@ -88,10 +88,9 @@ int main(int argc, char const *argv[]) {
     while (cin >> u >> v >> w)
     {
         cin.ignore();
-        cout << u << endl;
         add_edge(graph, u-1, v-1, w);
-        find_shortest_path(graph, s-1);
     }
+    find_shortest_path(graph, s-1);
 #endif
     return 0;
 }
