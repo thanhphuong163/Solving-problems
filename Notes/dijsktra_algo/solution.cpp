@@ -65,14 +65,11 @@ void printArray(vi &nums) {
 */
 void add_edge(vvpii graph, int u, int v, int w) {
     graph[u].push_back(make_pair(v, w));
-    cout << graph[u][0].first << endl;
 }
 void find_shortest_path(vvpii graph, int source){
     int n = graph.size();
     for (int i = 0; i < n; i++) {
-        for (auto e : graph[i]) {
-            cout << i << " " << e.first << " " << e.second << endl;
-        }
+        cout << graph[i][0].first << endl;
     }
 }
 
