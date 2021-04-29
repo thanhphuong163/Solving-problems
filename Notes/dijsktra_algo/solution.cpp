@@ -14,6 +14,9 @@
 #define lli long long int
 #define vulli vector<ulli>
 #define vi vector<int>
+#define pii pair<int, int>
+#define vpii vector<pii>
+#define vvpii vector<vpii>
 #define vvi vector<vi>
 
 #define DEBUG_MODE 0
@@ -58,16 +61,17 @@ void printArray(vi &nums) {
 }
 
 /*
-Write your solution here
+    Dijkstra Algorithm
 */
-class Graph {
-    public:
-    vector<int> numbers;
-    void print(){
-        for (auto x : this->numbers){
-            cout << x << " ";
+void add_edge(vvpii graph, int u, int v, int w) {
+    graph[u].push_back(make_pair(v, w));
+}
+void find_shortest_path(vvpii graph, int source){
+    int n = graph.size();
+    for (int i = 0; i < n; i++) {
+        for (auto e : graph[i]) {
+            cout << i << " " << e.first << " " << e.second << endl;
         }
-        cout << endl;
     }
 }
 
@@ -75,14 +79,17 @@ int main(int argc, char const *argv[]) {
 #if DEBUG_MODE == 1
     /* Put your debugging code here */
 #else
+    int n, s;
+    cin >> n >> s;
+    cin.ignore();
+    vvpii graph = vvpii(n, vpii());
     string line;
-    while (getline(cin, line))
+    int u, v, w;
+    while (cin >> u >> v >> w)
     {
-        vi nums;
-        readArray(line, nums);
-        for (auto num : nums) {
-            cout << num << endl;
-        }
+        cin.ignore();
+        add_edge(graph, u-1, v-1, w);
+        find_shortest_path(graph, s);
     }
 #endif
     return 0;
