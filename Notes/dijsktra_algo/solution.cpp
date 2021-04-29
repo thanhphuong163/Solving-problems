@@ -82,7 +82,7 @@ int main(int argc, char const *argv[]) {
     int n, s;
     cin >> n >> s;
     cin.ignore();
-    vvpii graph = vvpii(n, vpii());
+    vvpii graph = vvpii(n);
     string line;
     int u, v, w;
     while (cin >> u >> v >> w)
