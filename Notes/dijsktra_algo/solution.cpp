@@ -64,6 +64,7 @@ void printArray(vi &nums) {
     Dijkstra Algorithm
 */
 void add_edge(vvpii graph, int u, int v, int w) {
+    cout << u << endl;
     graph[u].push_back(make_pair(v, w));
 }
 void find_shortest_path(vvpii graph, int source){
