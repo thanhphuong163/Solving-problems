@@ -7,6 +7,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <queue>
 #include <algorithm>
 #include <map>
 
@@ -19,6 +20,8 @@
 #define vvpii vector<vpii>
 #define vvi vector<vi>
 
+const int INF = 99999999;
+
 #define DEBUG_MODE 0
 #if DEBUG_MODE == 1
     #define imie(...) "[" << #__VA_ARGS__ << ": " << (__VA_ARGS__) << "]"
@@ -30,14 +33,14 @@
 using namespace std;
 
 // Read input
-void readArray(string line, vector<ulli> &nums) {
+void readArray(string &line, vector<ulli> &nums) {
     stringstream ss(line);
     ulli num;
     while (ss >> num) {
     	nums.push_back(num);
     }
 }
-void readArray(string line, vi &nums) {
+void readArray(string &line, vi &nums) {
     stringstream ss(line);
     int num;
     while(ss >> num) {
@@ -63,14 +66,24 @@ void printArray(vi &nums) {
 /*
     Dijkstra Algorithm
 */
-void add_edge(vvpii &graph, int u, int v, int w) {
-    graph[u].push_back(make_pair(v, w));
+struct my_comp {
+    constexpr bool operator()(pii const &a, pii const &b) const noexcept {
+        return a.second > b.second;
+    }
+};
+#define pqii priority_queue<pii, vector<pii>, my_comp>
+#define adj_list vector<pqii>
+
+void add_edge(adj_list &graph, int u, int v, int w) {
+    graph[u].push(make_pair(v, w));
 }
-void find_shortest_path(vvpii graph, int source){
+void find_shortest_path(adj_list &graph, int source){
     int n = graph.size();
     for (int i = 0; i < n; i++) {
-        for(auto e : graph[i]) {
-            cout << i << " " <<  e.first << " " << e.second << endl;
+        while (!graph[i].empty()) {
+            pii e = graph[i].top();
+            cout << i << "->" << e.first << ": " << e.second << endl;
+            graph[i].pop();
         }
     }
 }
@@ -82,7 +95,7 @@ int main(int argc, char const *argv[]) {
     int n, s;
     cin >> n >> s;
     cin.ignore();
-    vvpii graph = vvpii(n);
+    adj_list graph = adj_list(n);
     string line;
     int u, v, w;
     while (cin >> u >> v >> w)
