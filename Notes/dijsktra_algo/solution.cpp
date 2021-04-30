@@ -110,7 +110,7 @@ int main(int argc, char const *argv[]) {
     while (cin >> u >> v >> w)
     {
         cin.ignore();
-        graph[u-1].push_back(make_pair(v-1, w))
+        graph[u-1].push_back(make_pair(v-1, w));
     }
     find_shortest_path(graph, s-1);
 #endif
