@@ -66,15 +66,35 @@ void printArray(vi &nums) {
 /*
     Dijkstra Algorithm
 */
+struct my_cmp {
+    constexpr bool operator()(vi const &a, vi const &b) const noexcept {
+    return a[2] > b[2];
+    }
+};
 void display_graph(vvi &graph) {
     for (vi e : graph)
     {
         cout << e[0] << "->" << e[1] << ": " << e[2] << endl;
     }
 }
-void find_shortest_path(vvi &graph, int source){
+void find_shortest_path(vvpii &graph, int source){
     int n = graph.size();
-    display_graph(graph);
+    priority_queue<vi, vvi, my_cmp> q;
+    vi dist = vi(n, INF);
+    dist[source] = 0;
+    for (int i = 0; i < n; i++) {
+        q.push({i, graph[i].first, dist[graph[i].first]});
+    }
+    while(!q.empty()) {
+        vi u = q.pop();
+        for (auto e : graph[u[0]]) {
+            if (dist[e.first] > dist[u[0]] + e.second) {
+                dist[e.first] = dist[u[0]] + e.second;
+            }
+            q.push({u[0], e.first, dist[e.first]});
+        }
+    }
+    printArray(dist);
 }
 
 int main(int argc, char const *argv[]) {
@@ -84,14 +104,13 @@ int main(int argc, char const *argv[]) {
     int n, s;
     cin >> n >> s;
     cin.ignore();
-    vvi graph;
+    vvpii graph = vvpii(n);
     string line;
     int u, v, w;
     while (cin >> u >> v >> w)
     {
         cin.ignore();
-        vi e = {u-1, v-1, w};
-        graph.push_back(e);
+        graph[u-1].push_back(make_pair(v-1, w))
     }
     find_shortest_path(graph, s-1);
 #endif
