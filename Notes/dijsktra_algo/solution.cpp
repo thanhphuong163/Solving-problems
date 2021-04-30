@@ -66,26 +66,15 @@ void printArray(vi &nums) {
 /*
     Dijkstra Algorithm
 */
-struct my_comp {
-    constexpr bool operator()(pii const &a, pii const &b) const noexcept {
-        return a.second > b.second;
+void display_graph(vvi &graph) {
+    for (vi e : graph)
+    {
+        cout << e[0] << "->" << e[1] << ": " << e[2] << endl;
     }
-};
-#define pqii priority_queue<pii, vector<pii>, my_comp>
-#define adj_list vector<pqii>
-
-void add_edge(adj_list &graph, int u, int v, int w) {
-    graph[u].push(make_pair(v, w));
 }
-void find_shortest_path(adj_list &graph, int source){
+void find_shortest_path(vvi &graph, int source){
     int n = graph.size();
-    for (int i = 0; i < n; i++) {
-        while (!graph[i].empty()) {
-            pii e = graph[i].top();
-            cout << i << "->" << e.first << ": " << e.second << endl;
-            graph[i].pop();
-        }
-    }
+    display_graph(graph);
 }
 
 int main(int argc, char const *argv[]) {
@@ -95,13 +84,14 @@ int main(int argc, char const *argv[]) {
     int n, s;
     cin >> n >> s;
     cin.ignore();
-    adj_list graph = adj_list(n);
+    vvi graph;
     string line;
     int u, v, w;
     while (cin >> u >> v >> w)
     {
         cin.ignore();
-        add_edge(graph, u-1, v-1, w);
+        vi e = {u-1, v-1, w};
+        graph.push_back(e);
     }
     find_shortest_path(graph, s-1);
 #endif
