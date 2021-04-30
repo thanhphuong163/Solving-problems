@@ -91,8 +91,8 @@ void find_shortest_path(vvpii &graph, int source){
         for (auto e : graph[u[0]]) {
             if (dist[e.first] > dist[u[0]] + e.second) {
                 dist[e.first] = dist[u[0]] + e.second;
+                q.push({e.first, dist[e.first]});
             }
-            q.push({e.first, dist[e.first]});
         }
     }
     printArray(dist);
