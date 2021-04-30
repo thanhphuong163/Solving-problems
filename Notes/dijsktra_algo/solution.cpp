@@ -68,7 +68,7 @@ void printArray(vi &nums) {
 */
 struct my_cmp {
     constexpr bool operator()(vi const &a, vi const &b) const noexcept {
-    return a[2] > b[2];
+    return a[1] > b[1];
     }
 };
 void display_graph(vvi &graph) {
@@ -83,15 +83,16 @@ void find_shortest_path(vvpii &graph, int source){
     vi dist = vi(n, INF);
     dist[source] = 0;
     for (int i = 0; i < n; i++) {
-        q.push({i, graph[i].first, dist[graph[i].first]});
+        q.push({i, dist[i]});
     }
-    while(!q.empty()) {
-        vi u = q.pop();
+    for (int i = 0; i < n-1; i++) {
+        vi u = q.top();
+        q.pop();
         for (auto e : graph[u[0]]) {
             if (dist[e.first] > dist[u[0]] + e.second) {
                 dist[e.first] = dist[u[0]] + e.second;
             }
-            q.push({u[0], e.first, dist[e.first]});
+            q.push({e.first, dist[e.first]});
         }
     }
     printArray(dist);
