@@ -72,9 +72,14 @@ int main(int argc, char const *argv[])
 #if DEBUG_MODE == 1
     /* Put your debugging code here */
 #else
+    int t, n;
+    cin >> t;
+    cin.ignore();
     string line;
-    while (getline(cin, line))
+    while (cin >> n)
     {
+        cin.ignore();
+        getline(cin, line);
         vi nums;
         read_array(line, nums);
         /* your code here */
