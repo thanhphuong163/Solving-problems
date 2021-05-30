@@ -74,7 +74,7 @@ void solution(vi &nums, int n) {
     vi seq(6);
     for (int i=0; i < n; i++) {
         if (nums[i] == 0) {
-            ++seq[i];
+            ++seq[0];
         }
         else {
             if (seq[nums[i] - 1] > 0) {
@@ -82,7 +82,8 @@ void solution(vi &nums, int n) {
                 ++seq[nums[i]];
             }
         }
-        count << n - seq[5] * 6 << endl;
+    }
+    cout << n - seq[5] * 6 << endl;
 }
 
 int main(int argc, char const *argv[])
@@ -90,7 +91,7 @@ int main(int argc, char const *argv[])
 #if DEBUG_MODE == 1
     /* Put your debugging code here */
 #else
-    int t, n;
+    int n;
     string line;
     while (cin >> n)
     {
